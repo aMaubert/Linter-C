@@ -8,8 +8,6 @@
 #include <stdio.h>
 
 int main(int argc, char const *argv[]) {
-  /* code */
-
   printf("coucou\n") ;
-  return 0;
+  return 0 ;
 }
