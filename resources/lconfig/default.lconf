@@ -1,0 +1,24 @@
+=extends
+
+=rules
+- array-bracket-eol = on
+- operators-spacing = off
+- comma-spacing = on
+- indent = on
+- comments-header = on
+- max-line-numbers = off
+- max-file-line-numbers = on
+- no-trailing-spaces = off
+- no-multi-declaration = on
+- unused-variable = on
+- undeclared-variable = off
+- no-prototype = off
+- unused-function = on
+- undeclared-function = on
+- variable-assignment-type = on
+- function-parameters-type = off
+
+=excludedFiles
+
+=recursive
+true
