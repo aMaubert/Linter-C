@@ -1,0 +1,2 @@
+C:\Users\amaub\AppData\Local\Temp\ccW0rqBX.o:main.c:(.text+0x62): undefined reference to `readDefaultConfig'
+collect2.exe: error: ld returned 1 exit status

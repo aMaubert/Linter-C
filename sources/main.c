@@ -1,20 +1,21 @@
-/**
- *  author : amaubert
- *  date : 2018/10/18
- *  version : 1.0
- *  file : source/main.c
- ************************************************************/
-#include <stdlib.h>
-#include <stdio.h>
+/*
+ ============================================================================
+ Name        : main.c
+ Author      : amaubert
+ Version     :
+ Copyright   : Your copyright notice
+ Description :
+ ============================================================================
+ */
 
-double addition(double a, double b) ;
+#include "headers/config.h"
 
-int main(int argc, char const *argv[]) {
-  printf("addition 1 + 2 = %.0f\n",addition(1,2)) ;
-  return 0 ;
-}
-
-
-double addition(double a, double b){
-  return a + b
+int main(void) {
+	const char defaulConfigFilePath[] = "..\\resources\\lconfig\\default.lconf" ;
+	char* contentFile = readDefaultConfig(defaulConfigFilePath) ;
+	printf("contenu du fichier : %s\n%s\n\n",defaulConfigFilePath,contentFile);
+	fflush(stdout) ;
+	system("pause") ;
+	free(contentFile) ;
+	return EXIT_SUCCESS;
 }
