@@ -1,9 +1,13 @@
 /*
- * 	Name : config.c
- *
- *  Created on: 14 oct. 2018
- *  Author: ESGI
- */
+============================================================================
+	Name        : config.c
+	Author      : amaubert
+	date				: 15/10/2018
+	Version     :
+	Copyright   : Your copyright notice
+	Description : fichier servant à récupérer les configuration du Linter
+============================================================================
+*/
 
 #include "headers/config.h"
 
