@@ -14,7 +14,7 @@ int main(void) {
 	const char defaulConfigFilePath[] = "..\\resources\\lconfig\\default.lconf" ;
 	char* contentFile = readDefaultConfig(defaulConfigFilePath) ;
 	printf("contenu du fichier : %s\n%s\n\n",defaulConfigFilePath,contentFile);
-  
+  printf("test makefile\n") ;
 	fflush(stdout) ;
 	system("pause") ;
 	free(contentFile) ;
