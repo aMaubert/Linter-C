@@ -1,7 +1,7 @@
 /*
  ============================================================================
  Name        : main.c
- Author      : amaubert
+ Author      : Allan Maubert
  date				 : 15/10/2018
  Version     :
  Copyright   : Your copyright notice
@@ -16,7 +16,7 @@ int main(void) {
 	char* contentFile = readDefaultConfig(defaulConfigFilePath) ;
 	printf("contenu du fichier : %s\n%s\n\n",defaulConfigFilePath,contentFile);
 	fflush(stdout) ;
-	system("pause") ;
+
 	free(contentFile) ;
 	return EXIT_SUCCESS;
 }
