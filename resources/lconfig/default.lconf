@@ -3,20 +3,20 @@
 =rules
 - array-bracket-eol = on
 - operators-spacing = off
-- comma-spacing = on
-- indent = on
-- comments-header = on
-- max-line-numbers = off
-- max-file-line-numbers = on
+- comma-spacing = off
+- indent = 2
+- comments-header = off
+- max-line-numbers = 80
+- max-file-line-numbers = 1450
 - no-trailing-spaces = off
-- no-multi-declaration = on
-- unused-variable = on
+- no-multi-declaration = off
+- unused-variable = off
 - undeclared-variable = off
 - no-prototype = off
-- unused-function = on
-- undeclared-function = on
-- variable-assignment-type = on
-- function-parameters-type = off
+- unused-function = off
+- undeclared-function = off
+- variable-assignment-type = off
+- function-parameters-type = on
 
 =excludedFiles
 
