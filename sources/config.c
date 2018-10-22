@@ -5,9 +5,10 @@
 	date				: 15/10/2018
 	Version     :
 	Copyright   : Your copyright notice
-	Description : fichier servant à récupérer les configuration du Linter
+	Description : allows to get the Linter's congif
 ============================================================================
 */
+
 
 #include "headers/config.h"
 
@@ -15,21 +16,21 @@
 #define __MAX_NUMBER_RULES__ 16 // le nombre maximum de rules
 #define __MAX_CHAR_RULES__ 5 // le nombre de caracteres a alloué pour chaque règle dans le tableau rules
 #define __SIZE_LINE__ 128
-#define __SIZE_BUFFER__ 5000
+#define __SIZE_BUFFER__ 5000 // taille d'un buffer quelconque
 
 Linter* readDefaultConfig(const char* pathFile){
 
 	FILE* inputFile = fopen(pathFile, "r") ;
 	Linter* linter = NULL ;
 	if(inputFile != NULL){
-	//	const char extendsKey[] = "=extends\n" ;
-	//	const char rulesKey[] = "=rules\n" ;
-	//	const char excludedFilesKey[] = "=excludedFiles\n" ;
-	//	const char recursiveKey[] = "=recursive\n" ; // variable au comportement bysare, son contenu disparais en étape 2
 
 		char line[__SIZE_LINE__] ; // correspondra à chaque ligne du fichier .lconf
-		char configFilesExtends[__SIZE_BUFFER__] ;
 		int etape = 0 ;
+
+
+		char configFilesExtend[__SIZE_BUFFER__]  ; // permet de récupérer le fichier etendue
+		bool fileExtendExist = false ;
+
 
 		/* Variables qui serviront à la récupération des règles */
 		char allRules[__SIZE_BUFFER__] ; // contiendra toutes les valeurs des règles à la suite séparer d'un caractère
@@ -39,73 +40,13 @@ Linter* readDefaultConfig(const char* pathFile){
 		int nbExcludedFiles = 0 ;
 		bool recursive ;
 
-
 		while(fgets ( line, sizeof(line), inputFile ) != NULL){
-
-			switch(etape){
-				case 0 :
-					break ;
-				case 1 :
-					if((strcmp(line,"=rules\n") != 0) && (strcmp(line,"\n") != 0) ){
-							 strcpy(configFilesExtends,line) ;
-					}
-					break ;
-				case 2 :
-					if((strcmp(line, "=excludedFiles\n") != 0) && (strcmp(line,"\n") != 0) ){
-						char eachRule[__MAX_CHAR_RULES__] ;
-						char buffer[__SIZE_BUFFER__] ;
-						nbRules += 1 ;
-						sscanf(line,"- %s = %s\n",buffer,eachRule) ;
-						strcat(eachRule, ";") ;
-						strcat(allRules, eachRule) ;
-					}
-					break ;
-				case 3 :
-					if((strcmp(line, "=recursive\n") != 0) && (strcmp(line,"\n") != 0) ){
-						char buffer[__SIZE_BUFFER__] ;
-						sscanf(line,"- %s\n",buffer) ;
-						strcat(buffer, ";") ;
-						strcat(allExcludedFiles, buffer) ;
-						nbExcludedFiles += 1 ;
-					}
-					break ;
-				case 4 :
-					if( strcmp(line,"\n") != 0  ){
-						if(strcmp(line,"true\n") == 0) recursive = true ;
-						else if(strcmp(line,"false\n") == 0) recursive = false ;
-					}
-					break ;
-				default :
-					fprintf(stderr,"erreur switch case etape %d. fichier : %s    ligne : %d\n",etape,__FILE__,__LINE__) ;
-				  break ;
-			}
-
-			if(strcmp(line,"=extends\n") == 0 ){
-				etape = 1 ;
-			}else if(strcmp(line,"=rules\n") == 0 ){
-				etape = 2 ;
-			}else if(strcmp(line,"=excludedFiles\n") == 0 ){
-				etape = 3 ;
-			}else if(strcmp(line,"=recursive\n") == 0 ){
-				etape = 4 ;
-			}
-			// fprintf(stderr,"\\r : %d  \\n : %d  %c (%d) ",'\r','\n',line[strlen(line) - 1],line[strlen(line) - 1]) ;
-			//printf("// etape : %d     %s",etape,line) ;
+			readLineConfig( &etape, line, configFilesExtend, &fileExtendExist, &nbRules, allRules, &nbExcludedFiles,
+				 						allExcludedFiles, &recursive) ;
 		}
-
-		/*printf("fileExtends :  %s\n",configFilesExtends) ;
-		printf("allRules : %s\n", allRules) ;
-
-		printf("allExcludedFiles : %s\n",allExcludedFiles) ;
-		if(recursive == true) printf("recursive : true\n") ;
-		else printf("recursive : false\n") ;*/
-
-
 		if(nbRules > 0 ){
 			char** rules = stringSplit(allRules, ';', &nbRules) ;
-			// printf("nbWords : %d  et nbRules : %d\n", nbWords, nbRules) ;
-			// printf("rules[0] : %s\n",rules[0]) ;
-			// for(int i = 0 ; i < nbWordsRules ; i++) printf("rules[%d] : %s\n", i, rules[i]) ;
+
 			char** excludedFiles = NULL ;
 
 			if(nbExcludedFiles > 0){
@@ -113,7 +54,14 @@ Linter* readDefaultConfig(const char* pathFile){
 				excludedFiles = stringSplit(allExcludedFiles, ';', &nbExcludedFiles) ;
 			}
 
-			linter = initialiseStructLinter(nbRules, rules, nbExcludedFiles, excludedFiles, recursive) ;
+			if(fileExtendExist == true){
+				linter = initialiseStructLinter(nbRules, rules, nbExcludedFiles, excludedFiles,
+																				recursive, configFilesExtend) ;
+			}else{
+				linter = initialiseStructLinter(nbRules, rules, nbExcludedFiles, excludedFiles,
+																				recursive, NULL) ;
+			}
+
 
 			/* on libère l'espace mémoire */
 			if(excludedFiles != NULL){
@@ -125,11 +73,77 @@ Linter* readDefaultConfig(const char* pathFile){
 		}
 	}
 
-
 	fclose(inputFile) ;
 	return linter ;
 
 }
+
+
+void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
+		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
+		 bool* recursive){
+
+	const char extendsKey[] = "=extends\n" ;
+	const char rulesKey[] = "=rules\n" ;
+	const char excludedFilesKey[] = "=excludedFiles\n" ;
+	const char recursiveKey[] = "=recursive\n" ;
+
+	switch(*etape){
+		case 0 :
+			break ;
+		case 1 :
+			if((strcmp(line,rulesKey) != 0) && (strcmp(line,"\n") != 0) ){
+				//printf("fichier lconf extendu trouvé !!! : %s\n",line) ;
+				 strcpy(configFilesExtend,line) ;
+				 char* ptr = strchr(configFilesExtend, '\n') ;
+				 *ptr = '\0' ;
+				 *fileExtendExist = true ;
+				 //printf("!!!!!configFilesExtend : %s\n",configFilesExtend) ;
+			}
+			break ;
+		case 2 :
+			if((strcmp(line, excludedFilesKey) != 0) && (strcmp(line,"\n") != 0) ){
+				char eachRule[__MAX_CHAR_RULES__] ;
+				char buffer[__SIZE_BUFFER__] ;
+				*nbRules += 1 ;
+				sscanf(line,"- %s = %s\n",buffer,eachRule) ;
+				strcat(eachRule, ";") ;
+				strcat(allRules, eachRule) ;
+			}
+			break ;
+		case 3 :
+			if((strcmp(line, recursiveKey) != 0) && (strcmp(line,"\n") != 0) ){
+				char buffer[__SIZE_BUFFER__] ;
+				sscanf(line,"- %s\n",buffer) ;
+				strcat(buffer, ";") ;
+				strcat(allExcludedFiles, buffer) ;
+				*nbExcludedFiles += 1 ;
+			}
+			break ;
+		case 4 :
+			if( strcmp(line,"\n") != 0  ){
+				if(strcmp(line,"true\n") == 0) *recursive = true ;
+				else if(strcmp(line,"false\n") == 0) *recursive = false ;
+			}
+			break ;
+		default :
+			fprintf(stderr,"erreur switch case etape %d. fichier : %s    ligne : %d\n",*etape,__FILE__,__LINE__) ;
+			break ;
+	}
+
+	if(strcmp(line,extendsKey) == 0 ){
+		*etape = 1 ;
+	}else if(strcmp(line,rulesKey) == 0 ){
+		*etape = 2 ;
+	}else if(strcmp(line,excludedFilesKey) == 0 ){
+		*etape = 3 ;
+	}else if(strcmp(line, recursiveKey) == 0 ){
+		*etape = 4 ;
+	}
+}
+
+
+
 /*
  *
  * @return : le nombres de mots contenus dans toSplit
@@ -176,7 +190,8 @@ char** stringSplit(char* toSplit, char caractere, int *nbWords){
 	return destination ;
 }
 
-Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,char** excludedFiles, bool recursive){
+Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
+				char** excludedFiles, bool recursive, char* fileExtend){
 
 	/* Déclaration */
 
@@ -196,6 +211,8 @@ Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,ch
 		}
 	}
 
+	if(fileExtend != NULL ) linter->fileExtend = malloc(sizeof(char) * strlen(fileExtend)) ;
+
 	/* Affectation */
 
 	linter->nbRules = nbRules ;
@@ -210,18 +227,30 @@ Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,ch
 	}else linter->excludedFiles = NULL ;
 
 	linter->recursive = recursive ;
+	if(fileExtend != NULL ) strcpy(linter->fileExtend, fileExtend) ;
+	else linter->fileExtend = NULL ;
+
 	linter->extends = NULL ;
 
 	return linter ;
 }
 void displayLinter(Linter* linter){
+
+	printf("linter (id : %p)\n",linter) ;
+
+	if(linter->fileExtend != NULL) printf("fichier config suivant : %s\n", linter->fileExtend) ;
+	else printf("il n'y a pas de fichier config suivant\n") ;
+
 	for(int i = 0 ; i < linter->nbRules ; i++) printf("rules %d : %s\n",i + 1,  linter->rules[i]) ;
 	printf("\n") ;
+
 	for(int i = 0 ; i < linter->nbExcludedFiles ; i++) printf("le fichier %s est exclus du linter\n",  linter->excludedFiles[i]) ;
 	printf("\n") ;
+
 	if(linter->recursive == true) printf("le linter doit scanner tous les sous fichiers du repertoire : true\n") ;
 	else printf("le linter doit scanner tous les sous fichiers du repertoire : false\n") ;
-
+	printf("\n") ;
+	if(linter->extends != NULL ) displayLinter(linter->extends) ;
 }
 void freeLinter(Linter* toDestroy){
 
@@ -235,6 +264,7 @@ void freeLinter(Linter* toDestroy){
 			free(toDestroy->rules[i]) ;
 		}
 		free(toDestroy->rules) ;
+		free(toDestroy->fileExtend) ;
     free(toDestroy);
 }
 void freeLinterList(Linter* linter){
