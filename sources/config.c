@@ -93,12 +93,10 @@ void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileE
 			break ;
 		case 1 :
 			if((strcmp(line,rulesKey) != 0) && (strcmp(line,"\n") != 0) ){
-				//printf("fichier lconf extendu trouvé !!! : %s\n",line) ;
 				 strcpy(configFilesExtend,line) ;
 				 char* ptr = strchr(configFilesExtend, '\n') ;
 				 *ptr = '\0' ;
 				 *fileExtendExist = true ;
-				 //printf("!!!!!configFilesExtend : %s\n",configFilesExtend) ;
 			}
 			break ;
 		case 2 :
@@ -170,14 +168,12 @@ char** stringSplit(char* toSplit, char caractere, int *nbWords){
 			buffer[indexBuffer] = '\0' ;
 			destination[lineDestination] = malloc(sizeof(char) * strlen(buffer)) ;
 			strcpy(destination[lineDestination],buffer) ;
-			//printf("destination[%d] : %s\n", lineDestination, destination[lineDestination]) ;
 			indexBuffer = 0 ;
 			lineDestination += 1 ;
 		}else if(toSplit[index + 1] == '\0'){
 			buffer[indexBuffer] = '\0' ;
 			destination[lineDestination] = malloc(sizeof(char) * strlen(buffer)) ;
 			strcpy(destination[lineDestination],buffer) ;
-			//printf("destination[%d] : %s\n", lineDestination, destination[lineDestination]) ;
 		}else{
 			buffer[indexBuffer] = toSplit[index] ;
 			indexBuffer += 1 ;
@@ -234,23 +230,23 @@ Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
 
 	return linter ;
 }
-void displayLinter(Linter* linter){
+void displayLinter(Linter* linter, FILE* output){
 
-	printf("linter (id : %p)\n",linter) ;
+	fprintf(output, "linter (id : %p)\n",linter) ;
 
-	if(linter->fileExtend != NULL) printf("fichier config suivant : %s\n", linter->fileExtend) ;
-	else printf("il n'y a pas de fichier config suivant\n") ;
+	if(linter->fileExtend != NULL) fprintf(output, "fichier config suivant : %s\n", linter->fileExtend) ;
+	else fprintf(output, "il n'y a pas de fichier config suivant\n") ;
 
-	for(int i = 0 ; i < linter->nbRules ; i++) printf("rules %d : %s\n",i + 1,  linter->rules[i]) ;
-	printf("\n") ;
+	for(int i = 0 ; i < linter->nbRules ; i++) fprintf(output, "rules %d : %s\n",i + 1,  linter->rules[i]) ;
+	fprintf(output, "\n") ;
 
-	for(int i = 0 ; i < linter->nbExcludedFiles ; i++) printf("le fichier %s est exclus du linter\n",  linter->excludedFiles[i]) ;
-	printf("\n") ;
+	for(int i = 0 ; i < linter->nbExcludedFiles ; i++) fprintf(output, "le fichier %s est exclus du linter\n",  linter->excludedFiles[i]) ;
+	fprintf(output, "\n") ;
 
-	if(linter->recursive == true) printf("le linter doit scanner tous les sous fichiers du repertoire : true\n") ;
-	else printf("le linter doit scanner tous les sous fichiers du repertoire : false\n") ;
-	printf("\n") ;
-	if(linter->extends != NULL ) displayLinter(linter->extends) ;
+	if(linter->recursive == true) fprintf(output, "le linter doit scanner tous les sous fichiers du repertoire : true\n") ;
+	else fprintf(output, "le linter doit scanner tous les sous fichiers du repertoire : false\n") ;
+	fprintf(output, "\n") ;
+	if(linter->extends != NULL ) displayLinter(linter->extends, output) ;
 }
 void freeLinter(Linter* toDestroy){
 

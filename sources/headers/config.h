@@ -39,6 +39,6 @@ Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
         char** excludedFiles, bool recursive, char* fileExtend) ;
 void freeLinterList(Linter* linter) ;
 void freeLinter(Linter* toDestroy) ;
-void displayLinter(Linter* linter) ;
+void displayLinter(Linter* linter, FILE* output) ;
 
 #endif /* CONFIGURATION_HEADER_CONFIG_H_ */
