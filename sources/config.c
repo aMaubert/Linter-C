@@ -95,12 +95,13 @@ void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExt
 			break ;
 		case 1 :
 			if((strcmp(line,rulesKey) != 0) && (strcmp(line,"\n") != 0) ){
-				 printf("fichier : %s    ligne : %d    pathfile : %s\n", __FILE__,  __LINE__, pathFile) ;
-				 strcpy(configFilesExtend, pathFile) ;
-				 printf("configFilesExtend : %s\n", configFilesExtend) ;
-				 strcpy(configFilesExtend,line) ;
-				 char* ptr = strchr(configFilesExtend, '\n') ;
-				 *ptr = '\0' ;
+				 const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
+				 char* expression = malloc(sizeof(char) * (strlen(line) + 1) ) ;
+				 strcpy(expression, "/") ;
+				 strcat(expression, line) ;
+				 char* path = str_replace(pathFile, str_regex, expression) ;
+ 			 	 free(expression) ;
+				 strcpy(configFilesExtend, path) ;
 				 *fileExtendExist = true ;
 			}
 			break ;
@@ -190,6 +191,61 @@ char** stringSplit(char* toSplit, char caractere, int *nbWords){
 	*nbWords = countWords ;
 	return destination ;
 }
+
+char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd){
+	 int err;
+   regex_t preg;
+	 err = regcomp (&preg, str_regex, REG_EXTENDED); // compile l'expression  reguliere
+
+	 if (err == 0){ // si la compilation a fonctionner
+      int match;
+      size_t numberMatch = 0;
+      regmatch_t *pmatch = NULL;
+
+      numberMatch = preg.re_nsub; // on recupère le nombre de match
+      pmatch = malloc (sizeof (*pmatch) * numberMatch);
+      if (pmatch){
+         match = regexec (&preg, stringToReplace, numberMatch, pmatch, 0);
+         regfree (&preg);
+
+         if (match == 0){
+            char *ret = NULL;
+            int start = pmatch[0].rm_so; // debut du match
+            int end = pmatch[0].rm_eo;// fin du match
+            size_t size = (strlen(stringToReplace) - (end - start));//taille en octet du match
+
+            ret = malloc (sizeof (*ret) * (size + strlen(expressionToAdd) ));
+            if (ret){
+               strncpy (ret, &stringToReplace[0], size);
+							 ret[size] = '\0';
+							 strcat(ret, expressionToAdd) ;
+               return ret ;
+            }
+         }
+         else if (match == REG_NOMATCH){
+            printf ("Il n'y a aucun resultat pour la regex donné dans : %s\n", stringToReplace);
+         }
+				 else{
+            char *text;
+            size_t size;
+
+            size = regerror (err, &preg, NULL, 0);
+            text = malloc (sizeof (*text) * size);
+            if (text){
+
+               regerror (err, &preg, text, size);
+               fprintf (stderr, "%s\n", text);
+               free (text);
+            }else{
+               fprintf (stderr, "Memoire insuffisante\n");
+            }
+         }
+      }else{
+         fprintf (stderr, "Memoire insuffisante\n");
+      }
+   }
+	 return NULL ;
+ }
 
 Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
 				char** excludedFiles, bool recursive, char* fileExtend){

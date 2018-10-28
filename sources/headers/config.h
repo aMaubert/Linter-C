@@ -43,6 +43,8 @@ void freeLinterList(Linter* linter) ;
 void freeLinter(Linter* toDestroy) ;
 void displayLinter(Linter* linter, FILE* output) ;
 
+char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
+
 
 
 #endif /* CONFIGURATION_HEADER_CONFIG_H_ */
