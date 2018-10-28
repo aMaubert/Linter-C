@@ -35,3 +35,12 @@ set(binary
 
 # On indique que l'on veut un exécutable "linterC" compilé à partir des fichiers décrits par les variables SRCS et HEADERS
 add_executable( ${binary} ${SRCS} ${HEADERS})
+
+include_directories(${PROJECT_SOURCE_DIR}/include)
+
+link_directories(${PROJECT_SOURCE_DIR}/lib)
+
+target_link_libraries(
+    ${binary}
+    ${PROJECT_SOURCE_DIR}/build/regex2.dll
+    )

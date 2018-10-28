@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/regex.h
+sys/types.h
+-
+
 D:/projets ESGI/Linter-C/sources/headers/config.h
 stdio.h
 -
@@ -32,6 +36,8 @@ string.h
 sys/types.h
 -
 dirent.h
+-
+regex.h
 -
 headers/config.h
 D:/projets ESGI/Linter-C/sources/headers/config.h

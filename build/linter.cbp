@@ -1,94 +1,111 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_project_file>
-	<FileVersion major="1" minor="6"/>
+	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="linter"/>
-		<Option makefile_is_custom="1"/>
-		<Option compiler="gcc"/>
-		<Option virtualFolders="CMake Files\;"/>
+		<Option title="linter" />
+		<Option makefile_is_custom="1" />
+		<Option compiler="gcc" />
+		<Option virtualFolders="CMake Files\;" />
 		<Build>
 			<Target title="all">
-				<Option working_dir="D:/projets ESGI/Linter-C/build"/>
-				<Option type="4"/>
+				<Option type="4" />
+				<Option compiler="gcc" />
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 all' />
+					<CompileFile command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
+					<Clean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<DistClean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="D:/projets ESGI/Linter-C/build"/>
-				<Option type="4"/>
+				<Option type="4" />
+				<Option compiler="gcc" />
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 edit_cache' />
+					<CompileFile command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
+					<Clean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<DistClean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 			<Target title="linterC">
-				<Option output="D:/projets ESGI/Linter-C/build/linterC.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/projets ESGI/Linter-C/build"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler/>
+				<Option output="D:/projets ESGI/Linter-C/build/linterC.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="D:/projets ESGI/Linter-C/build" />
+				<Option object_output="./" />
+				<Option type="1" />
+				<Option compiler="gcc" />
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 linterC"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 linterC' />
+					<CompileFile command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
+					<Clean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<DistClean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 			<Target title="linterC/fast">
-				<Option output="D:/projets ESGI/Linter-C/build/linterC.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="D:/projets ESGI/Linter-C/build"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler/>
+				<Option output="D:/projets ESGI/Linter-C/build/linterC.exe" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="D:/projets ESGI/Linter-C/build" />
+				<Option object_output="./" />
+				<Option type="1" />
+				<Option compiler="gcc" />
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 linterC/fast"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 linterC/fast' />
+					<CompileFile command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
+					<Clean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<DistClean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="D:/projets ESGI/Linter-C/build"/>
-				<Option type="4"/>
+				<Option type="4" />
+				<Option compiler="gcc" />
 				<MakeCommands>
-					<Build command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 rebuild_cache' />
+					<CompileFile command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;' />
+					<Clean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<DistClean command='C:/MinGW/bin/mingw32-make.exe -f &quot;D:/projets ESGI/Linter-C/build/Makefile&quot;  VERBOSE=1 clean' />
+					<AskRebuildNeeded command="$make -q -f $makefile $target" />
+					<SilentBuild command="$make -f $makefile $target &gt; $(CMD_NULL)" />
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/config.c">
-			<Option target="linterC"/>
+		<Unit filename="../CMakeLists.txt">
+			<Option virtualFolder="CMake Files/" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/headers/config.h">
-			<Option target="linterC"/>
+		<Unit filename="../sources/config.c">
+			<Option compilerVar="CC" />
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/headers/linter.h">
-			<Option target="linterC"/>
+		<Unit filename="../sources/headers/config.h">
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/headers/logger.h">
-			<Option target="linterC"/>
+		<Unit filename="../sources/headers/linter.h">
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/linter.c">
-			<Option target="linterC"/>
+		<Unit filename="../sources/headers/logger.h">
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/logger.c">
-			<Option target="linterC"/>
+		<Unit filename="../sources/linter.c">
+			<Option compilerVar="CC" />
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/sources/main.c">
-			<Option target="linterC"/>
+		<Unit filename="../sources/logger.c">
+			<Option compilerVar="CC" />
+			<Option target="linterC" />
 		</Unit>
-		<Unit filename="D:/projets ESGI/Linter-C/CMakeLists.txt">
-			<Option virtualFolder="CMake Files\"/>
+		<Unit filename="../sources/main.c">
+			<Option compilerVar="CC" />
+			<Option target="linterC" />
 		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

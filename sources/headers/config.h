@@ -29,12 +29,12 @@ typedef struct Linter{
     struct Linter* extends ;
 }Linter ;
 
-Linter* readDefaultConfig(const char* pathFile) ;
+Linter* memorizeConfig( char* pathFile) ;
 
-void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
+void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
 		 bool* recursive) ;
-		 
+
 char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
 
 Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
@@ -42,5 +42,7 @@ Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
 void freeLinterList(Linter* linter) ;
 void freeLinter(Linter* toDestroy) ;
 void displayLinter(Linter* linter, FILE* output) ;
+
+
 
 #endif /* CONFIGURATION_HEADER_CONFIG_H_ */

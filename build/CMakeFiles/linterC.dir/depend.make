@@ -9,6 +9,7 @@ CMakeFiles/linterC.dir/sources/linter.c.obj: ../sources/linter.c
 CMakeFiles/linterC.dir/sources/logger.c.obj: ../sources/headers/logger.h
 CMakeFiles/linterC.dir/sources/logger.c.obj: ../sources/logger.c
 
+CMakeFiles/linterC.dir/sources/main.c.obj: ../include/regex.h
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/headers/config.h
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/headers/logger.h
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/main.c

@@ -9,17 +9,18 @@
 ============================================================================
 */
 
-
+#include <regex.h>
 #include "headers/config.h"
 
 /* Constantes symbolique */
-#define __MAX_NUMBER_RULES__ 16 // le nombre maximum de rules
-#define __MAX_CHAR_RULES__ 5 // le nombre de caracteres a alloué pour chaque règle dans le tableau rules
+#define __MAX_NUMBER_RULES__ 16
+#define __MAX_CHAR_RULES__ 5
 #define __SIZE_LINE__ 128
-#define __SIZE_BUFFER__ 5000 // taille d'un buffer quelconque
+#define __SIZE_BUFFER__ 5000
 
-Linter* readDefaultConfig(const char* pathFile){
-
+Linter* memorizeConfig( char* pathFile){
+	printf("fichier : %s    ligne : %d\n", __FILE__,  __LINE__) ;
+	printf("chemin du fichier lconf : %s\n", pathFile) ;
 	FILE* inputFile = fopen(pathFile, "r") ;
 	Linter* linter = NULL ;
 	if(inputFile != NULL){
@@ -40,8 +41,10 @@ Linter* readDefaultConfig(const char* pathFile){
 		int nbExcludedFiles = 0 ;
 		bool recursive ;
 
+
+
 		while(fgets ( line, sizeof(line), inputFile ) != NULL){
-			readLineConfig( &etape, line, configFilesExtend, &fileExtendExist, &nbRules, allRules, &nbExcludedFiles,
+			readLineConfig(pathFile, &etape, line, configFilesExtend, &fileExtendExist, &nbRules, allRules, &nbExcludedFiles,
 				 						allExcludedFiles, &recursive) ;
 		}
 		if(nbRules > 0 ){
@@ -78,8 +81,7 @@ Linter* readDefaultConfig(const char* pathFile){
 
 }
 
-
-void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
+void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
 		 bool* recursive){
 
@@ -93,6 +95,9 @@ void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileE
 			break ;
 		case 1 :
 			if((strcmp(line,rulesKey) != 0) && (strcmp(line,"\n") != 0) ){
+				 printf("fichier : %s    ligne : %d    pathfile : %s\n", __FILE__,  __LINE__, pathFile) ;
+				 strcpy(configFilesExtend, pathFile) ;
+				 printf("configFilesExtend : %s\n", configFilesExtend) ;
 				 strcpy(configFilesExtend,line) ;
 				 char* ptr = strchr(configFilesExtend, '\n') ;
 				 *ptr = '\0' ;
