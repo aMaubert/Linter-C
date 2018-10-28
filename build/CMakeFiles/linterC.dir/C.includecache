@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/projets ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+
+D:/projets ESGI/Linter-C/sources/headers/logger.h
+stdio.h
+-
+
+D:/projets ESGI/Linter-C/sources/main.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+sys/types.h
+-
+dirent.h
+-
+headers/config.h
+D:/projets ESGI/Linter-C/sources/headers/config.h
+headers/logger.h
+D:/projets ESGI/Linter-C/sources/headers/logger.h
+

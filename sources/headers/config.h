@@ -30,9 +30,11 @@ typedef struct Linter{
 }Linter ;
 
 Linter* readDefaultConfig(const char* pathFile) ;
+
 void readLineConfig(int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
 		 bool* recursive) ;
+		 
 char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
 
 Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,

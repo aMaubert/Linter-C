@@ -1,4 +1,0 @@
-D:\projets ESGI\Linter-C\sources\config.c: In function 'readDefaultConfig':
-D:\projets ESGI\Linter-C\sources\config.c:42:34: error: assignment to expression with array type
-         bufferConfigFilesExtends = strcpy(bufferConfigFilesExtends,line) ;
-                                  ^

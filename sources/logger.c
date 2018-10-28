@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 #include "headers/logger.h"
 
 #define __RELATIVE_PATH_OUTPUT_ERROR__ "../log/linter_C.err"
@@ -30,7 +31,7 @@ char* getCurrentTime(){
 
   time( &timestamp );
   date = localtime(&timestamp) ;
-  strftime(buffer, sizeof(buffer), "%Y/%m/%d  %X\0", date);
+  strftime(buffer, sizeof(buffer), "%Y/%m/%d  %X", date);
   char* ret = malloc(sizeof(buffer)) ;
   strcpy(ret, buffer) ;
   return ret ;
@@ -90,18 +91,14 @@ void log( Logger* logger, char* message){
         *ptr = '\0' ;
       }
 
-
       if(logger->log != NULL){
+
         fprintf(logger->log,"%s",line) ;
 
       }else printf("fichier log pas ouvert , pb ouverture fichier\n") ;
 }
 
-
-
 void closeLogger(Logger* logger){
-  // fprintf(logger->error,"%c",EOF) ;
-  // fprintf(logger->log,"%c",EOF) ;
   fclose(logger->error) ;
   fclose(logger->log) ;
   free(logger) ;
