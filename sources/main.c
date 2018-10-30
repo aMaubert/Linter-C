@@ -17,7 +17,7 @@
 #include <dirent.h>
 #include "headers/config.h"
 #include "headers/logger.h"
-
+// je maime
 
 #define __ROOT_PATH_ALLAN__ "d:\\projets ESGI\\Linter-C\\"
 #define __DEFAULT_CONFIG_PATH__ "resources\\lconfig\\default.lconf.."
