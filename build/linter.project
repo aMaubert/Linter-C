@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeLite_Project Name="linter" InternalType="">
+	<VirtualDirectory Name="src">
+		<VirtualDirectory Name="sources">
+			<File Name="../sources/config.c"/>
+			<File Name="../sources/linter.c"/>
+			<File Name="../sources/logger.c"/>
+			<File Name="../sources/main.c"/>
+		</VirtualDirectory>
+	</VirtualDirectory>
+	<VirtualDirectory Name="include">
+		<VirtualDirectory Name="sources">
+			<VirtualDirectory Name="headers">
+				<File Name="../sources/headers/config.h"/>
+				<File Name="../sources/headers/linter.h"/>
+				<File Name="../sources/headers/logger.h"/>
+			</VirtualDirectory>
+		</VirtualDirectory>
+	</VirtualDirectory>
+	<Settings Type="">
+		<Configuration Name="NoConfig" CompilerType="gnu g++" DebuggerType="GNU gdb debugger" Type="" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+			<Compiler Options="-g" Required="yes" PreCompiledHeader="">
+				<IncludePath Value="."/>
+			</Compiler>
+			<Linker Options="" Required="yes"/>
+			<ResourceCompiler Options="" Required="no"/>
+			<General OutputFile="$(IntermediateDirectory)/$(ProjectName)" IntermediateDirectory="./" Command="./$(ProjectName)" CommandArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes"/>
+			<Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="">
+				<PostConnectCommands/>
+				<StartupCommands/>
+			</Debugger>
+			<PreBuild/>
+			<PostBuild/>
+			<CustomBuild Enabled="yes">
+				<RebuildCommand>C:/MinGW/bin/mingw32-make.exe -f$(ProjectPath)/Makefile -j 16 clean &amp;&amp; C:/MinGW/bin/mingw32-make.exe -f$(ProjectPath)/Makefile -j 16</RebuildCommand>
+				<CleanCommand>C:/MinGW/bin/mingw32-make.exe -f$(ProjectPath)/Makefile -j 16 clean</CleanCommand>
+				<BuildCommand>C:/MinGW/bin/mingw32-make.exe -f$(ProjectPath)/Makefile -j 16</BuildCommand>
+				<SingleFileCommand>C:/MinGW/bin/mingw32-make.exe -f$(ProjectPath)/Makefile -B $(CurrentFileFullName).obj</SingleFileCommand>
+				<PreprocessFileCommand/>
+				<WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
+			</CustomBuild>
+			<AdditionalRules>
+				<CustomPostBuild/>
+				<CustomPreBuild/>
+			</AdditionalRules>
+		</Configuration>
+		<GlobalSettings>
+			<Compiler Options="">
+				<IncludePath Value="."/>
+			</Compiler>
+			<Linker Options="">
+				<LibraryPath Value="."/>
+			</Linker>
+			<ResourceCompiler Options=""/>
+		</GlobalSettings>
+	</Settings>
+</CodeLite_Project>
