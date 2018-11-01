@@ -28,7 +28,7 @@ bool isDirectory(Logger* logger, char* path) ;
 void lancementProgramme() ;
 
 int main(int argc, char* argv[]) {
-
+printf("test script\n") ;
 lancementProgramme( argc, argv ) ;
    return (EXIT_SUCCESS);
 }

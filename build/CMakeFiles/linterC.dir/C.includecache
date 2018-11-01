@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-../include/regex.h
-sys/types.h
--
-
-D:/projets ESGI/Linter-C/sources/config.c
-regex.h
--
-headers/config.h
-D:/projets ESGI/Linter-C/sources/headers/config.h
-
-D:/projets ESGI/Linter-C/sources/headers/config.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
 stdio.h
 -
 stdlib.h
@@ -26,11 +16,11 @@ stdbool.h
 string.h
 -
 
-D:/projets ESGI/Linter-C/sources/headers/logger.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
 stdio.h
 -
 
-D:/projets ESGI/Linter-C/sources/main.c
+D:/ESGI/projets ESGI/Linter-C/sources/main.c
 stdio.h
 -
 stdlib.h
@@ -44,7 +34,7 @@ sys/types.h
 dirent.h
 -
 headers/config.h
-D:/projets ESGI/Linter-C/sources/headers/config.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
 headers/logger.h
-D:/projets ESGI/Linter-C/sources/headers/logger.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
 
