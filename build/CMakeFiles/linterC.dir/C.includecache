@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+D:/ESGI/projets ESGI/Linter-C/sources/headers/argument.h
+logger.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
+
 D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
 stdio.h
 -
@@ -29,12 +33,10 @@ stdbool.h
 -
 string.h
 -
-sys/types.h
--
-dirent.h
--
 headers/config.h
 D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
 headers/logger.h
 D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
+headers/argument.h
+D:/ESGI/projets ESGI/Linter-C/sources/headers/argument.h
 

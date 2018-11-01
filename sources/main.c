@@ -13,37 +13,38 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
-#include <sys/types.h>
-#include <dirent.h>
 #include "headers/config.h"
 #include "headers/logger.h"
+#include "headers/argument.h"
 
 
 #define __ROOT_PATH_ALLAN__ "d:\\projets ESGI\\Linter-C\\"
 #define __DEFAULT_CONFIG_PATH__ "resources\\lconfig\\default.lconf.."
 #define __DEFAULT_CONFIG_RELATIF_PATH__ "../resources/lconfig/default.lconf"
 
-bool validArgument(Logger* logger, int argc, char** argv) ;
-bool isDirectory(Logger* logger, char* path) ;
+
 void lancementProgramme() ;
 
 int main(int argc, char* argv[]) {
-printf("test script\n") ;
-lancementProgramme( argc, argv ) ;
-   return (EXIT_SUCCESS);
+  printf("test script\n") ;
+  lancementProgramme( argc, argv ) ;
+  return (EXIT_SUCCESS);
 }
+
+
 void lancementProgramme(int argc, char** argv ){
 	Logger* logger = initialiseLogger() ;
 
-	//bool argumentIsValid = validArgument(logger, argc, argv) ;
+  /* on vérifie les arguments en entré du main */
+	bool argumentIsValid = validArgument(logger, argc, argv) ;
 
-	/* chemin relative */
+	/* chemin relative du fichier de configuration à mémorisé*/
 	char defaulConfigFileRelatifPath[] = __DEFAULT_CONFIG_RELATIF_PATH__ ;
 
 	/* mémorisation des configuration du linter */
 	Linter* linter = memorizeConfig( defaulConfigFileRelatifPath) ;
 
-
+  /* affichage des configurations du linter */
   displayLinter(linter, stdout) ;
 
 	/* Lancement du Linter */
@@ -56,34 +57,4 @@ void lancementProgramme(int argc, char** argv ){
 
 	fflush(stdout) ;
 	system("pause") ;
-	//	free(contentFile) ;
-}
-
-bool validArgument(Logger* logger, int argc, char** argv){
-	bool ret = true ;
-
-	if(argc == 2 ){
-		ret = isDirectory(logger, argv[1]) ;
-
-	}else{
-		error(logger, "ce programme n'accepte qu'un parametre, le chemin du dossier a linter") ;
-		ret = false ;
-	}
-
-	return ret ;
-}
-
-bool isDirectory(Logger* logger, char* path){
-	bool isDirectory = true ;
-	struct dirent *lecture;
-	DIR* directory;
-	directory = opendir(path);
-
-	if(directory == NULL){
-		error(logger, "le chemin du dossier donner en parametre n'est pas correct !!!") ;
-		isDirectory = false ;
-	}
-	closedir(directory);
-
-	return isDirectory ;
 }

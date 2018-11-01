@@ -123,6 +123,33 @@ linterC/fast:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/build
 .PHONY : linterC/fast
 
+sources/argument.obj: sources/argument.c.obj
+
+.PHONY : sources/argument.obj
+
+# target to build an object file
+sources/argument.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/argument.c.obj
+.PHONY : sources/argument.c.obj
+
+sources/argument.i: sources/argument.c.i
+
+.PHONY : sources/argument.i
+
+# target to preprocess a source file
+sources/argument.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/argument.c.i
+.PHONY : sources/argument.c.i
+
+sources/argument.s: sources/argument.c.s
+
+.PHONY : sources/argument.s
+
+# target to generate assembly for a file
+sources/argument.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/argument.c.s
+.PHONY : sources/argument.c.s
+
 sources/config.obj: sources/config.c.obj
 
 .PHONY : sources/config.obj
@@ -240,6 +267,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... linterC"
 	@echo "... rebuild_cache"
+	@echo "... sources/argument.obj"
+	@echo "... sources/argument.i"
+	@echo "... sources/argument.s"
 	@echo "... sources/config.obj"
 	@echo "... sources/config.i"
 	@echo "... sources/config.s"
