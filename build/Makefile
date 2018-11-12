@@ -48,10 +48,10 @@ RM = "/C/Program Files/CMake/bin/cmake.exe" -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/D/ESGI/projets ESGI/Linter-C"
+CMAKE_SOURCE_DIR = "/D/ESGI/projets pedagogique ESGI/Linter-C"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/D/ESGI/projets ESGI/Linter-C/build"
+CMAKE_BINARY_DIR = "/D/ESGI/projets pedagogique ESGI/Linter-C/build"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "/D/ESGI/projets ESGI/Linter-C/build/CMakeFiles" "/D/ESGI/projets ESGI/Linter-C/build/CMakeFiles/progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" "/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "/D/ESGI/projets ESGI/Linter-C/build/CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -258,6 +258,33 @@ sources/main.c.s:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/main.c.s
 .PHONY : sources/main.c.s
 
+sources/structure.obj: sources/structure.c.obj
+
+.PHONY : sources/structure.obj
+
+# target to build an object file
+sources/structure.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/structure.c.obj
+.PHONY : sources/structure.c.obj
+
+sources/structure.i: sources/structure.c.i
+
+.PHONY : sources/structure.i
+
+# target to preprocess a source file
+sources/structure.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/structure.c.i
+.PHONY : sources/structure.c.i
+
+sources/structure.s: sources/structure.c.s
+
+.PHONY : sources/structure.s
+
+# target to generate assembly for a file
+sources/structure.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/structure.c.s
+.PHONY : sources/structure.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -282,6 +309,9 @@ help:
 	@echo "... sources/main.obj"
 	@echo "... sources/main.i"
 	@echo "... sources/main.s"
+	@echo "... sources/structure.obj"
+	@echo "... sources/structure.i"
+	@echo "... sources/structure.s"
 .PHONY : help
 
 

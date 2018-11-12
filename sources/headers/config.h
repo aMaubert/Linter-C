@@ -16,34 +16,24 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include "structure.h"
 
-typedef struct Linter{
-     //une liste chainé de Linter qui qui correspondra au nombre de fichier lconfig étendues
 
-    char **rules ; // contient la liste des règles true = activé, sinon false
-    int nbRules ;
-    char** excludedFiles ; //Une liste de fichier du dossier courant qui ne sera pas affecter par ce Linter
-    bool recursive ; // boolean qui indique si on lance le linter à la recherche des sous-fichiers si true, sinon false
-    int nbExcludedFiles ;
-    char* fileExtend ; // contient le chemin du fichier lconfig étendues
-    struct Linter* extends ;
-}Linter ;
 
-Linter* memorizeConfig( char* pathFile) ;
-
-void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
-		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
-		 bool* recursive) ;
-
-char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
-
-Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
-        char** excludedFiles, bool recursive, char* fileExtend) ;
-void freeLinterList(Linter* linter) ;
-void freeLinter(Linter* toDestroy) ;
-void displayLinter(Linter* linter, FILE* output) ;
-
-char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
+ConfigLinter* memorizeConfig( char* pathFile) ;
+// void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
+// 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
+// 		 bool* recursive) ;
+//
+// char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
+//
+// Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
+//         char** excludedFiles, bool recursive, char* fileExtend) ;
+// void freeLinterList(Linter* linter) ;
+// void freeLinter(Linter* toDestroy) ;
+// void displayLinter(Linter* linter, FILE* output) ;
+//
+// char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
 
 
 

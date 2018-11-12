@@ -6,37 +6,31 @@
 
 #IncludeRegexTransform: 
 
-D:/ESGI/projets ESGI/Linter-C/sources/headers/argument.h
-logger.h
-D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
-
-D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
-stdio.h
+../include/regex.h
+sys/types.h
 -
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/config.c
 stdlib.h
 -
-stdbool.h
--
-string.h
--
-
-D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
 stdio.h
 -
-
-D:/ESGI/projets ESGI/Linter-C/sources/main.c
-stdio.h
--
-stdlib.h
--
-stdbool.h
--
-string.h
+regex.h
 -
 headers/config.h
-D:/ESGI/projets ESGI/Linter-C/sources/headers/config.h
-headers/logger.h
-D:/ESGI/projets ESGI/Linter-C/sources/headers/logger.h
-headers/argument.h
-D:/ESGI/projets ESGI/Linter-C/sources/headers/argument.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
 

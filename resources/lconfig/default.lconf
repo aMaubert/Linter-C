@@ -1,5 +1,5 @@
 =extends
-deuxiemeFichier.lconf
+machin.lconf
 
 =rules
 - array-bracket-eol = on
@@ -20,6 +20,9 @@ deuxiemeFichier.lconf
 - function-parameters-type = on
 
 =excludedFiles
+lol.c
+rigolo.h
+viva.c
 
 =recursive
 true

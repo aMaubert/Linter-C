@@ -19,6 +19,6 @@ typedef struct Logger{
 
 Logger* initialiseLogger() ;
 void error(Logger* logger, char* message) ;
-void log( Logger* logger, char* message) ;
+void log(Logger* logger, char* message) ;
 char* getCurrentTime() ;
 void freeLogger(Logger* logger) ;

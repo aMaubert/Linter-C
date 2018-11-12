@@ -1,4 +1,4 @@
-# Install script for directory: D:/ESGI/projets ESGI/Linter-C
+# Install script for directory: D:/ESGI/projets pedagogique ESGI/Linter-C
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/ESGI/projets ESGI/Linter-C/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/ESGI/projets pedagogique ESGI/Linter-C/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
