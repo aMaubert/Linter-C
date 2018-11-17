@@ -20,19 +20,10 @@
 
 
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig) ;
-// void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
-// 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
-// 		 bool* recursive) ;
-//
-// char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
-//
-// Linter* initialiseStructLinter(int nbRules, char** rules, int nbExcludedFiles,
-//         char** excludedFiles, bool recursive, char* fileExtend) ;
-// void freeLinterList(Linter* linter) ;
-// void freeLinter(Linter* toDestroy) ;
-// void displayLinter(Linter* linter, FILE* output) ;
-//
-// char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
+
+char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
+
+char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
 
 
 

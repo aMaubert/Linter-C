@@ -41,7 +41,7 @@ ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExten
 
    linterConfiguration = realloc(linterConfiguration , sizeof(ConfigLinter)) ;
 
-   linterConfiguration->fileExtend = realloc( linterConfiguration->fileExtend, sizeof(char) * strlen(fileExtend)) ;
+   if(fileExtend != NULL) linterConfiguration->fileExtend = realloc( linterConfiguration->fileExtend, sizeof(char) * strlen(fileExtend)) ;
 
    linterConfiguration->listRules = realloc( linterConfiguration->listRules , sizeof(RuleLinter*) * countAllocateRules) ;
 
@@ -52,7 +52,7 @@ ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExten
      system("pause") ;
      exit(EXIT_FAILURE) ;
    }
-   if(linterConfiguration->fileExtend == NULL){
+   if(linterConfiguration->fileExtend == NULL && fileExtend != NULL){
      fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
      system("pause") ;
      exit(EXIT_FAILURE) ;
@@ -92,7 +92,7 @@ ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExten
 
 
    /* definition */
-   strcpy(linterConfiguration->fileExtend , fileExtend) ;
+  if(fileExtend != NULL) strcpy(linterConfiguration->fileExtend , fileExtend) ;
 
    /* on défini d'abord ceux où la clé existe*/
    for(int i = 0 ; i < countRules ; i++){

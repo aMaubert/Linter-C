@@ -6,15 +6,31 @@
 
 #IncludeRegexTransform: 
 
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+../include/regex.h
+sys/types.h
+-
 
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/structure.c
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/config.c
 stdlib.h
 -
 stdio.h
 -
+regex.h
+-
+headers/config.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
 string.h
 -
-headers/structure.h
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
 
