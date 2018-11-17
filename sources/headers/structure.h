@@ -27,6 +27,7 @@ typedef struct ConfigLinter{
   int countAllocateRules ;
   RuleLinter** listRules ;
   int countExcludedFiles ;
+  int countAllocateExcludedFiles ;
   char** listExcludedFiles ;
   short recursive ; // 1 if recursive, else 0
 }ConfigLinter ;
@@ -35,7 +36,10 @@ void displayListRuleLinter(RuleLinter** listRuleLinter, int countRules) ;
 void displayLinterConfig(ConfigLinter* linterConfig) ;
 
 ConfigLinter* getInitialisedConfigLinter() ;
-
+ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend,
+  int countRules, int countAllocateRules,char** listKey, char**listValue, int countExcludedFiles,
+  int countAllocateExcludedFiles, char** listExcludedFiles, short recursive) ;
+/*
 void freeConfigLinter(ConfigLinter* linterConfiguration) ;
 void freeRuleLinter(RuleLinter* ruleLinter) ;
 
@@ -49,7 +53,7 @@ void setRecursive(ConfigLinter* linterConfiguration, short recursive) ;
 RuleLinter** realloclistRuleLinter(RuleLinter** listToResize, int oldSize, int newSize) ;
 
 void copyRule(RuleLinter* ruleToModify, RuleLinter* ruleToCopy) ;
-
+*/
 
 
 #endif // STRUCTURE_HEADER_INCLUDED_

@@ -21,21 +21,34 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 	FILE* inputFile = fopen(pathFile, "r") ;
 
-	char* extendFile = NULL ;
-	RuleLinter** listRules = NULL;
-	char** listKey = NULL ;
-	char** listValue = NULL ;
-	char valeurRecursive[10] ;
-
+	char line[256] ;
+	char ruleKey[256] ;
+	char ruleValue[256] ;
+	char excludedFile[256] ;
 	int countRules = 0, countExcludedFile = 0 ;
 
-	if(inputFile != NULL){
-		char line[256] ;
-		char ruleKey[256] ;
-		char ruleValue[256] ;
-		char excludedFile[256] ;
+	/* variable qui serviront a remplir la structure */
+	char* extendFile = NULL ;
+	int countAllocateRules = 16;
+	char** listKey = malloc(sizeof(char*) * countAllocateRules) ;
+	char** listValue = malloc(sizeof(char*) * countAllocateRules) ;
+	for(int i = 0 ; i < countAllocateRules; i++){
+		listKey[i] = NULL ;
+		listValue[i] = NULL ;
+	}
 
-		if(linterConfig == NULL) linterConfig = getInitialisedConfigLinter() ;
+	int countAllocateExcludedFiles = 10 ;
+	char** listExcludedFiles = malloc(sizeof(char*) * countAllocateExcludedFiles) ;
+	for(int i = 0 ; i < countAllocateExcludedFiles; i++) listExcludedFiles[i] = NULL ;
+
+	char valeurRecursive[10] ;
+
+
+
+	if(inputFile != NULL){
+
+
+		// if(linterConfig == NULL) linterConfig = getInitialisedConfigLinter() ;
 
  		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=extends\n") != 0) ) ;
 
@@ -52,7 +65,34 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
 
 			sscanf(line, "- %s = %s\n", ruleKey, ruleValue) ;
-			printf("regle : %s  %s\n",ruleKey , ruleValue) ;
+			countRules += 1 ;
+			if(countRules > countAllocateRules){
+				countAllocateRules = countRules ;
+				listKey = realloc( listKey, sizeof(char*) * countAllocateRules) ;
+				listValue = realloc( listValue, sizeof(char*) * countAllocateRules) ;
+				if(listKey == NULL || listValue == NULL){
+					fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
+					system("pause") ;
+					exit(EXIT_FAILURE) ;
+				}
+				listKey[countRules - 1] = NULL ;
+				listValue[countRules - 1] = NULL ;
+			}
+			listKey[countRules - 1] = realloc( listKey[countRules - 1], sizeof(char) * strlen(ruleKey)) ;
+			listValue[countRules - 1] = realloc( listValue[countRules - 1], sizeof(char) * strlen(ruleValue)) ;
+
+			if(listKey[countRules - 1] == NULL || listValue[countRules - 1] == NULL){
+				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
+				system("pause") ;
+				exit(EXIT_FAILURE) ;
+			}
+
+			strcpy( listKey[countRules - 1], ruleKey) ;
+			strcpy( listValue[countRules - 1], ruleValue) ;
+		//	printf("regle : %s  %s\n",ruleKey , ruleValue) ;
+
+
+
 			// countRules += 1 ;
 			//
 			// listKey = realloc( listKey, (sizeof(char*) * countRules) ) ;
@@ -83,62 +123,84 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
 
 			sscanf(line, "%s\n", excludedFile) ;
-
 			countExcludedFile += 1 ;
+			if(countExcludedFile > countAllocateExcludedFiles){
+				countAllocateExcludedFiles = countExcludedFile ;
+				listExcludedFiles = realloc( listExcludedFiles, sizeof(char*) * countAllocateExcludedFiles) ;
 
-			/*on alloue en fonction si il y d déjà des element ou pas dans les listes */
-			linterConfig->listExcludedFiles = realloc( linterConfig->listExcludedFiles, (sizeof(char*) * countExcludedFile) ) ;
-
-			if(linterConfig->listExcludedFiles != NULL ){
-				linterConfig->listExcludedFiles[countExcludedFile - 1] = malloc(sizeof(char) * strlen(excludedFile));
-				printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1), linterConfig->listExcludedFiles[countExcludedFile - 1] ) ;
+				if(listExcludedFiles == NULL){
+					fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
+					system("pause") ;
+					exit(EXIT_FAILURE) ;
+				}
+				listExcludedFiles[countExcludedFile - 1] = NULL ;
 			}
-			else{
-				fprintf(stderr, "Probleme allocation.\nError dans : %s   ligne : %d\n", __FILE__, __LINE__);
+
+			listExcludedFiles[countExcludedFile - 1] = realloc(listExcludedFiles[countExcludedFile - 1] , sizeof(char) * strlen(excludedFile)) ;
+			if(listExcludedFiles[countExcludedFile - 1] == NULL){
+				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
-			if(linterConfig->listExcludedFiles[countExcludedFile - 1] != NULL){
-				strcpy(linterConfig->listExcludedFiles[countExcludedFile - 1], excludedFile) ;
-				printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1),  linterConfig->listExcludedFiles[countExcludedFile - 1]) ;
-			}
-			else{
-				fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
-				system("pause") ;
-				exit(EXIT_FAILURE) ;
-			}
+
+			strcpy(listExcludedFiles[countExcludedFile - 1] , excludedFile) ;
+
+			// countExcludedFile += 1 ;
+			//
+			// /*on alloue en fonction si il y d déjà des element ou pas dans les listes */
+			// linterConfig->listExcludedFiles = realloc( linterConfig->listExcludedFiles, (sizeof(char*) * countExcludedFile) ) ;
+			//
+			// if(linterConfig->listExcludedFiles != NULL ){
+			// 	linterConfig->listExcludedFiles[countExcludedFile - 1] = malloc(sizeof(char) * strlen(excludedFile));
+			// 	printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1), linterConfig->listExcludedFiles[countExcludedFile - 1] ) ;
+			// }
+			// else{
+			// 	fprintf(stderr, "Probleme allocation.\nError dans : %s   ligne : %d\n", __FILE__, __LINE__);
+			// 	system("pause") ;
+			// 	exit(EXIT_FAILURE) ;
+			// }
+			// if(linterConfig->listExcludedFiles[countExcludedFile - 1] != NULL){
+			// 	strcpy(linterConfig->listExcludedFiles[countExcludedFile - 1], excludedFile) ;
+			// 	printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1),  linterConfig->listExcludedFiles[countExcludedFile - 1]) ;
+			// }
+			// else{
+			// 	fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
+			// 	system("pause") ;
+			// 	exit(EXIT_FAILURE) ;
+			// }
 		}
-		system("pause") ;
-		linterConfig->countExcludedFiles = countExcludedFile ;
+
+
 
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=recursive\n") != 0) ) ;
 
 		if(fgets( line, sizeof(line), inputFile ) != NULL){
 			sscanf(line, "%s\n", valeurRecursive) ;
-			if(strcmp(valeurRecursive, "true") == 0) linterConfig->recursive = 1 ;
-			else if(strcmp(valeurRecursive, "false") == 0) linterConfig->recursive = 0 ;
-			else{
-				fprintf(stderr, "Mauvaise valeur de la secion recursive!!!.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
-				system("pause") ;
-				exit(EXIT_FAILURE) ;
-			}
 		}
 
-	}else{
+	}
+	else{
 		fprintf(stderr, "dans : %s   ligne : %d\nOuverture du fichier : %s   Impossible .\n", __FILE__, __LINE__, pathFile);
     exit(EXIT_FAILURE) ;
 	}
+
+
 	fclose(inputFile) ;
-	setFileExtend( linterConfig, extendFile) ;
-	free(extendFile) ;
 
-  setListRules( linterConfig, countRules, listKey, listValue) ;
+	short recursive = 1 ;
+	if( strcmp(valeurRecursive, "false\n") == 0 ) recursive = 0 ;
+
+	if( linterConfig == NULL ) linterConfig = getInitialisedConfigLinter() ;
+	if(linterConfig == NULL){
+		fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
+		system("pause") ;
+		exit(EXIT_FAILURE) ;
+	}
+	
+	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, countAllocateRules, listKey, listValue,
+		  countExcludedFile, countAllocateExcludedFiles, listExcludedFiles, recursive) ;
 
 
-
-	// for(int i = 0 ; i < linterConfig->countRules ; i++){
-	// 	printf("%s : %s\n", linterConfig->listRules[i]->key, linterConfig->listRules[i]->value) ;
-	// }
 
 	displayLinterConfig(linterConfig) ;
 	return NULL ;
