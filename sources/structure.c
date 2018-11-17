@@ -149,16 +149,17 @@ ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExten
 
    linterConfiguration->countAllocateRules = countAllocateRules ;
    linterConfiguration->countAllocateExcludedFiles = countAllocateExcludedFiles ;
-   if(linterConfiguration->countRules != countRules){
-     fprintf(stderr, "ERROR - linterConfiguration->countRules != countRules soit %d != %d", linterConfiguration->countRules, countRules) ;
-     system("pause") ;
-     exit(EXIT_FAILURE) ;
-   }
-   if(linterConfiguration->countExcludedFiles != countExcludedFiles){
-     fprintf(stderr, "ERROR - linterConfiguration->countExcludedFiles != countExcludedFiles soit %d != %d", linterConfiguration->countExcludedFiles, countExcludedFiles) ;
-     system("pause") ;
-     exit(EXIT_FAILURE) ;
-   }
+   // if(linterConfiguration->countRules != countRules){
+   //   fprintf(stderr, "ERROR - linterConfiguration->countRules != countRules soit %d != %d\n", linterConfiguration->countRules, countRules) ;
+   //   fprintf(stderr, "%s ligne %d\n", __FILE__, __LINE__) ;
+   //   system("pause") ;
+   //   exit(EXIT_FAILURE) ;
+   // }
+   // if(linterConfiguration->countExcludedFiles != countExcludedFiles){
+   //   fprintf(stderr, "ERROR - linterConfiguration->countExcludedFiles != countExcludedFiles soit %d != %d", linterConfiguration->countExcludedFiles, countExcludedFiles) ;
+   //   system("pause") ;
+   //   exit(EXIT_FAILURE) ;
+   // }
 
    return linterConfiguration ;
  }

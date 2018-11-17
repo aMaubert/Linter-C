@@ -137,7 +137,8 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	fclose(inputFile) ;
 
 	short recursive = 1 ;
-	if( strcmp(valeurRecursive, "false\n") == 0 ) recursive = 0 ;
+	if( strcmp(valeurRecursive, "false") == 0 ) recursive = 0 ;
+
 
 	if( linterConfig == NULL ) linterConfig = getInitialisedConfigLinter() ;
 	if(linterConfig == NULL){
@@ -150,23 +151,24 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, countAllocateRules, listKey, listValue,
 		  countExcludedFile, countAllocateExcludedFiles, listExcludedFiles, recursive) ;
 
-	 if(linterConfig->fileExtend != NULL){
+	 if(extendFile != NULL){
 		 printf("file a etendre \n") ;
 
-		 // char* extendFilePath = NULL ;
-		 // const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
-		 // char* expression = malloc(sizeof(char) * (strlen(line) + 1) ) ;
-		 // strcpy(expression, "/") ;
-		 // strcat(expression, line) ;
-		 // char* path = str_replace(pathFile, str_regex, expression) ;
-	 	 // free(expression) ;
-		 // strcpy(configFilesExtend, path) ;
+
+		 const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
+		 char* expression = malloc(sizeof(char) * (strlen(linterConfig->fileExtend) + 1) ) ;
+		 strcpy(expression, "/") ;
+		 strcat(expression, linterConfig->fileExtend) ;
+		 char* path = str_replace(pathFile, str_regex, expression) ;
+	 	 free(expression) ;
+
+		 linterConfig = memorizeConfig( path, linterConfig) ;
 	 }else{
 		 printf("pas file a etendre \n") ;
 	 }
 
 	displayLinterConfig(linterConfig) ;
-	return NULL ;
+	return linterConfig ;
 
 }
 
