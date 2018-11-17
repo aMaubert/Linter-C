@@ -19,8 +19,7 @@
 #include "structure.h"
 
 
-
-ConfigLinter* memorizeConfig( char* pathFile) ;
+ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig) ;
 // void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
 // 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
 // 		 bool* recursive) ;

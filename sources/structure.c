@@ -18,13 +18,16 @@
 /*
   initialise a ConfigLinter structure
 */
-void initialiseConfigLinter(ConfigLinter* linterConfiguration){
+ConfigLinter* getInitialisedConfigLinter(){
+  ConfigLinter* linterConfiguration = malloc(sizeof(ConfigLinter)) ;
   linterConfiguration->fileExtend = NULL ;
   linterConfiguration->countRules = 0 ;
-  linterConfiguration->listRules = NULL ;
+  linterConfiguration->countAllocateRules = 16 ;
+  linterConfiguration->listRules = malloc(sizeof(RuleLinter*) * linterConfiguration->countAllocateRules) ;
   linterConfiguration->countExcludedFiles = 0 ;
   linterConfiguration->listExcludedFiles = NULL ;
   linterConfiguration->recursive = 1 ;
+  return linterConfiguration ;
 }
 
 /*
@@ -67,40 +70,68 @@ void setFileExtend(ConfigLinter* linterConfiguration, char* fileExtend){
 }
 void setListRules(ConfigLinter* linterConfiguration, int countRules, char** listKey, char** listValue){
   /* Dans le cas où dans linterConfiguration->listRules il n'y a rien */
-  if(linterConfiguration->listRules == NULL){
-    linterConfiguration->listRules = malloc(sizeof(RuleLinter*) * countRules) ;
-    if(linterConfiguration->listRules != NULL){
-      //printf("linterConfiguration->listRules alloue\n") ;
-      for(int i = 0 ; i < countRules; i++){
+  int countRulesKeyExist = 0 ;
+  /* verification si des regles ont déjà une clée*/
+  if(linterConfiguration->countRules != 0){
+
+    for(int i = 0 ; i < countRules; i++){
+      if( strcmp( linterConfiguration->listRules[i]->key, listKey[i]) == 0  ) countRulesKeyExist += 1 ;
+    }
+    countRules = countRules - countRulesKeyExist ;
+  }
+  linterConfiguration->listRules = realloc(linterConfiguration->listRules, sizeof(RuleLinter*) * (linterConfiguration->countRules + countRules) ) ;
+  if(linterConfiguration->listRules != NULL){
+    if(linterConfiguration->countRules != 0) {
+      for(int i = linterConfiguration->countRules; i < (linterConfiguration->countRules + countRules) ; i++ ){
         linterConfiguration->listRules[i] = malloc(sizeof(RuleLinter)) ;
-        if(linterConfiguration->listRules[i] != NULL){
-          linterConfiguration->listRules[i]->key = malloc(sizeof(char) * strlen(listKey[i])) ;
-          linterConfiguration->listRules[i]->value = malloc(sizeof(char) * strlen(listValue[i])) ;
-          if( (linterConfiguration->listRules[i]->key == NULL) || (linterConfiguration->listRules[i]->value == NULL) ){
-            fprintf(stderr, "probleme allocation linterConfiguration->listRules[%d]->key ou linterConfiguration->listRules[%d]->value \ndans : %s   ligne : %d\n", i, i, __FILE__, __LINE__);
-            system("pause") ;
-            exit(EXIT_FAILURE) ;
-          }
-        }
-        else{
-          fprintf(stderr, "probleme allocation listRules[%d] \ndans : %s   ligne : %d\n", i, __FILE__, __LINE__);
+        if(linterConfiguration->listRules[i] == NULL){
+          fprintf(stderr, "probleme allocation linterConfiguration->listRules[i] .\ndans : %s   ligne : %d\n", __FILE__, __LINE__);
           system("pause") ;
           exit(EXIT_FAILURE) ;
         }
       }
-      // Affectation
-      for(int i = 0 ; i < countRules; i++){
-        strcpy(linterConfiguration->listRules[i]->key, listKey[i]) ;
-        strcpy(linterConfiguration->listRules[i]->value, listValue[i]) ;
+    }else{
+      for(int i = 0; i <  countRules ; i++ ){
+        linterConfiguration->listRules[i] = malloc(sizeof(RuleLinter)) ;
+        if(linterConfiguration->listRules[i] == NULL){
+          fprintf(stderr, "probleme allocation linterConfiguration->listRules[i] .\ndans : %s   ligne : %d\n", __FILE__, __LINE__);
+          system("pause") ;
+          exit(EXIT_FAILURE) ;
+        }
       }
-      linterConfiguration->countRules = countRules ;
     }
-    else{
-      fprintf(stderr, "probleme allocation listRules dans : %s   ligne : %d\n", __FILE__, __LINE__);
-      system("pause") ;
-      exit(EXIT_FAILURE) ;
+  }else{
+    fprintf(stderr, "probleme allocation linterConfiguration->listRules .\ndans : %s   ligne : %d\n", __FILE__, __LINE__);
+    system("pause") ;
+    exit(EXIT_FAILURE) ;
+
+  }
+  // Affectation
+  if(linterConfiguration->countRules != 0){
+    short keyExist = 0 ;
+    int index = linterConfiguration->countRules ;
+    for(int i = 0 ; i < (countRules + countRulesKeyExist); i++){
+      keyExist = 0 ;
+      for(int j = 0 ; j < linterConfiguration->countRules ; j++){
+        if(strcmp(linterConfiguration->listRules[j]->key , listKey[i]) == 0 ){
+          strcpy(linterConfiguration->listRules[j]->value , listValue[i]) ;
+          keyExist = 1 ;
+        }
+      }
+      if(keyExist == 0){
+        strcpy(linterConfiguration->listRules[index]->key ,  listKey[i]) ;
+        strcpy(linterConfiguration->listRules[index]->value ,  listValue[i]) ;
+        index += 1;
+      }
+    }
+
+  }else{
+    for(int i = 0 ; i < countRules; i++){
+      strcpy(linterConfiguration->listRules[i]->key, listKey[i]) ;
+      strcpy(linterConfiguration->listRules[i]->value, listValue[i]) ;
     }
   }
+  linterConfiguration->countRules += countRules ;
 }
 
 void setRecursive(ConfigLinter* linterConfiguration, short recursive){

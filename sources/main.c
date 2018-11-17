@@ -29,7 +29,7 @@
 
 int main(int argc, char* argv[]) {
   char defaulConfigFileRelatifPath[] = __DEFAULT_CONFIG_RELATIF_PATH__ ;
-  ConfigLinter* linterConfig = memorizeConfig( defaulConfigFileRelatifPath) ;
+  ConfigLinter* linterConfig = memorizeConfig( defaulConfigFileRelatifPath , NULL) ;
   system("pause") ;
   return (EXIT_SUCCESS);
 }

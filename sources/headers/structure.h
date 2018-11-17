@@ -24,6 +24,7 @@ typedef struct RuleLinter{
 typedef struct ConfigLinter{
   char* fileExtend ; // the lconf file that can to be extend
   int countRules ;
+  int countAllocateRules ;
   RuleLinter** listRules ;
   int countExcludedFiles ;
   char** listExcludedFiles ;
@@ -33,7 +34,7 @@ typedef struct ConfigLinter{
 void displayListRuleLinter(RuleLinter** listRuleLinter, int countRules) ;
 void displayLinterConfig(ConfigLinter* linterConfig) ;
 
-void initialiseConfigLinter(ConfigLinter* linterConfiguration) ;
+ConfigLinter* getInitialisedConfigLinter() ;
 
 void freeConfigLinter(ConfigLinter* linterConfiguration) ;
 void freeRuleLinter(RuleLinter* ruleLinter) ;

@@ -22,7 +22,7 @@ machin.lconf
 =excludedFiles
 lol.c
 rigolo.h
-viva.c
+testimonio.c
 
 =recursive
 true

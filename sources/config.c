@@ -13,11 +13,12 @@
 #include <regex.h>
 #include "headers/config.h"
 
+
 /* Constantes symbolique */
 
 
-ConfigLinter* memorizeConfig( char* pathFile){
-	ConfigLinter* linterConfig = NULL ;
+ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
+
 	FILE* inputFile = fopen(pathFile, "r") ;
 
 	char* extendFile = NULL ;
@@ -30,9 +31,11 @@ ConfigLinter* memorizeConfig( char* pathFile){
 
 	if(inputFile != NULL){
 		char line[256] ;
-		linterConfig = malloc(sizeof(ConfigLinter))  ;
-		initialiseConfigLinter(linterConfig) ;
+		char ruleKey[256] ;
+		char ruleValue[256] ;
+		char excludedFile[256] ;
 
+		if(linterConfig == NULL) linterConfig = getInitialisedConfigLinter() ;
 
  		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=extends\n") != 0) ) ;
 
@@ -47,58 +50,58 @@ ConfigLinter* memorizeConfig( char* pathFile){
 
 		// récuperation de la liste des règles du linter
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
-			char ruleKey[256] ;
-			char ruleValue[256] ;
 
 			sscanf(line, "- %s = %s\n", ruleKey, ruleValue) ;
-			countRules += 1 ;
-
-			/*on alloue en fonction si il y d déjà des element ou pas dans les listes */
-			if(countRules == 1){
-				listKey = malloc(sizeof(char*) * countRules) ;
-				listKey[countRules - 1] = malloc(sizeof(char) * strlen(ruleKey)) ;
-				listValue = malloc(sizeof(char*) * countRules) ;
-				listValue[countRules - 1] = malloc(sizeof(char) * strlen(ruleValue)) ;
-			}
-			else{
-				listKey = realloc( listKey, (sizeof(char*) * countRules) ) ;
-				listValue = realloc( listValue, (sizeof(char*) * countRules) ) ;
-				if(listKey != NULL && listValue != NULL){
-					listKey[countRules - 1] = malloc(sizeof(char) * strlen(ruleKey));
-					listValue[countRules - 1] = malloc(sizeof(char) * strlen(ruleValue)) ;
-				}else{
-					fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
-					system("pause") ;
-					exit(EXIT_FAILURE) ;
-				}
-
-			}
-
-			strcpy(listKey[countRules - 1], ruleKey) ;
-			strcpy(listValue[countRules - 1], ruleValue) ;
-			printf("%d || %s : %s \n", (countRules - 1), listKey[countRules - 1], listValue[countRules - 1] ) ;
+			printf("regle : %s  %s\n",ruleKey , ruleValue) ;
+			// countRules += 1 ;
+			//
+			// listKey = realloc( listKey, (sizeof(char*) * countRules) ) ;
+			// listValue = realloc( listValue, (sizeof(char*) * countRules) ) ;
+			// if(listKey != NULL && listValue != NULL){
+			// 	listKey[countRules - 1] = malloc(sizeof(char) * strlen(ruleKey));
+			// 	listValue[countRules - 1] = malloc(sizeof(char) * strlen(ruleValue)) ;
+			// 	if(listKey[countRules - 1] == NULL || listValue[countRules - 1] == NULL){
+			// 		fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\n", __FILE__, __LINE__);
+			// 		system("pause") ;
+			// 		exit(EXIT_FAILURE) ;
+			// 	}
+			// }else{
+			// 	fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\n", __FILE__, __LINE__);
+			// 	system("pause") ;
+			// 	exit(EXIT_FAILURE) ;
+			// }
+			//
+			// strcpy(listKey[countRules - 1], ruleKey) ;
+			// strcpy(listValue[countRules - 1], ruleValue) ;
+			// printf("%d || %s : %s \n", (countRules - 1), listKey[countRules - 1], listValue[countRules - 1] ) ;
 		}
 
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=excludedFiles\n") != 0) ) ;
-system("pause") ;
+		system("pause") ;
+
 		// récuperation de la liste des fichier à exclure du linter
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
-			char excludedFile[256] ;
+
 			sscanf(line, "%s\n", excludedFile) ;
-			printf("line : %s\n", line) ;
+
 			countExcludedFile += 1 ;
 
 			/*on alloue en fonction si il y d déjà des element ou pas dans les listes */
-			if(countExcludedFile == 1) linterConfig->listExcludedFiles = malloc(sizeof(char*) * countExcludedFile) ;
-			else linterConfig->listExcludedFiles = realloc( linterConfig->listExcludedFiles, (sizeof(char*) * countExcludedFile) ) ;
+			linterConfig->listExcludedFiles = realloc( linterConfig->listExcludedFiles, (sizeof(char*) * countExcludedFile) ) ;
 
-			if(linterConfig->listExcludedFiles != NULL ) linterConfig->listExcludedFiles[countExcludedFile - 1] = malloc(sizeof(char) * strlen(excludedFile));
+			if(linterConfig->listExcludedFiles != NULL ){
+				linterConfig->listExcludedFiles[countExcludedFile - 1] = malloc(sizeof(char) * strlen(excludedFile));
+				printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1), linterConfig->listExcludedFiles[countExcludedFile - 1] ) ;
+			}
 			else{
-				fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
+				fprintf(stderr, "Probleme allocation.\nError dans : %s   ligne : %d\n", __FILE__, __LINE__);
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
-			if(linterConfig->listExcludedFiles[countExcludedFile - 1] != NULL) strcpy(linterConfig->listExcludedFiles[countExcludedFile - 1], excludedFile) ;
+			if(linterConfig->listExcludedFiles[countExcludedFile - 1] != NULL){
+				strcpy(linterConfig->listExcludedFiles[countExcludedFile - 1], excludedFile) ;
+				printf("linterConfig->listExcludedFiles[%d] : %s\n", (countExcludedFile - 1),  linterConfig->listExcludedFiles[countExcludedFile - 1]) ;
+			}
 			else{
 				fprintf(stderr, "Probleme allocation memoire.\nError dans : %s   ligne : %d\nOuverture du fichier : %s .\n", __FILE__, __LINE__, pathFile);
 				system("pause") ;
