@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/regex.h
+sys/types.h
+-
+
+C:/Users/Ordinateur/Desktop/ESGI/Projets/Linter-C/sources/headers/rules.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+
+C:/Users/Ordinateur/Desktop/ESGI/Projets/Linter-C/sources/rules.c
+regex.h
+-
+headers/rules.h
+C:/Users/Ordinateur/Desktop/ESGI/Projets/Linter-C/sources/headers/rules.h
+

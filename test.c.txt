@@ -1,0 +1,8 @@
+void toto(dfgsdfg){
+fgsfgg;
+}
+
+void tata(dfg)
+{
+dswgwsdg;
+}
