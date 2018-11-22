@@ -1,0 +1,9 @@
+Determining if the C compiler works failed with the following output:
+Change Dir: D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/MinGW/bin/make.exe" "cmTC_10c4d/fast"
+Exit code 0xc0000135
+
+Generator: execution of make failed. Make command was: "C:/MinGW/bin/make.exe" "cmTC_10c4d/fast"
+
+

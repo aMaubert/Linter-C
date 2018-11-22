@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <regex.h>
 #include "headers/config.h"
+#include "headers/structure.h"
 
 
 /* Constantes symbolique */
@@ -20,12 +21,19 @@
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 	FILE* inputFile = fopen(pathFile, "r") ;
+	if(inputFile == NULL){
+		fprintf(stderr, "Fichier %s  impossible a ouvrir\n", pathFile) ;
+		system("pause") ;
+		fflush(NULL) ;
+	}
+
 
 	char line[256] ;
 	char ruleKey[256] ;
 	char ruleValue[256] ;
 	char excludedFile[256] ;
 	int countRules = 0, countExcludedFile = 0 ;
+
 
 	/* variable qui serviront a remplir la structure */
 	char* extendFile = NULL ;
@@ -42,7 +50,6 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	for(int i = 0 ; i < countAllocateExcludedFiles; i++) listExcludedFiles[i] = NULL ;
 
 	char valeurRecursive[10] ;
-
 	if(inputFile != NULL){
 
  		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=extends\n") != 0) ) ;
@@ -74,22 +81,20 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				listKey[countRules - 1] = NULL ;
 				listValue[countRules - 1] = NULL ;
 			}
-			listKey[countRules - 1] = realloc( listKey[countRules - 1], sizeof(char) * strlen(ruleKey)) ;
-			listValue[countRules - 1] = realloc( listValue[countRules - 1], sizeof(char) * strlen(ruleValue)) ;
+
+			listKey[countRules - 1] = realloc( listKey[countRules - 1], sizeof(char) * (strlen(ruleKey) + 1) ) ;
+			listValue[countRules - 1] = realloc( listValue[countRules - 1], sizeof(char) * (strlen(ruleValue) + 1)) ;
 
 			if(listKey[countRules - 1] == NULL || listValue[countRules - 1] == NULL){
 				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
-
 			strcpy( listKey[countRules - 1], ruleKey) ;
 			strcpy( listValue[countRules - 1], ruleValue) ;
-
 		}
 
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=excludedFiles\n") != 0) ) ;
-
 
 		// récuperation de la liste des fichier à exclure du linter
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
@@ -108,9 +113,13 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				listExcludedFiles[countExcludedFile - 1] = NULL ;
 			}
 
-			listExcludedFiles[countExcludedFile - 1] = realloc(listExcludedFiles[countExcludedFile - 1] , sizeof(char) * strlen(excludedFile)) ;
+			listExcludedFiles[countExcludedFile - 1] = realloc(listExcludedFiles[countExcludedFile - 1] , sizeof(char) * (strlen(excludedFile) + 1) ) ;
+
+
 			if(listExcludedFiles[countExcludedFile - 1] == NULL){
-				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
+				fprintf(stderr, "Probleme allocation memoire listExcludedFiles[%d]\n", (countExcludedFile - 1)) ;
+				fprintf(stderr, "excludedFile : %s    strlen(excludedFile) : %d\n",  excludedFile, (int)strlen(excludedFile)) ;
+				fprintf(stderr, "dans %s ligne : %d\n",  __FILE__, __LINE__) ;
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
@@ -118,8 +127,6 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 			strcpy(listExcludedFiles[countExcludedFile - 1] , excludedFile) ;
 
 		}
-
-
 
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=recursive\n") != 0) ) ;
 
@@ -132,7 +139,6 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		fprintf(stderr, "dans : %s   ligne : %d\nOuverture du fichier : %s   Impossible .\n", __FILE__, __LINE__, pathFile);
     exit(EXIT_FAILURE) ;
 	}
-
 
 	fclose(inputFile) ;
 
@@ -147,13 +153,15 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		exit(EXIT_FAILURE) ;
 	}
 
+	printf("file : %s ligne %d\n", __FILE__, __LINE__) ;
+	printf("countRules : %d\n", countRules) ;
+	system("pause") ;
+	fflush(NULL) ;
+	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, listKey, listValue,
+		  countExcludedFile, listExcludedFiles, recursive) ;
 
-	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, countAllocateRules, listKey, listValue,
-		  countExcludedFile, countAllocateExcludedFiles, listExcludedFiles, recursive) ;
 
 	 if(extendFile != NULL){
-		 printf("file a etendre \n") ;
-
 
 		 const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
 		 char* expression = malloc(sizeof(char) * (strlen(linterConfig->fileExtend) + 1) ) ;
@@ -161,10 +169,8 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		 strcat(expression, linterConfig->fileExtend) ;
 		 char* path = str_replace(pathFile, str_regex, expression) ;
 	 	 free(expression) ;
-
+		 displayLinterConfig(linterConfig) ;
 		 linterConfig = memorizeConfig( path, linterConfig) ;
-	 }else{
-		 printf("pas file a etendre \n") ;
 	 }
 
 	displayLinterConfig(linterConfig) ;
@@ -240,6 +246,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 //
 //
 //
+
 /*
  *
  * @return : le nombres de mots contenus dans toSplit

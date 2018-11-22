@@ -24,10 +24,8 @@ typedef struct RuleLinter{
 typedef struct ConfigLinter{
   char* fileExtend ; // the lconf file that can to be extend
   int countRules ;
-  int countAllocateRules ;
   RuleLinter** listRules ;
   int countExcludedFiles ;
-  int countAllocateExcludedFiles ;
   char** listExcludedFiles ;
   short recursive ; // 1 if recursive, else 0
 }ConfigLinter ;
@@ -35,10 +33,15 @@ typedef struct ConfigLinter{
 void displayListRuleLinter(RuleLinter** listRuleLinter, int countRules) ;
 void displayLinterConfig(ConfigLinter* linterConfig) ;
 
+int getCountExcludedFilesNotAlreadyExisted(ConfigLinter* linterConfiguration,int countExcludedFiles, char** listExcludedFiles) ;
+int getCountRulesNotAlreadyExisted(ConfigLinter* linterConfiguration,int countRules, char** listKey) ;
+
+short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToReallocate, char** listKey, char** listValue, int countRules ) ;
+short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countExcludedFilesToReallocate, char** listExcludedFiles,  int countExcludedFiles ) ;
+
 ConfigLinter* getInitialisedConfigLinter() ;
-ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend,
-  int countRules, int countAllocateRules,char** listKey, char**listValue, int countExcludedFiles,
-  int countAllocateExcludedFiles, char** listExcludedFiles, short recursive) ;
+ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend, int countRules,
+   char** listKey, char**listValue, int countExcludedFiles, char** listExcludedFiles, short recursive) ;
 /*
 void freeConfigLinter(ConfigLinter* linterConfiguration) ;
 void freeRuleLinter(RuleLinter* ruleLinter) ;

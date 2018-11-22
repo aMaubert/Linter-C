@@ -1,5 +1,4 @@
 =extends
-troisiemeFichier.lconf
 
 =rules
 - array-bracket-eol = on
@@ -18,9 +17,10 @@ troisiemeFichier.lconf
 - undeclared-function = off
 - variable-assignment-type = on
 - function-parameters-type = off
+- regleFunction3 = on
 
 =excludedFiles
-bidule.c
+bitch.c
 
 =recursive
-false
+true
