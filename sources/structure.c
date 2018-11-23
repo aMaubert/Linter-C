@@ -65,73 +65,67 @@ ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExten
 
       reallocateListExcludedFiles(linterConfiguration, countReallocateExcludedFiles, listExcludedFiles,  countExcludedFiles) ;
 
-
-
-      printf("file : %s ligne %d\n", __FILE__, __LINE__) ;
-      printf("countReAllocateExcludedFiles : %d\n", countReallocateExcludedFiles) ;
-      system("pause") ;
-      fflush(NULL) ;
-
-
-
    /* definition */
   if(fileExtend != NULL) strcpy(linterConfiguration->fileExtend , fileExtend) ;
 
-   /* on défini d'abord ceux où la clé existe*/
-   for(int i = 0 ; i < countRules ; i++){
-     for(int j = 0 ; j < linterConfiguration->countRules ; j++ ){
-       if( strcmp(linterConfiguration->listRules[j]->key, listKey[i]) == 0){
-         strcpy(linterConfiguration->listRules[j]->value , listValue[i]) ;
-         j = linterConfiguration->countRules ; // on sort de la 2eme boucle
-       }
-     }
-   }
+  setListRules(linterConfiguration, listKey, listValue, countRules) ;
 
-   /* enfin ceux dont la clé n'existe pas*/
-   for(int i = 0 ; i < countRules ; i++){
-     keyExist = 0 ;
-     for(int j = 0 ; j < linterConfiguration->countRules ; j++ ){
-       if( strcmp(linterConfiguration->listRules[j]->key, listKey[i]) == 0){
-         keyExist = 1 ;
-       }
-     }
+  setListExcludedFiles(linterConfiguration, listExcludedFiles, countExcludedFiles) ;
 
-     if(keyExist == 0){
-
-       index = linterConfiguration->countRules ;
-       if(linterConfiguration->listRules[index] == NULL ||  linterConfiguration->listRules[index]->key == NULL ||
-         linterConfiguration->listRules[index]->value == NULL){
-         fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-         system("pause") ;
-         exit(EXIT_FAILURE) ;
-       }else{
-         strcpy(linterConfiguration->listRules[index]->key, listKey[i]) ;
-         strcpy(linterConfiguration->listRules[index]->value, listValue[i]) ;
-         linterConfiguration->countRules += 1 ;
-       }
-
-     }
-   }
-
-   for(int i = 0 ; i < countExcludedFiles ; i++){
-     keyExist = 0 ;
-     for(int j = 0 ; j < linterConfiguration->countExcludedFiles ; j++){
-       if(strcmp( linterConfiguration->listExcludedFiles[j], listExcludedFiles[i]) == 0){
-         keyExist = 1 ;
-       }
-     }
-     if(!keyExist){
-       index = linterConfiguration->countExcludedFiles ;
-       linterConfiguration->listExcludedFiles[index] = malloc(sizeof(char) * (strlen(listExcludedFiles[i]) + 1) ) ;
-       strcpy(linterConfiguration->listExcludedFiles[index], listExcludedFiles[i]) ;
-       linterConfiguration->countExcludedFiles += 1 ;
-     }
-   }
 
    linterConfiguration->recursive = recursive ;
 
    return linterConfiguration ;
  }
+ /*
+  * Set the list of Excluded Files
+  */
+void setListExcludedFiles(ConfigLinter* linterConfiguration, char** listExcludedFiles, int countExcludedFiles){
+  int index ; // sert à ajouter au bonne emplacement un nouveau fichier dans la liste
+  short keyExist ;// sert a verifier si un fichier exist déjà dans la liste du linterConfiguration
+  for(int i = 0 ; i < countExcludedFiles ; i++){
+    keyExist = 0 ;
+    for(int j = 0 ; j < linterConfiguration->countExcludedFiles ; j++){
+      if(strcmp( linterConfiguration->listExcludedFiles[j], listExcludedFiles[i]) == 0){
+        keyExist = 1 ;
+      }
+    }
+    if(!keyExist){
+      index = linterConfiguration->countExcludedFiles ;
+      linterConfiguration->listExcludedFiles[index] = malloc(sizeof(char) * (strlen(listExcludedFiles[i]) + 1) ) ;
+      strcpy(linterConfiguration->listExcludedFiles[index], listExcludedFiles[i]) ;
+      linterConfiguration->countExcludedFiles += 1 ;
+    }
+  }
+}
+
+/*
+ * Set the list of rules
+ */
+void setListRules(ConfigLinter* linterConfiguration, char** listKey, char** listValue, int countRules){
+  int index ; // sert à ajouter des éléments qui n'existent pas déjà dans la liste
+  short keyExist ;// sert a verifier si une regle  exist déjà
+
+
+  for(int i = 0 ; i < countRules ; i++){
+   keyExist = 0 ;
+   for(int j = 0 ; j < linterConfiguration->countRules ; j++ ){
+     if( strcmp(linterConfiguration->listRules[j]->key, listKey[i]) == 0){
+       keyExist = 1 ;
+       j = linterConfiguration->countRules ; // on sort de la 2eme boucle
+     }
+   }
+   if(keyExist == 0){// si la regle n'existe pas alors il faut l'ajouter à la fin de la liste
+     index = linterConfiguration->countRules ;
+     strcpy(linterConfiguration->listRules[index]->key, listKey[i]) ;
+     strcpy(linterConfiguration->listRules[index]->value, listValue[i]) ;
+     linterConfiguration->countRules += 1 ;
+   }
+  }
+}
+
+
+
 /*
  * Return the number of Rules in listKey that is Not exist in the linterConfiguration
  */
@@ -183,14 +177,7 @@ short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToRea
     keyExist = 0 ;
     for(int j = 0 ; j < linterConfiguration->countRules; j++){
       if( strcmp(listKey[i] ,linterConfiguration->listRules[j]->key) == 0){
-        linterConfiguration->listRules[j]->value = realloc(linterConfiguration->listRules[j]->value, sizeof(char) * (1 + strlen(listValue[i])) ) ;
         keyExist =  1 ;
-        if(linterConfiguration->listRules[j]->value == NULL){
-          fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-          system("pause") ;
-          fflush(NULL) ;
-          exit(EXIT_FAILURE) ;
-        }
       }
     }
     if(keyExist == 0 ){
@@ -267,13 +254,13 @@ void freeRuleLinter(RuleLinter* ruleLinter){
 }
 
 void displayListRuleLinter(RuleLinter** listRuleLinter, int countRules){
-  printf("\nliste des regles du linter :\n");
+  printf("\nliste des regles du linter (%d) :\n", countRules);
   for(int i = 0 ; i < countRules ; i++){
     printf("%s : %s\n", listRuleLinter[i]->key, listRuleLinter[i]->value);
   }
 }
 void displayListExcludedFiles(char** listExcludedFiles, int countExcludedFiles){
-  printf("\nliste des fichier exclu du linter :\n") ;
+  printf("\nliste des fichier exclu du linter (%d) :\n", countExcludedFiles) ;
   for(int i = 0 ; i < countExcludedFiles ; i++){
     printf("%s\n", listExcludedFiles[i]);
   }
@@ -282,8 +269,8 @@ void displayListExcludedFiles(char** listExcludedFiles, int countExcludedFiles){
 void displayLinterConfig(ConfigLinter* linterConfig){
   printf("===============================================\n") ;
   printf("======      Configuration du Linter      ======\n\n") ;
-  if(linterConfig->fileExtend != NULL) printf("fichier lconf etendue : %s\n", linterConfig->fileExtend) ;
+  if(linterConfig->fileExtend != NULL) printf("Dernier fichier lconf etendue : %s\n", linterConfig->fileExtend) ;
   displayListRuleLinter(linterConfig->listRules, linterConfig->countRules) ;
   displayListExcludedFiles(linterConfig->listExcludedFiles, linterConfig->countExcludedFiles) ;
-  printf("\nlinter recursive : %u\n", linterConfig->recursive) ;
+  printf("\nlinter recursive : %u\n\n", linterConfig->recursive) ;
 }

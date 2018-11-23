@@ -6,15 +6,45 @@
 
 #IncludeRegexTransform: 
 
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
 
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/structure.c
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
 stdlib.h
 -
-stdio.h
+stdbool.h
 -
 string.h
 -
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+stdio.h
+-
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/main.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+headers/config.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+headers/logger.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+headers/argument.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
 headers/structure.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+headers/directory.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
 

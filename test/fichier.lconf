@@ -1,0 +1,14 @@
+=extends
+fichierExtendu.lconf
+
+=rules
+- array-bracket-eol = on
+- operators-spacing = on
+- comma-spacing = off
+- indent = 0
+
+=excludedFiles
+bidule.c
+
+=recursive
+true

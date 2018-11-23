@@ -15,18 +15,9 @@
 #include "headers/structure.h"
 
 
-/* Constantes symbolique */
-
-
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 	FILE* inputFile = fopen(pathFile, "r") ;
-	if(inputFile == NULL){
-		fprintf(stderr, "Fichier %s  impossible a ouvrir\n", pathFile) ;
-		system("pause") ;
-		fflush(NULL) ;
-	}
-
 
 	char line[256] ;
 	char ruleKey[256] ;
@@ -50,12 +41,13 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	for(int i = 0 ; i < countAllocateExcludedFiles; i++) listExcludedFiles[i] = NULL ;
 
 	char valeurRecursive[10] ;
+	short recursive = 1 ;
+
 	if(inputFile != NULL){
 
  		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=extends\n") != 0) ) ;
 
 		// récuperation du chemin relative d'un et un seul fichier lconf
-
 		fgets( line, sizeof(line), inputFile ) ;
 		if((strcmp(line,"\n") != 0)){
 			extendFile = malloc(strlen(line)) ;
@@ -132,18 +124,24 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 		if(fgets( line, sizeof(line), inputFile ) != NULL){
 			sscanf(line, "%s\n", valeurRecursive) ;
+			if(strcmp(valeurRecursive , "true") == 0) recursive = 1 ;
+			else if(strcmp(valeurRecursive , "false") == 0) recursive = 0 ;
+
+			if(linterConfig != NULL) recursive = linterConfig->recursive ;
+			printf( "valeurRecursive : %s  , recursive : %d\n", valeurRecursive, (int) recursive) ;
+			system("pause") ;
+			fflush(stdout) ;
 		}
 
 	}
 	else{
-		fprintf(stderr, "dans : %s   ligne : %d\nOuverture du fichier : %s   Impossible .\n", __FILE__, __LINE__, pathFile);
-    exit(EXIT_FAILURE) ;
+		fprintf(stderr, "dans : %s   ligne : %d\nOuverture du fichier : %s   Impossible .\n\n", __FILE__, __LINE__, pathFile);
+		system("pause") ;
+		fflush(NULL) ;
+		exit(EXIT_FAILURE) ;
 	}
 
 	fclose(inputFile) ;
-
-	short recursive = 1 ;
-	if( strcmp(valeurRecursive, "false") == 0 ) recursive = 0 ;
 
 
 	if( linterConfig == NULL ) linterConfig = getInitialisedConfigLinter() ;
@@ -153,99 +151,43 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		exit(EXIT_FAILURE) ;
 	}
 
-	printf("file : %s ligne %d\n", __FILE__, __LINE__) ;
-	printf("countRules : %d\n", countRules) ;
-	system("pause") ;
-	fflush(NULL) ;
+
 	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, listKey, listValue,
 		  countExcludedFile, listExcludedFiles, recursive) ;
 
 
 	 if(extendFile != NULL){
 
-		 const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
-		 char* expression = malloc(sizeof(char) * (strlen(linterConfig->fileExtend) + 1) ) ;
-		 strcpy(expression, "/") ;
-		 strcat(expression, linterConfig->fileExtend) ;
-		 char* path = str_replace(pathFile, str_regex, expression) ;
-	 	 free(expression) ;
-		 displayLinterConfig(linterConfig) ;
-		 linterConfig = memorizeConfig( path, linterConfig) ;
+		 pathFile = changePathExtendFile( pathFile, linterConfig->fileExtend) ;
+		 printf("ligne : %d,  pathFile : %s\n", __LINE__, pathFile) ;
+		 linterConfig = memorizeConfig( pathFile, linterConfig) ;
 	 }
 
-	displayLinterConfig(linterConfig) ;
+
 	return linterConfig ;
 
 }
+char* changePathExtendFile(char* path, char* fileExtendName){
 
+	for(int i = strlen(path) ; i >= 0 ; i--){
+		if(path[i] == '/' || path[i] == '\\'){
+			path[i + 1] = '\0' ;
+			i = 0 ;
+		}
+	}
 
-// void readLineConfig(char* pathFile, int *etape, char* line, char* configFilesExtend, bool* fileExtendExist,
-// 		 int* nbRules, char* allRules, int* nbExcludedFiles, char* allExcludedFiles,
-// 		 bool* recursive){
-//
-// 	const char extendsKey[] = "=extends\n" ;
-// 	const char rulesKey[] = "=rules\n" ;
-// 	const char excludedFilesKey[] = "=excludedFiles\n" ;
-// 	const char recursiveKey[] = "=recursive\n" ;
-//
-// 	switch(*etape){
-// 		case 0 :
-// 			break ;
-// 		case 1 :
-// 			if((strcmp(line,rulesKey) != 0) && (strcmp(line,"\n") != 0) ){
-// 				 const char *str_regex = "(/[0-9a-zA-Z]*\\.lconf)";
-// 				 char* expression = malloc(sizeof(char) * (strlen(line) + 1) ) ;
-// 				 strcpy(expression, "/") ;
-// 				 strcat(expression, line) ;
-// 				 char* path = str_replace(pathFile, str_regex, expression) ;
-//  			 	 free(expression) ;
-// 				 strcpy(configFilesExtend, path) ;
-// 				 *fileExtendExist = true ;
-// 			}
-// 			break ;
-// 		case 2 :
-// 			if((strcmp(line, excludedFilesKey) != 0) && (strcmp(line,"\n") != 0) ){
-// 				char eachRule[__MAX_CHAR_RULES__] ;
-// 				char buffer[__SIZE_BUFFER__] ;
-// 				*nbRules += 1 ;
-// 				sscanf(line,"- %s = %s\n",buffer,eachRule) ;
-// 				strcat(eachRule, ";") ;
-// 				strcat(allRules, eachRule) ;
-// 			}
-// 			break ;
-// 		case 3 :
-// 			if((strcmp(line, recursiveKey) != 0) && (strcmp(line,"\n") != 0) ){
-// 				char buffer[__SIZE_BUFFER__] ;
-// 				sscanf(line,"- %s\n",buffer) ;
-// 				strcat(buffer, ";") ;
-// 				strcat(allExcludedFiles, buffer) ;
-// 				*nbExcludedFiles += 1 ;
-// 			}
-// 			break ;
-// 		case 4 :
-// 			if( strcmp(line,"\n") != 0  ){
-// 				if(strcmp(line,"true\n") == 0) *recursive = true ;
-// 				else if(strcmp(line,"false\n") == 0) *recursive = false ;
-// 			}
-// 			break ;
-// 		default :
-// 			fprintf(stderr,"erreur switch case etape %d. fichier : %s    ligne : %d\n",*etape,__FILE__,__LINE__) ;
-// 			break ;
-// 	}
-//
-// 	if(strcmp(line,extendsKey) == 0 ){
-// 		*etape = 1 ;
-// 	}else if(strcmp(line,rulesKey) == 0 ){
-// 		*etape = 2 ;
-// 	}else if(strcmp(line,excludedFilesKey) == 0 ){
-// 		*etape = 3 ;
-// 	}else if(strcmp(line, recursiveKey) == 0 ){
-// 		*etape = 4 ;
-// 	}
-// }
-//
-//
-//
+	path = realloc(path, sizeof(char) * (1 + strlen(path) + strlen(fileExtendName))) ;
+	if(path == NULL){
+		fprintf(stderr, "file : %s , ligne : %d\nProbleme Allocation memoire\n\n", __FILE__, __LINE__) ;
+		system("pause") ;
+		fflush(NULL) ;
+	}
+	else{
+		strcat(path , fileExtendName) ;
+	}
+	return path ;
+}
+
 
 /*
  *

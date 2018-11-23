@@ -18,7 +18,7 @@
 #include <string.h>
 #include "structure.h"
 
-
+char* changePathExtendFile(char* path, char* fileExtendName) ;
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig) ;
 
 char** stringSplit(char* toSplit, char caractere, int *nbWords) ;

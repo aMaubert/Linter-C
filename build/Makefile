@@ -177,6 +177,33 @@ sources/config.c.s:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/config.c.s
 .PHONY : sources/config.c.s
 
+sources/directory.obj: sources/directory.c.obj
+
+.PHONY : sources/directory.obj
+
+# target to build an object file
+sources/directory.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/directory.c.obj
+.PHONY : sources/directory.c.obj
+
+sources/directory.i: sources/directory.c.i
+
+.PHONY : sources/directory.i
+
+# target to preprocess a source file
+sources/directory.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/directory.c.i
+.PHONY : sources/directory.c.i
+
+sources/directory.s: sources/directory.c.s
+
+.PHONY : sources/directory.s
+
+# target to generate assembly for a file
+sources/directory.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/directory.c.s
+.PHONY : sources/directory.c.s
+
 sources/linter.obj: sources/linter.c.obj
 
 .PHONY : sources/linter.obj
@@ -300,6 +327,9 @@ help:
 	@echo "... sources/config.obj"
 	@echo "... sources/config.i"
 	@echo "... sources/config.s"
+	@echo "... sources/directory.obj"
+	@echo "... sources/directory.i"
+	@echo "... sources/directory.s"
 	@echo "... sources/linter.obj"
 	@echo "... sources/linter.i"
 	@echo "... sources/linter.s"

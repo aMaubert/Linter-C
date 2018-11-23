@@ -12,35 +12,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
-#include <dirent.h>
-#include <sys/types.h>
 #include "headers/argument.h"
+#include "headers/directory.h"
 
- bool validArgument(Logger* logger, int argc, char** argv){
- 	bool ret = true ;
+short validArgument( int argc, char** argv){
+ 	short ret = 1 ;
 
  	if(argc == 2 ){
- 		ret = isDirectory(logger, argv[1]) ;
-
+ 		ret = directoryExist( argv[1]) ;
  	}else{
- 		error(logger, "ce programme n'accepte qu'un parametre, le chemin du dossier a linter") ;
- 		ret = false ;
+ 		ret = 0 ;
  	}
 
  	return ret ;
- }
- bool isDirectory(Logger* logger, char* path){
- 	bool isDirectory = true ;
- 	struct dirent *lecture;
- 	DIR* directory;
- 	directory = opendir(path);
-
- 	if(directory == NULL){
- 		error(logger, "le chemin du dossier donner en parametre n'est pas correct !!!") ;
- 		isDirectory = false ;
- 	}
- 	closedir(directory);
-
- 	return isDirectory ;
- }
+}

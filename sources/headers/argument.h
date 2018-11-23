@@ -12,9 +12,8 @@
 #ifndef CONFIGURATION_HEADER_CONFIG_H_
 #define CONFIGURATION_HEADER_CONFIG_H_
 
-#include "logger.h"
 
-idArgument(Logger* logger, int argc, char** argv) ;
-bool isDirectory(Logger* logger, char* path) ;
+
+short validArgument( int argc, char** argv) ;
 
 #endif /* CONFIGURATION_HEADER_CONFIG_H_ */

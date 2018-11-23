@@ -39,6 +39,9 @@ int getCountRulesNotAlreadyExisted(ConfigLinter* linterConfiguration,int countRu
 short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToReallocate, char** listKey, char** listValue, int countRules ) ;
 short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countExcludedFilesToReallocate, char** listExcludedFiles,  int countExcludedFiles ) ;
 
+void setListRules(ConfigLinter* linterConfiguration, char** listKey, char** listValue, int countRules) ;
+void setListExcludedFiles(ConfigLinter* linterConfiguration, char** listExcludedFiles, int countExcludedFiles) ;
+
 ConfigLinter* getInitialisedConfigLinter() ;
 ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend, int countRules,
    char** listKey, char**listValue, int countExcludedFiles, char** listExcludedFiles, short recursive) ;

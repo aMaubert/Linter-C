@@ -17,47 +17,41 @@
 #include "headers/logger.h"
 #include "headers/argument.h"
 #include "headers/structure.h"
-
-// #define __ROOT_PATH_ALLAN__ "d:\\projets ESGI\\Linter-C\\"
-// #define __DEFAULT_CONFIG_PATH__ "resources\\lconfig\\default.lconf.."
-#define __DEFAULT_CONFIG_RELATIF_PATH__ "../resources/lconfig/default.lconf"
+#include "headers/directory.h"
 
 
-// void lancementProgramme() ;
+#define __DEFAULT_CONF_FILE__ "D:/ESGI/projets pedagogique ESGI/Linter-C/resources/lconfig/default.lconf"
 
 
 
 int main(int argc, char* argv[]) {
-  char defaulConfigFileRelatifPath[] = __DEFAULT_CONFIG_RELATIF_PATH__ ;
-  ConfigLinter* linterConfig = memorizeConfig( defaulConfigFileRelatifPath , NULL) ;
+
+  ConfigLinter* linterConfig  = NULL;
+  short argumentIsValid = validArgument(argc, argv) ;
+  if(!argumentIsValid ){
+    printf("Le linter doit avoir un chemin vers le dossier en parametre !!!\n\n") ;
+    system("pause") ;
+    fflush(NULL) ;
+    exit(EXIT_FAILURE) ;
+  }
+
+  char* pathDirectory = NULL ;
+
+  pathDirectory = malloc(sizeof(char) * (1 + strlen(argv[1]))) ;
+  strcpy(pathDirectory , argv[1]) ;
+
+  char* pathConfigFile = getConfigFile(pathDirectory) ;
+
+  printf("pathConfigFile : %s\n", pathConfigFile) ;
+  if(pathConfigFile != NULL) linterConfig = memorizeConfig( pathConfigFile , linterConfig) ;
+  
+  linterConfig = memorizeConfig( __DEFAULT_CONF_FILE__ , linterConfig) ;
+
+
+
+  displayLinterConfig(linterConfig) ;
   system("pause") ;
+
+  fflush(NULL) ;
   return (EXIT_SUCCESS);
 }
-
-
-// void lancementProgramme(int argc, char** argv ){
-// 	Logger* logger = initialiseLogger() ;
-//
-//   /* on vérifie les arguments en entré du main */
-// 	bool argumentIsValid = validArgument(logger, argc, argv) ;
-//
-// 	/* chemin relative du fichier de configuration à mémorisé*/
-// 	char defaulConfigFileRelatifPath[] = __DEFAULT_CONFIG_RELATIF_PATH__ ;
-//
-// 	/* mémorisation des configuration du linter */
-// 	Linter* linter = memorizeConfig( defaulConfigFileRelatifPath) ;
-//
-//   /* affichage des configurations du linter */
-//   displayLinter(linter, stdout) ;
-//
-// 	/* Lancement du Linter */
-//
-// 	/* Liberation des espaces mémoires alloués */
-// 	freeLinterList(linter) ;
-//
-// 	closeLogger(logger) ;
-//
-//
-// 	fflush(stdout) ;
-// 	system("pause") ;
-// }
