@@ -16,6 +16,19 @@
 #include "headers/structure.h"
 
 /*
+ * return 1 if the currentFile is a file excluded, else return 0
+ */
+short isAnexcludedFile(ConfigLinter* linterConfig, char* currentFile){
+  short ret = 0 ;
+  for(int i = 0 ; i < linterConfig->countExcludedFiles; i++){
+    if(strstr(currentFile, linterConfig->listExcludedFiles[i]) != NULL){
+      ret = 1 ;
+      i = linterConfig->countExcludedFiles ;
+    }
+  }
+  return ret ;
+}
+/*
   initialise a ConfigLinter structure
 */
 ConfigLinter* getInitialisedConfigLinter(){

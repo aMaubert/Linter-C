@@ -15,15 +15,39 @@
 #include <string.h>
 #include "headers/logger.h"
 
-#define __RELATIVE_PATH_OUTPUT_ERROR__ "../log/linter_C.err"
-#define __RELATIVE_PATH_OUTPUT_LOG__ "../log/linter_C.log"
+/*
+ * Initialize Logger
+ */
+Logger* initialiseLogger(char* pathDirectory){
 
-Logger* initialiseLogger(){
   Logger* logger = malloc(sizeof(Logger))  ;
-  logger->error = fopen( __RELATIVE_PATH_OUTPUT_ERROR__, "w") ;
-  logger->log = fopen( __RELATIVE_PATH_OUTPUT_LOG__, "w") ;
+  char* outputLog = malloc(sizeof(char) * (1 + strlen(pathDirectory) + strlen("/linter.log") ) ) ;
+  char* outputError = malloc(sizeof(char) * (1 + strlen(pathDirectory) + strlen("/linter.error") )) ;
+
+  if(outputLog == NULL || outputError == NULL){
+    fprintf(stderr, "%s , ligne : %d\nProbleme allocation memoire\n\n", __FILE__, __LINE__) ;
+    system("pause") ;
+    fflush(NULL) ;
+    exit(EXIT_FAILURE) ;
+  }
+
+  strcpy(outputLog, pathDirectory) ;
+  strcat( outputLog, "/linter.log") ;
+
+  strcpy(outputError, pathDirectory) ;
+  strcat( outputError, "/linter.error") ;
+
+  logger->error = fopen( outputError, "w") ;
+  logger->log = fopen( outputLog, "w") ;
+
+  free(outputLog) ;
+  free(outputError) ;
+
   return logger ;
 }
+/*
+ * Return a string with the curent system dateTime
+ */
 char* getCurrentTime(){
   time_t timestamp ; /* timestamp contient maintenant la date et l'heure courante */
   struct tm *date;
@@ -36,13 +60,15 @@ char* getCurrentTime(){
   strcpy(ret, buffer) ;
   return ret ;
 }
-
-void error(Logger* logger, char* message){
+/*
+ * Append message in the error file
+ */
+void messageError(Logger* logger, char* message){
 
     char* dateTime = getCurrentTime() ;
     char buffer[256] ;
     strcpy(buffer, dateTime) ;
-    strcat(buffer, " - INFO - ") ;
+    strcat(buffer, " - ERROR - ") ;
 
     int tailleBuffer = strlen(buffer) ;
 
@@ -67,8 +93,10 @@ void error(Logger* logger, char* message){
     }else printf("fichier error pas ouvert , pb ouverture fichier\n") ;
 
 }
-
-void log( Logger* logger, char* message){
+/*
+ * Append message in the log file
+ */
+void messageLog(Logger* logger, char* message){
 
       char* dateTime = getCurrentTime() ;
       char buffer[256] ;
@@ -98,6 +126,9 @@ void log( Logger* logger, char* message){
       }else printf("fichier log pas ouvert , pb ouverture fichier\n") ;
 }
 
+/*
+ * Close the log files
+ */
 void closeLogger(Logger* logger){
   fclose(logger->error) ;
   fclose(logger->log) ;

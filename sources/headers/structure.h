@@ -45,21 +45,8 @@ void setListExcludedFiles(ConfigLinter* linterConfiguration, char** listExcluded
 ConfigLinter* getInitialisedConfigLinter() ;
 ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend, int countRules,
    char** listKey, char**listValue, int countExcludedFiles, char** listExcludedFiles, short recursive) ;
-/*
-void freeConfigLinter(ConfigLinter* linterConfiguration) ;
-void freeRuleLinter(RuleLinter* ruleLinter) ;
 
-RuleLinter* getRuleLinter(char* key, char* value) ;
-
-void setFileExtend(ConfigLinter* linterConfiguration, char* fileExtend) ;
-void setListRules(ConfigLinter* linterConfiguration, int countRules, char** listKey, char** listValue) ;
-void setListExcludedFiles(ConfigLinter* linterConfiguration, int countExcludedFiles, char** listExcludedFiles) ;
-void setRecursive(ConfigLinter* linterConfiguration, short recursive) ;
-
-RuleLinter** realloclistRuleLinter(RuleLinter** listToResize, int oldSize, int newSize) ;
-
-void copyRule(RuleLinter* ruleToModify, RuleLinter* ruleToCopy) ;
-*/
+short isAnexcludedFile(ConfigLinter* linterConfig, char* currentFile) ;
 
 
 #endif // STRUCTURE_HEADER_INCLUDED_

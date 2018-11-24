@@ -17,8 +17,8 @@ typedef struct Logger{
 }Logger ;
 
 
-Logger* initialiseLogger() ;
-void error(Logger* logger, char* message) ;
-void log(Logger* logger, char* message) ;
+Logger* initialiseLogger(char* pathDirectory) ;
+void messageError(Logger* logger, char* message) ;
+void messageLog(Logger* logger, char* message) ;
 char* getCurrentTime() ;
 void freeLogger(Logger* logger) ;
