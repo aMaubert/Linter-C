@@ -6,6 +6,20 @@
 
 #IncludeRegexTransform: 
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/directory.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+dirent.h
+-
+sys/types.h
+-
+headers/directory.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
 
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h

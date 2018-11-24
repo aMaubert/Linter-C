@@ -1,11 +1,12 @@
 =extends
-fichierExtendu.lconf
 
 =rules
 - array-bracket-eol = on
 - operators-spacing = on
 - comma-spacing = off
-- indent = 20
+- indent = 60
+- comments-header = off
+- max-line-numbers = 125
 
 =excludedFiles
 bidule.c

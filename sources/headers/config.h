@@ -20,10 +20,7 @@
 
 char* changePathExtendFile(char* path, char* fileExtendName) ;
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig) ;
-
-char** stringSplit(char* toSplit, char caractere, int *nbWords) ;
-
-char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd) ;
+ConfigLinter* loadLinterConfiguration(char* pathDirectory) ;
 
 
 

@@ -14,15 +14,56 @@
 #include "headers/config.h"
 #include "headers/structure.h"
 
+// chemin du fichier default.lconf qui contient les parametres par defauts
+#define __DEFAULT_CONF_FILE__ "D:/ESGI/projets pedagogique ESGI/Linter-C/resources/lconfig/default.lconf"
 
+ConfigLinter* loadLinterConfiguration(char* pathDirectory){
+
+	ConfigLinter* linterConfig = NULL ;
+	char* pathConfigFile = getConfigFile(pathDirectory) ;
+
+  if(pathConfigFile != NULL){
+		linterConfig = memorizeConfig( pathConfigFile , linterConfig) ;
+
+		while(linterConfig->fileExtend != NULL){
+	    // on verifie que le nom du fichier contient l'extention .lconf
+	    if(strstr( linterConfig->fileExtend, ".lconf") == NULL){
+	      fprintf(stderr, "le fichier etendu %s .\ndans %s .\nne contient pas l'extention .lconf !!!\n\n", linterConfig->fileExtend, pathConfigFile) ;
+	      system("pause") ;
+	      fflush(NULL) ;
+	      exit(EXIT_FAILURE) ;
+	    }
+	    // on recupere le chemin du fichier de config etendu
+	    pathConfigFile = getPathConfigFileExtend( pathDirectory, linterConfig->fileExtend) ;
+	    if(pathConfigFile == NULL){ // si on ne l'a pas trouver on sort du progrmme en erreur fatale
+	      fprintf(stderr, "le fichier etendu %s n'est pas present dans le repertoire et sous repertoire(s) du dossier.\n\n", linterConfig->fileExtend) ;
+	      system("pause") ;
+	      fflush(NULL) ;
+	      exit(EXIT_FAILURE) ;
+	    }
+	    free(linterConfig->fileExtend) ;
+	    linterConfig->fileExtend = NULL ;
+	    linterConfig = memorizeConfig( pathConfigFile , linterConfig) ;
+	  }
+	}
+
+  linterConfig = memorizeConfig( __DEFAULT_CONF_FILE__ , linterConfig) ;
+
+	free(pathConfigFile) ;
+
+	return linterConfig ;
+}
+/*
+ * memorize the congig file in a structur ConfigLinter
+ * return a structure ConfigLinter that contain the parametre in the config File
+ */
 ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 	FILE* inputFile = fopen(pathFile, "r") ;
 
 	char line[256] ;
-	char ruleKey[256] ;
-	char ruleValue[256] ;
-	char excludedFile[256] ;
+	char buffer1[256] ;
+	char buffer2[256] ;
 	int countRules = 0, countExcludedFile = 0 ;
 
 
@@ -59,7 +100,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		// récuperation de la liste des règles du linter
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
 
-			sscanf(line, "- %s = %s\n", ruleKey, ruleValue) ;
+			sscanf(line, "- %s = %s\n", buffer1, buffer2) ;
 			countRules += 1 ;
 			if(countRules > countAllocateRules){
 				countAllocateRules = countRules ;
@@ -74,16 +115,16 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				listValue[countRules - 1] = NULL ;
 			}
 
-			listKey[countRules - 1] = realloc( listKey[countRules - 1], sizeof(char) * (strlen(ruleKey) + 1) ) ;
-			listValue[countRules - 1] = realloc( listValue[countRules - 1], sizeof(char) * (strlen(ruleValue) + 1)) ;
+			listKey[countRules - 1] = realloc( listKey[countRules - 1], sizeof(char) * (strlen(buffer1) + 1) ) ;
+			listValue[countRules - 1] = realloc( listValue[countRules - 1], sizeof(char) * (strlen(buffer2) + 1)) ;
 
 			if(listKey[countRules - 1] == NULL || listValue[countRules - 1] == NULL){
 				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
-			strcpy( listKey[countRules - 1], ruleKey) ;
-			strcpy( listValue[countRules - 1], ruleValue) ;
+			strcpy( listKey[countRules - 1], buffer1) ;
+			strcpy( listValue[countRules - 1], buffer2) ;
 		}
 
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "=excludedFiles\n") != 0) ) ;
@@ -91,7 +132,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		// récuperation de la liste des fichier à exclure du linter
 		while( (fgets( line, sizeof(line), inputFile ) != NULL) && (strcmp(line, "\n") != 0) ){
 
-			sscanf(line, "%s\n", excludedFile) ;
+			sscanf(line, "%s\n", buffer1) ;
 			countExcludedFile += 1 ;
 			if(countExcludedFile > countAllocateExcludedFiles){
 				countAllocateExcludedFiles = countExcludedFile ;
@@ -105,18 +146,18 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				listExcludedFiles[countExcludedFile - 1] = NULL ;
 			}
 
-			listExcludedFiles[countExcludedFile - 1] = realloc(listExcludedFiles[countExcludedFile - 1] , sizeof(char) * (strlen(excludedFile) + 1) ) ;
+			listExcludedFiles[countExcludedFile - 1] = realloc(listExcludedFiles[countExcludedFile - 1] , sizeof(char) * (strlen(buffer1) + 1) ) ;
 
 
 			if(listExcludedFiles[countExcludedFile - 1] == NULL){
 				fprintf(stderr, "Probleme allocation memoire listExcludedFiles[%d]\n", (countExcludedFile - 1)) ;
-				fprintf(stderr, "excludedFile : %s    strlen(excludedFile) : %d\n",  excludedFile, (int)strlen(excludedFile)) ;
+				fprintf(stderr, "excludedFile : %s    strlen(excludedFile) : %d\n",  buffer1, (int)strlen(buffer1)) ;
 				fprintf(stderr, "dans %s ligne : %d\n",  __FILE__, __LINE__) ;
 				system("pause") ;
 				exit(EXIT_FAILURE) ;
 			}
 
-			strcpy(listExcludedFiles[countExcludedFile - 1] , excludedFile) ;
+			strcpy(listExcludedFiles[countExcludedFile - 1] , buffer1) ;
 
 		}
 
@@ -126,11 +167,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 			sscanf(line, "%s\n", valeurRecursive) ;
 			if(strcmp(valeurRecursive , "true") == 0) recursive = 1 ;
 			else if(strcmp(valeurRecursive , "false") == 0) recursive = 0 ;
-
 			if(linterConfig != NULL) recursive = linterConfig->recursive ;
-			printf( "valeurRecursive : %s  , recursive : %d\n", valeurRecursive, (int) recursive) ;
-			system("pause") ;
-			fflush(stdout) ;
 		}
 
 	}
@@ -141,6 +178,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		exit(EXIT_FAILURE) ;
 	}
 
+	/* on ferme le fichier car on a fini de le lire*/
 	fclose(inputFile) ;
 
 
@@ -153,137 +191,30 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 
 	 linterConfig = getConfigLinter(linterConfig, extendFile, countRules, listKey, listValue,
-		  countExcludedFile, listExcludedFiles, recursive) ;
+		  														countExcludedFile, listExcludedFiles, recursive) ;
 
+		// On libere la mémoire
+	 free(extendFile) ;
 
-	 if(extendFile != NULL){
-
-		 pathFile = changePathExtendFile( pathFile, linterConfig->fileExtend) ;
-		 printf("ligne : %d,  pathFile : %s\n", __LINE__, pathFile) ;
-		 linterConfig = memorizeConfig( pathFile, linterConfig) ;
+	 for(int i = 0 ; i < countRules; i++){
+		 free(listKey[i]) ;
+		 free(listValue[i]) ;
 	 }
+	 free(listKey) ;
+	 free(listValue) ;
 
+	 for(int i = 0 ; i < countExcludedFile; i++){
+		 free(listExcludedFiles[i]) ;
+	 }
+	 free(listExcludedFiles) ;
+
+	 // if(linterConfig->fileExtend != NULL){
+	 //
+		//  pathFile = changePathExtendFile( pathFile, linterConfig->fileExtend) ;
+		//  printf("ligne : %d,  pathFile : %s\n", __LINE__, pathFile) ;
+		//  linterConfig = memorizeConfig( pathFile, linterConfig) ;
+	 // }
 
 	return linterConfig ;
 
 }
-char* changePathExtendFile(char* path, char* fileExtendName){
-
-	for(int i = strlen(path) ; i >= 0 ; i--){
-		if(path[i] == '/' || path[i] == '\\'){
-			path[i + 1] = '\0' ;
-			i = 0 ;
-		}
-	}
-
-	path = realloc(path, sizeof(char) * (1 + strlen(path) + strlen(fileExtendName))) ;
-	if(path == NULL){
-		fprintf(stderr, "file : %s , ligne : %d\nProbleme Allocation memoire\n\n", __FILE__, __LINE__) ;
-		system("pause") ;
-		fflush(NULL) ;
-	}
-	else{
-		strcat(path , fileExtendName) ;
-	}
-	return path ;
-}
-
-
-/*
- *
- * @return : le nombres de mots contenus dans toSplit
- *
- */
-char** stringSplit(char* toSplit, char caractere, int *nbWords){
-	int index = 0 ;
-	int countWords = 0 ;
-	char** destination = NULL ;
-
-	do{
-		if((toSplit[index] == caractere) && (toSplit[index + 1] != '\0') ) countWords += 1 ;
-
-		index += 1 ;
-	}while(toSplit[index] != '\0' ) ;
-	countWords += 1 ;
-	destination = malloc(sizeof(char* ) * countWords) ;
-	char buffer[4086] ;
-	index = 0 ;
-	int indexBuffer = 0 ;
-	int lineDestination = 0 ;
-	do{
-		if((toSplit[index] == caractere) && (toSplit[index + 1] != '\0') ){
-			buffer[indexBuffer] = '\0' ;
-			destination[lineDestination] = malloc(sizeof(char) * strlen(buffer)) ;
-			strcpy(destination[lineDestination],buffer) ;
-			indexBuffer = 0 ;
-			lineDestination += 1 ;
-		}else if(toSplit[index + 1] == '\0'){
-			buffer[indexBuffer] = '\0' ;
-			destination[lineDestination] = malloc(sizeof(char) * strlen(buffer)) ;
-			strcpy(destination[lineDestination],buffer) ;
-		}else{
-			buffer[indexBuffer] = toSplit[index] ;
-			indexBuffer += 1 ;
-		}
-
-		index += 1 ;
-	}while(toSplit[index] != '\0' ) ;
-
-	*nbWords = countWords ;
-	return destination ;
-}
-
-char* str_replace(const char* stringToReplace, const char *str_regex, const char* expressionToAdd){
-	 int err;
-   regex_t preg;
-	 err = regcomp (&preg, str_regex, REG_EXTENDED); // compile l'expression  reguliere
-
-	 if (err == 0){ // si la compilation a fonctionner
-      int match;
-      size_t numberMatch = 0;
-      regmatch_t *pmatch = NULL;
-
-      numberMatch = preg.re_nsub; // on recupère le nombre de match
-      pmatch = malloc (sizeof (*pmatch) * numberMatch);
-      if (pmatch){
-         match = regexec (&preg, stringToReplace, numberMatch, pmatch, 0);
-         regfree (&preg);
-
-         if (match == 0){
-            char *ret = NULL;
-            int start = pmatch[0].rm_so; // debut du match
-            int end = pmatch[0].rm_eo;// fin du match
-            size_t size = (strlen(stringToReplace) - (end - start));//taille en octet du match
-
-            ret = malloc (sizeof (*ret) * (size + strlen(expressionToAdd) ));
-            if (ret){
-               strncpy (ret, &stringToReplace[0], size);
-							 ret[size] = '\0';
-							 strcat(ret, expressionToAdd) ;
-               return ret ;
-            }
-         }
-         else if (match == REG_NOMATCH){
-            printf ("Il n'y a aucun resultat pour la regex donné dans : %s\n", stringToReplace);
-         }
-				 else{
-            char *text;
-            size_t size;
-
-            size = regerror (err, &preg, NULL, 0);
-            text = malloc (sizeof (*text) * size);
-            if (text){
-
-               regerror (err, &preg, text, size);
-               fprintf (stderr, "%s\n", text);
-               free (text);
-            }else{
-               fprintf (stderr, "Memoire insuffisante\n");
-            }
-         }
-      }else{
-         fprintf (stderr, "Memoire insuffisante\n");
-      }
-   }
-	 return NULL ;
- }

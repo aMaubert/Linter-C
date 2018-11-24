@@ -19,12 +19,16 @@
 #include "headers/structure.h"
 #include "headers/directory.h"
 
-
-#define __DEFAULT_CONF_FILE__ "D:/ESGI/projets pedagogique ESGI/Linter-C/resources/lconfig/default.lconf"
-
-
+void startLinter(int argc, char** argv) ;
+void linting(ConfigLinter* linterConfig, char* pathDirectory) ;
 
 int main(int argc, char* argv[]) {
+  startLinter(argc, argv) ;
+
+  return (EXIT_SUCCESS);
+}
+
+void startLinter(int argc, char** argv){
 
   ConfigLinter* linterConfig  = NULL;
   short argumentIsValid = validArgument(argc, argv) ;
@@ -40,18 +44,29 @@ int main(int argc, char* argv[]) {
   pathDirectory = malloc(sizeof(char) * (1 + strlen(argv[1]))) ;
   strcpy(pathDirectory , argv[1]) ;
 
-  char* pathConfigFile = getConfigFile(pathDirectory) ;
-
-  printf("pathConfigFile : %s\n", pathConfigFile) ;
-  if(pathConfigFile != NULL) linterConfig = memorizeConfig( pathConfigFile , linterConfig) ;
-  
-  linterConfig = memorizeConfig( __DEFAULT_CONF_FILE__ , linterConfig) ;
-
+  linterConfig = loadLinterConfiguration(pathDirectory) ;
 
 
   displayLinterConfig(linterConfig) ;
   system("pause") ;
-
   fflush(NULL) ;
-  return (EXIT_SUCCESS);
+
+  linting(linterConfig, pathDirectory) ;
+
+  freeConfigLinter(linterConfig) ;
+}
+
+
+void linting(ConfigLinter* linterConfig, char* pathDirectory){
+  int countSourcesFiles ;
+  char** listSourceFiles = getListSourceFiles(pathDirectory, &countSourcesFiles);
+
+  printf("listSourceFiles : \n") ;
+  for(int i = 0 ; i < countSourcesFiles; i++){
+    printf("%s\n", listSourceFiles[i]) ;
+  }
+
+  // liberation de la memoire allouée
+  for(int i = 0 ; i < countSourcesFiles; i++) free(listSourceFiles[i]) ;
+  free(listSourceFiles) ;
 }
