@@ -173,7 +173,51 @@ char* changePathExtendFile(char* path, char* fileExtendName){
 	}
 	return path ;
 }
+/*
+ * return the list of repository in a repository
+ */
+char** getListDirectory(char* pathDirectory, int* countDirectory){
+	int countAllFiles ;
+	int count = 0;
+	char** listAllFiles = getListFilesInDirectory( pathDirectory, &countAllFiles) ;
+	char** listDirectory = NULL ;
+	char* absolutePath = NULL ;
 
+	for(int i = 0; i < countAllFiles; i++){
+		absolutePath = realloc(absolutePath, sizeof(char) * (2 + strlen(pathDirectory) + strlen(listAllFiles[i]))) ;
+		if(absolutePath == NULL){
+			fprintf(stderr, "%s , ligne %d\nP¨robleme allocation memoire .\n\n", __FILE__, __LINE__) ;
+			system("pause") ;
+			fflush(NULL) ;
+			exit(EXIT_FAILURE) ;
+		}
+		strcpy(absolutePath, pathDirectory) ;
+		strcat(absolutePath, "/") ;
+		strcat(absolutePath, listAllFiles[i]) ;
+
+		if(directoryExist(absolutePath) && (strcmp(listAllFiles[i], "..") != 0) && (strcmp(listAllFiles[i], ".") != 0)){
+			count += 1 ;
+			listDirectory = realloc(listDirectory, sizeof(char*) * count) ;
+			if(listDirectory != NULL) listDirectory[count - 1] = malloc(sizeof(char) * (1 + strlen(absolutePath))) ;
+			if(listDirectory == NULL || listDirectory[count - 1] == NULL){
+				fprintf(stderr, "%s , ligne %d\nP¨robleme allocation memoire .\n\n", __FILE__, __LINE__) ;
+				system("pause") ;
+				fflush(NULL) ;
+				exit(EXIT_FAILURE) ;
+			}
+			strcpy(listDirectory[count - 1], absolutePath) ;
+
+		}
+	}
+/* on libere la memoire allouée */
+for(int i = 0; i < countAllFiles; i++) free(listAllFiles[i]) ;
+free(listAllFiles) ;
+
+free(absolutePath) ;
+
+*countDirectory = count ;
+return listDirectory ;
+}
 /*
  * the value of the argument : countSourcesFiles contents the number of sources c Files
  * Retrun the list of sources c files in the current directory

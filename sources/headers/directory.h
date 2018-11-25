@@ -17,5 +17,6 @@
 short directoryExist( char* path) ;
 char** getListFilesInDirectory(char* path, int* count) ;
 char* getConfigFile(char* pathDirectory) ;
+char** getListDirectory(char* pathDirectory, int* countDirectory) ;
 
 #endif /* DIRECTORY_HEADER_INCLUDED_ */

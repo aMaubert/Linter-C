@@ -64,24 +64,49 @@ void startLinter(int argc, char** argv){
 void linting(ConfigLinter* linterConfig, char* pathDirectory){
   int countSourcesFiles ;
   char** listSourceFiles = getListSourceFiles(pathDirectory, &countSourcesFiles);
+
   short isAnExcludedFile = 0 ;
-  Logger* logger = initialiseLogger(pathDirectory) ;
+  Logger* logger = NULL ;
+
+  if(countSourcesFiles > 0) logger = initialiseLogger(pathDirectory) ;
 
 
   for(int i = 0 ; i < countSourcesFiles; i++){
     isAnExcludedFile = isAnexcludedFile(linterConfig, listSourceFiles[i]) ;
-    printf("listSourceFiles[%d] : %s   , isAnExcludedFile : %d\n", i, listSourceFiles[i], isAnExcludedFile) ;
-    if(!isAnExcludedFile){
-      printf("lancement analyse de : %s\n", listSourceFiles[i]) ;
+
+    if(!isAnExcludedFile){ // Si c"est un fichier a analyser
+
       analyse(linterConfig, logger, listSourceFiles[i]) ;
     }
   }
+
+
+  // on le fait de maniere recursive si l'option a été activer
+  if(linterConfig->recursive == 1 ){
+    printf("linterConfig->recursive == 1\n" ) ;
+    int countDirectory ;
+    char** listDirectory = getListDirectory(pathDirectory, &countDirectory) ;
+    printf("countDirectory = %d\n", countDirectory ) ;
+    for(int i = 0 ; i < countDirectory; i++){
+      printf("sous-dossier a linter : %s\n", listDirectory[i]) ;
+      linting(linterConfig, listDirectory[i]) ;
+    }
+
+    // on libere l'espace memoire allouée
+    for(int i = 0 ; i < countDirectory; i++ ) free(listDirectory[i]) ;
+    free(listDirectory) ;
+  }
+
 
   // liberation de la memoire allouée
   for(int i = 0 ; i < countSourcesFiles; i++) free(listSourceFiles[i]) ;
   free(listSourceFiles) ;
 
+
+
   closeLogger(logger) ;
+
+
 }
 
 /*
