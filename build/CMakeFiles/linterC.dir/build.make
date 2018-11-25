@@ -99,10 +99,24 @@ CMakeFiles/linterC.dir/sources/directory.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/linterC.dir/sources/directory.c.s"
 	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/directory.c" -o CMakeFiles/linterC.dir/sources/directory.c.s
 
+CMakeFiles/linterC.dir/sources/interface.c.obj: CMakeFiles/linterC.dir/flags.make
+CMakeFiles/linterC.dir/sources/interface.c.obj: CMakeFiles/linterC.dir/includes_C.rsp
+CMakeFiles/linterC.dir/sources/interface.c.obj: ../sources/interface.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/linterC.dir/sources/interface.c.obj"
+	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/linterC.dir/sources/interface.c.obj   -c "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/interface.c"
+
+CMakeFiles/linterC.dir/sources/interface.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/linterC.dir/sources/interface.c.i"
+	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/interface.c" > CMakeFiles/linterC.dir/sources/interface.c.i
+
+CMakeFiles/linterC.dir/sources/interface.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/linterC.dir/sources/interface.c.s"
+	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/interface.c" -o CMakeFiles/linterC.dir/sources/interface.c.s
+
 CMakeFiles/linterC.dir/sources/linter.c.obj: CMakeFiles/linterC.dir/flags.make
 CMakeFiles/linterC.dir/sources/linter.c.obj: CMakeFiles/linterC.dir/includes_C.rsp
 CMakeFiles/linterC.dir/sources/linter.c.obj: ../sources/linter.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/linterC.dir/sources/linter.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/linterC.dir/sources/linter.c.obj"
 	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/linterC.dir/sources/linter.c.obj   -c "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/linter.c"
 
 CMakeFiles/linterC.dir/sources/linter.c.i: cmake_force
@@ -116,7 +130,7 @@ CMakeFiles/linterC.dir/sources/linter.c.s: cmake_force
 CMakeFiles/linterC.dir/sources/logger.c.obj: CMakeFiles/linterC.dir/flags.make
 CMakeFiles/linterC.dir/sources/logger.c.obj: CMakeFiles/linterC.dir/includes_C.rsp
 CMakeFiles/linterC.dir/sources/logger.c.obj: ../sources/logger.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/linterC.dir/sources/logger.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/linterC.dir/sources/logger.c.obj"
 	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/linterC.dir/sources/logger.c.obj   -c "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/logger.c"
 
 CMakeFiles/linterC.dir/sources/logger.c.i: cmake_force
@@ -130,7 +144,7 @@ CMakeFiles/linterC.dir/sources/logger.c.s: cmake_force
 CMakeFiles/linterC.dir/sources/main.c.obj: CMakeFiles/linterC.dir/flags.make
 CMakeFiles/linterC.dir/sources/main.c.obj: CMakeFiles/linterC.dir/includes_C.rsp
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Building C object CMakeFiles/linterC.dir/sources/main.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/linterC.dir/sources/main.c.obj"
 	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/linterC.dir/sources/main.c.obj   -c "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/main.c"
 
 CMakeFiles/linterC.dir/sources/main.c.i: cmake_force
@@ -144,7 +158,7 @@ CMakeFiles/linterC.dir/sources/main.c.s: cmake_force
 CMakeFiles/linterC.dir/sources/structure.c.obj: CMakeFiles/linterC.dir/flags.make
 CMakeFiles/linterC.dir/sources/structure.c.obj: CMakeFiles/linterC.dir/includes_C.rsp
 CMakeFiles/linterC.dir/sources/structure.c.obj: ../sources/structure.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_7) "Building C object CMakeFiles/linterC.dir/sources/structure.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building C object CMakeFiles/linterC.dir/sources/structure.c.obj"
 	/C/MinGW/bin/gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/linterC.dir/sources/structure.c.obj   -c "/D/ESGI/projets pedagogique ESGI/Linter-C/sources/structure.c"
 
 CMakeFiles/linterC.dir/sources/structure.c.i: cmake_force
@@ -160,6 +174,7 @@ linterC_OBJECTS = \
 "CMakeFiles/linterC.dir/sources/argument.c.obj" \
 "CMakeFiles/linterC.dir/sources/config.c.obj" \
 "CMakeFiles/linterC.dir/sources/directory.c.obj" \
+"CMakeFiles/linterC.dir/sources/interface.c.obj" \
 "CMakeFiles/linterC.dir/sources/linter.c.obj" \
 "CMakeFiles/linterC.dir/sources/logger.c.obj" \
 "CMakeFiles/linterC.dir/sources/main.c.obj" \
@@ -171,6 +186,7 @@ linterC_EXTERNAL_OBJECTS =
 linterC.exe: CMakeFiles/linterC.dir/sources/argument.c.obj
 linterC.exe: CMakeFiles/linterC.dir/sources/config.c.obj
 linterC.exe: CMakeFiles/linterC.dir/sources/directory.c.obj
+linterC.exe: CMakeFiles/linterC.dir/sources/interface.c.obj
 linterC.exe: CMakeFiles/linterC.dir/sources/linter.c.obj
 linterC.exe: CMakeFiles/linterC.dir/sources/logger.c.obj
 linterC.exe: CMakeFiles/linterC.dir/sources/main.c.obj
@@ -179,7 +195,7 @@ linterC.exe: CMakeFiles/linterC.dir/build.make
 linterC.exe: ../bin/regex2.dll
 linterC.exe: CMakeFiles/linterC.dir/linklibs.rsp
 linterC.exe: CMakeFiles/linterC.dir/objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking C executable linterC.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/D/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Linking C executable linterC.exe"
 	"/C/Program Files/CMake/bin/cmake.exe" -E remove -f CMakeFiles/linterC.dir/objects.a
 	/C/MinGW/bin/ar.exe cr CMakeFiles/linterC.dir/objects.a @CMakeFiles/linterC.dir/objects1.rsp
 	/C/MinGW/bin/gcc.exe    -Wl,--whole-archive CMakeFiles/linterC.dir/objects.a -Wl,--no-whole-archive  -o linterC.exe -Wl,--out-implib,liblinterC.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles/linterC.dir/linklibs.rsp

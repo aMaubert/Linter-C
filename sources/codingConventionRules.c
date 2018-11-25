@@ -1,17 +1,14 @@
 /*
  ============================================================================
- Name        : main.c
+ Name        : codingConventionRules.c
  Author      : Allan Maubert
- Created on	 : 2018/10/15
+ Created on	 : 2018/10/25
  Version     :
- Copyright   : Your copyright notice
+ Copyright   :
  Description :
  ============================================================================
  */
-#include <stdlib.h>
-#include "headers/linter.h"
 
-int main(int argc, char* argv[]) {
-  startLinter(argc, argv) ;
-  return (EXIT_SUCCESS);
-}
+ void indentRule( Logger* logger, char* pathFile, int indent){
+   
+ }

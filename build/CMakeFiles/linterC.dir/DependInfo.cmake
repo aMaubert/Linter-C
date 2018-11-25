@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/argument.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/argument.c.obj"
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/config.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/config.c.obj"
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/directory.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/directory.c.obj"
+  "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/interface.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/interface.c.obj"
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/linter.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/linter.c.obj"
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/logger.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/logger.c.obj"
   "D:/ESGI/projets pedagogique ESGI/Linter-C/sources/main.c" "D:/ESGI/projets pedagogique ESGI/Linter-C/build/CMakeFiles/linterC.dir/sources/main.c.obj"

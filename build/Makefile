@@ -204,6 +204,33 @@ sources/directory.c.s:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/directory.c.s
 .PHONY : sources/directory.c.s
 
+sources/interface.obj: sources/interface.c.obj
+
+.PHONY : sources/interface.obj
+
+# target to build an object file
+sources/interface.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/interface.c.obj
+.PHONY : sources/interface.c.obj
+
+sources/interface.i: sources/interface.c.i
+
+.PHONY : sources/interface.i
+
+# target to preprocess a source file
+sources/interface.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/interface.c.i
+.PHONY : sources/interface.c.i
+
+sources/interface.s: sources/interface.c.s
+
+.PHONY : sources/interface.s
+
+# target to generate assembly for a file
+sources/interface.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/interface.c.s
+.PHONY : sources/interface.c.s
+
 sources/linter.obj: sources/linter.c.obj
 
 .PHONY : sources/linter.obj
@@ -330,6 +357,9 @@ help:
 	@echo "... sources/directory.obj"
 	@echo "... sources/directory.i"
 	@echo "... sources/directory.s"
+	@echo "... sources/interface.obj"
+	@echo "... sources/interface.i"
+	@echo "... sources/interface.s"
 	@echo "... sources/linter.obj"
 	@echo "... sources/linter.i"
 	@echo "... sources/linter.s"
