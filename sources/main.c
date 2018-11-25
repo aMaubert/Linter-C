@@ -49,11 +49,13 @@ void startLinter(int argc, char** argv){
   linterConfig = loadLinterConfiguration(pathDirectory) ;
 
 
+
+
+  linting(linterConfig, pathDirectory) ;
+  
   displayLinterConfig(linterConfig) ;
   system("pause") ;
   fflush(NULL) ;
-
-  linting(linterConfig, pathDirectory) ;
 
   freeConfigLinter(linterConfig) ;
 }
