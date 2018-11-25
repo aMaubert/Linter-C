@@ -9,11 +9,15 @@
  ============================================================================
  */
 
- #ifndef CODING_CONVENTION_RULES_HEADER_INCLUDED_
- #define CODING_CONVENTION_RULES_HEADER_INCLUDED_
+#ifndef CODING_CONVENTION_RULES_HEADER_INCLUDED_
+#define CODING_CONVENTION_RULES_HEADER_INCLUDED_
+
+#include "logger.h"
 
 void indentRule( Logger* logger, char* pathFile, int indent) ;
+short indentNextLine(char* line) ;
+short reverseIndentNextLine(char* line) ;
+short isIndent(char* line, int currentIndent) ;
 
 
-
- #endif /* CODING_CONVENTION_RULES_HEADER_INCLUDED_ */
+#endif /* CODING_CONVENTION_RULES_HEADER_INCLUDED_ */

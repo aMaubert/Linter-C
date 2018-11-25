@@ -150,6 +150,33 @@ sources/argument.c.s:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/argument.c.s
 .PHONY : sources/argument.c.s
 
+sources/codingConventionRules.obj: sources/codingConventionRules.c.obj
+
+.PHONY : sources/codingConventionRules.obj
+
+# target to build an object file
+sources/codingConventionRules.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/codingConventionRules.c.obj
+.PHONY : sources/codingConventionRules.c.obj
+
+sources/codingConventionRules.i: sources/codingConventionRules.c.i
+
+.PHONY : sources/codingConventionRules.i
+
+# target to preprocess a source file
+sources/codingConventionRules.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/codingConventionRules.c.i
+.PHONY : sources/codingConventionRules.c.i
+
+sources/codingConventionRules.s: sources/codingConventionRules.c.s
+
+.PHONY : sources/codingConventionRules.s
+
+# target to generate assembly for a file
+sources/codingConventionRules.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/codingConventionRules.c.s
+.PHONY : sources/codingConventionRules.c.s
+
 sources/config.obj: sources/config.c.obj
 
 .PHONY : sources/config.obj
@@ -351,6 +378,9 @@ help:
 	@echo "... sources/argument.obj"
 	@echo "... sources/argument.i"
 	@echo "... sources/argument.s"
+	@echo "... sources/codingConventionRules.obj"
+	@echo "... sources/codingConventionRules.i"
+	@echo "... sources/codingConventionRules.s"
 	@echo "... sources/config.obj"
 	@echo "... sources/config.i"
 	@echo "... sources/config.s"

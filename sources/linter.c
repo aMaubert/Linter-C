@@ -77,7 +77,16 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
         break ;
      case 4 : //rule : indent
         if(strcmp(linterConfig->listRules[i]->value, "off") != 0 ){
-          messageLog( logger, "regle : indent a faire\n") ;
+          int indent = atoi(linterConfig->listRules[i]->value) ;
+          if(indent == 0){
+            fprintf(stderr, "mauvaise valeur de la regle %s : %s\n", linterConfig->listRules[i]->key, linterConfig->listRules[i]->value) ;
+            pause() ;
+            fflush(NULL) ;
+            exit(EXIT_FAILURE) ;
+          }else{
+            indentRule( logger, currentFile, indent) ;
+          }
+
         }
         break ;
      case 5 : //rule : comments-header
@@ -170,6 +179,12 @@ void linting(ConfigLinter* linterConfig, char* pathDirectory){
       analyse(linterConfig, logger, listSourceFiles[i]) ;
     }
   }
+  // liberation de la memoire allouée
+  for(int i = 0 ; i < countSourcesFiles; i++) free(listSourceFiles[i]) ;
+  free(listSourceFiles) ;
+
+  closeLogger(logger) ;
+  
   // on le fait de maniere recursive si l'option a été activer
   if(linterConfig->recursive == 1 ){
 
@@ -186,11 +201,9 @@ void linting(ConfigLinter* linterConfig, char* pathDirectory){
   }
 
 
-  // liberation de la memoire allouée
-  for(int i = 0 ; i < countSourcesFiles; i++) free(listSourceFiles[i]) ;
-  free(listSourceFiles) ;
 
-  closeLogger(logger) ;
+
+
 }
 
 

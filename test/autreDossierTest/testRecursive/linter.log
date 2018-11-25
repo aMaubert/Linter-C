@@ -1,7 +1,30 @@
-2018/11/25  12:51:28 - INFO - regle : array-bracket-eol a faire
-2018/11/25  12:51:28 - INFO - regle : operators-spacing a faire
-2018/11/25  12:51:28 - INFO - regle : indent a faire
-2018/11/25  12:51:28 - INFO - regle : max-line-numbers a faire
-2018/11/25  12:51:28 - INFO - regle : max-file-line-numbers a faire
-2018/11/25  12:51:28 - INFO - regle : no-trailing-spaces a faire
-2018/11/25  12:51:28 - INFO - regle : variable-assignment-type a faire
+2018/11/25  17:37:59 - INFO : 
+regle : array-bracket-eol a faire
+
+
+2018/11/25  17:37:59 - INFO : 
+regle : operators-spacing a faire
+
+
+2018/11/25  17:37:59 - INFO : 
+mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/autreDossierTest/testRecursive/Hello_World.c
+La bonne indentation a cette ligne est de 2 espace !
+
+
+
+2018/11/25  17:37:59 - INFO : 
+regle : max-line-numbers a faire
+
+
+2018/11/25  17:37:59 - INFO : 
+regle : max-file-line-numbers a faire
+
+
+2018/11/25  17:37:59 - INFO : 
+regle : no-trailing-spaces a faire
+
+
+2018/11/25  17:37:59 - INFO : 
+regle : variable-assignment-type a faire
+
+

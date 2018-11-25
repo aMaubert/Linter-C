@@ -68,7 +68,7 @@ void messageError(Logger* logger, char* message){
     char* dateTime = getCurrentTime() ;
     char buffer[256] ;
     strcpy(buffer, dateTime) ;
-    strcat(buffer, " - ERROR - ") ;
+    strcat(buffer, " - ERROR : ") ;
 
     int tailleBuffer = strlen(buffer) ;
 
@@ -101,7 +101,7 @@ void messageLog(Logger* logger, char* message){
       char* dateTime = getCurrentTime() ;
       char buffer[256] ;
       strcpy(buffer, dateTime) ;
-      strcat(buffer, " - INFO - ") ;
+      strcat(buffer, " - INFO : \n") ;
 
       int tailleBuffer = strlen(buffer) ;
 
@@ -111,6 +111,7 @@ void messageLog(Logger* logger, char* message){
 
       strcpy(line, buffer) ;
       strcat(line, message) ;
+      strcat(line, "\n\n") ;
 
       if(strchr(line, '\n') == NULL ){
         char* ptr = strchr(line, '\0') ;

@@ -5,7 +5,7 @@ fichierExtendu.lconf
 - array-bracket-eol = on
 - operators-spacing = on
 - comma-spacing = off
-- indent = 20
+- indent = 2
 
 =excludedFiles
 bidule.c

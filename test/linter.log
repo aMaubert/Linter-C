@@ -1,0 +1,78 @@
+2018/11/25  17:49:15 - INFO : 
+regle : array-bracket-eol a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : operators-spacing a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s) !
+
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : max-line-numbers a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : max-file-line-numbers a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : no-trailing-spaces a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : variable-assignment-type a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : array-bracket-eol a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : operators-spacing a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+mauvaise indention à la ligne : 5  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 2 espace(s) !
+
+
+
+2018/11/25  17:49:15 - INFO : 
+mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 4 espace(s) !
+
+
+
+2018/11/25  17:49:15 - INFO : 
+mauvaise indention à la ligne : 7  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 2 espace(s) !
+
+
+
+2018/11/25  17:49:15 - INFO : 
+mauvaise indention à la ligne : 8  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 2 espace(s) !
+
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : max-line-numbers a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : max-file-line-numbers a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : no-trailing-spaces a faire
+
+
+2018/11/25  17:49:15 - INFO : 
+regle : variable-assignment-type a faire
+
+
