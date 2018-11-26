@@ -41,9 +41,11 @@ void startLinter(int argc, char** argv){
   displayLinterConfig(linterConfig) ;
   pause() ;
   fflush(NULL) ;
-  printf("Analyse des fichiers en cours ...\n") ;
+  printf("\nAnalyse des fichiers en cours ...") ;
   linting(linterConfig, pathDirectory) ;
-  printf("Analyse terminer\n") ;
+  printf("\nAnalyse terminer\n") ;
+  pause() ;
+  fflush(NULL) ;
 
   freeConfigLinter(linterConfig) ;
 }
@@ -184,7 +186,7 @@ void linting(ConfigLinter* linterConfig, char* pathDirectory){
   free(listSourceFiles) ;
 
   closeLogger(logger) ;
-  
+
   // on le fait de maniere recursive si l'option a été activer
   if(linterConfig->recursive == 1 ){
 

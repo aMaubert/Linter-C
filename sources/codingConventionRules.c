@@ -32,18 +32,17 @@
          short goodIndent = isIndent(line, currentIndent - indent) ;
          if(goodIndent == 0){
            char message[1024] ;
-           sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s) !\n\n", countLine, pathFile, (currentIndent - indent) ) ;
+           sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s)  !\n\n", countLine, pathFile, (currentIndent - indent) ) ;
            messageLog(logger, message) ;
          }
-       }else{
+       }else{ // sinon on verifie l'indention courrant
          short goodIndent = isIndent(line, currentIndent) ;
-         if(goodIndent == 0){
+         if(goodIndent == 0){ // si goodIndent vaut 0, cela veut dire que l'indentation est mauvaise, il faut le repporté dans les logs
            char message[1024] ;
-           sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s) !\n\n", countLine, pathFile, currentIndent) ;
+           sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s) !\n\n", countLine, pathFile, currentIndent) ;
            messageLog(logger, message) ;
          }
        }
-
 
        if(indentNextLine(line)) currentIndent += indent ; // lorsque l'ouvre un bloc d'instruction avec le '{', l'indentation courrant augmente de indent unité d'espaces
        else if(reverseIndentNextLine(line)) currentIndent -= indent ;// lorsque l'ouvre un bloc d'instruction avec le '}', l'indentation courrant diminue de indent unité d'espaces
@@ -60,21 +59,36 @@
 
  }
 /*
- * return 1 if the current line is indented, else return 0 ;
+ * return 1 if the current line is indented correctly (the indent is with spaces or Tabulations), else return 0 ;
  */
 short isIndent(char* line, int currentIndent){
   char c ;
   int indexLine = 0 ;
-  int indentLine = 0 ;
+  int countSpaces = 0 ;
+  int countTabulations = 0 ;
+
+  // si l'indentation a été faite avec des espaces
   do{
     c = line[indexLine] ;
     if(c == ' '){
-      indentLine += 1 ;
+      countSpaces += 1 ;
       indexLine += 1 ;
     }
   }while(c == ' ') ;
-  if(indentLine == currentIndent) return 1 ;
-  else return 0 ;
+  if(countSpaces == currentIndent) return 1 ;
+
+  // si l'indentation a été faite avec des tabulations
+  indexLine = 0 ;
+  do{
+    c = line[indexLine] ;
+    if(c == '\t'){
+      countTabulations += 1 ;
+      indexLine += 1 ;
+    }
+  }while(c == '\t') ;
+  if(countTabulations == currentIndent) return 1 ;
+
+  return 0 ;
 }
 short indentNextLine(char* line){
    if(strstr(line, "{\n") != NULL) return 1 ;
