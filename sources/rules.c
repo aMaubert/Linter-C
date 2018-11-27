@@ -19,20 +19,22 @@
 #define __SIZE_BUFFER__ 5000
 
 
-void coma_spacing(FILE* f){
+void comments_header(FILE* f){
     printf("------------------------------\n");
-    printf("Regle Espace à droite d'une virgule :\n\n");
+    printf("Regle Présence d'un commentaire multi-ligne:\n\n");
     int line = 1;
+    int afterComm = 0;
+    int isCommBefore = 0;
     char Currentligne[258];
     bool Iscomm = false;
-    int errorSpace = 0;
     //fonction typeof
 
        while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
         int erreur = 0;
          for(int i = 0; i < strlen(Currentligne); i++){
-          if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+          if(Currentligne[i] == '/' && Currentligne[i+1] == '*' && line == 1)
           {
+            isCommBefore = 1;
            Iscomm = true;
            i = i + 2;
           }
@@ -49,17 +51,14 @@ void coma_spacing(FILE* f){
             i++;
             }
           }
-          
-          if(Currentligne[i] == ','){
-            if(Currentligne[i+1] != ' ') erreur++;
+          if(Iscomm == false && isCommBefore == 1)
+          {
+            if(Currentligne[i] != ' ') afterComm ++;
           }
         }
-        if(erreur > 0){
-          printf("%d erreur(s) de syntaxe à la ligne %d\n", erreur,line); 
-          errorSpace++;
-        } 
-        line++;
-     }
-     rewind(f);
-       if(errorSpace == 0) printf("Aucune erreur de syntaxe.\n");
+        line ++;
+      }
+      rewind(f);
+      if(afterComm > 0) printf("La présence d'un commentaire multi-ligne en entete de fichier a été confirmé.\n");
+      else printf("La présence d'un commentaire multi-ligne en entete de fichier n'a pas été confirmé.\n");
 }
