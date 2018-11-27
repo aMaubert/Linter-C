@@ -19,20 +19,44 @@
 #define __SIZE_BUFFER__ 5000
 
 
-void nbCharacteres(int nb,FILE * f){
-  printf("------------------------------\n");
-  printf("Regle Nombre de caracteres maximum par ligne :\n\n");
-  printf("Nombre de caracteres autorisés : %d\n\n", nb);
-  int counter=0;
-  int errorLine = 0;
-  char CurrentLine[248];
-  while(fgets(CurrentLine, sizeof(CurrentLine), f) !=NULL){
-    counter++;
-    if (strlen(CurrentLine)>nb){
-      printf("Nombre de caracteres dépassé à la ligne %d\n", counter);
-      errorLine ++;
-    }
-  }
-  rewind(f);
-  if(errorLine == 0) printf("Le nombre de caracteres maximum par ligne n'a pas été dépassé.\n");
+void no_trailing_spaces(FILE* f){
+      printf("------------------------------\n");
+      printf("Regle Pas d'espace en fin de ligne :\n\n");
+      int line = 1;
+      char Currentligne[258];
+      bool Iscomm = false;
+      int errorTrailing = 0;
+
+      while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+           for(int i = 0; i < strlen(Currentligne); i++){
+            if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+            {
+             Iscomm = true;
+             i = i + 2;
+            }
+
+            if(Iscomm == true)        //Si commentaire
+            {
+              while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+              {
+                i++;
+              }
+
+              if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+              Iscomm = false;
+              i++;
+              }
+            }
+          }
+
+          int lastc = strlen(Currentligne) - 2;
+          if(Currentligne[lastc] == ' ' && Iscomm == false){
+            errorTrailing++;
+            printf("Erreur de syntaxe à la ligne %d\n", line);
+          }
+          line ++;
+        }
+        
+      rewind(f);
+      if(errorTrailing == 0) printf("Aucune erreur de syntaxe.\n");
 }
