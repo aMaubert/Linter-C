@@ -19,36 +19,20 @@
 #define __SIZE_BUFFER__ 5000
 
 
-void oneVariable (FILE * f){
+void nbCharacteres(int nb,FILE * f){
   printf("------------------------------\n");
-  printf("Regle Declaration d'une seule variable maximum par ligne :\n\n");
+  printf("Regle Nombre de caracteres maximum par ligne :\n\n");
+  printf("Nombre de caracteres autorisés : %d\n\n", nb);
   int counter=0;
-  int errorVar = 0;
+  int errorLine = 0;
   char CurrentLine[248];
-  char tab[][100]={"int","char","float","short","double","long"};
-
   while(fgets(CurrentLine, sizeof(CurrentLine), f) !=NULL){
-  
-      int j=0;
-      counter++;
-      
-      while(strstr(CurrentLine,tab[j])==NULL && j<5)
-      {
-        j++;
-      }
-      if(strstr(CurrentLine,tab[j])!=NULL)
-      {
-        
-        for(int i=0;i<strlen(CurrentLine);i++)
-        {
-          if(CurrentLine[i]==',' && strstr(CurrentLine,"(")==NULL)
-          {
-            printf("Nombre de déclaration de variable dépassé à la ligne %d\n",counter);
-            errorVar++;
-          }
-        }
-      }
+    counter++;
+    if (strlen(CurrentLine)>nb){
+      printf("Nombre de caracteres dépassé à la ligne %d\n", counter);
+      errorLine ++;
+    }
   }
   rewind(f);
-  if(errorVar == 0) printf("Aucune erreur de syntaxe.\n");
+  if(errorLine == 0) printf("Le nombre de caracteres maximum par ligne n'a pas été dépassé.\n");
 }
