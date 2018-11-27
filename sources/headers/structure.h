@@ -14,6 +14,17 @@
 
 
 /*
+ * Define the caracteristic f a fonction
+ */
+ typedef struct Function{
+   char* name ;
+   short defined ;
+   char** nameParameters ;
+   char** typeParameters ;
+ }Function ;
+
+
+/*
   Define a rule with key -> value
 */
 typedef struct RuleLinter{
