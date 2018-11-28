@@ -12,9 +12,18 @@
 #ifndef VARIABLE_AND_FUNCTION_RULES_HEADER_INCLUDED_
 #define VARIABLE_AND_FUNCTION_RULES_HEADER_INCLUDED_
 
-void undeclaredVariableRule( Logger* logger, char* pathFile) ;
-char** listDefinedFunctions(char* pathFile, int* countFunctions) ;
-short isAFunction(char* line) ;
-short caracterAlphaNumeric(char c) ;
+#include <stdbool.h>
+#include "structure.h"
+
+Function* isAPrototypeFunction(char* line) ;
+Function* isADefinedFunction(char* line) ;
+
+bool isAKeyWord(char* array) ;
+void skipVoidSpace(char* line, int* index) ;
+bool caracterAlphaNumeric(char c) ;
+bool isALoopOrCondition(char* instruction) ;
+bool isAPrimitivType(char* type) ;
+
+char** strSplit(char* array, char separator, int* countMatchs) ;
 
 #endif /* VARIABLE_AND_FUNCTION_RULES_HEADER_INCLUDED_ */

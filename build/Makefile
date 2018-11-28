@@ -123,6 +123,33 @@ linterC/fast:
 	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/build
 .PHONY : linterC/fast
 
+sources/VariableAndFunctionRules.obj: sources/VariableAndFunctionRules.c.obj
+
+.PHONY : sources/VariableAndFunctionRules.obj
+
+# target to build an object file
+sources/VariableAndFunctionRules.c.obj:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/VariableAndFunctionRules.c.obj
+.PHONY : sources/VariableAndFunctionRules.c.obj
+
+sources/VariableAndFunctionRules.i: sources/VariableAndFunctionRules.c.i
+
+.PHONY : sources/VariableAndFunctionRules.i
+
+# target to preprocess a source file
+sources/VariableAndFunctionRules.c.i:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/VariableAndFunctionRules.c.i
+.PHONY : sources/VariableAndFunctionRules.c.i
+
+sources/VariableAndFunctionRules.s: sources/VariableAndFunctionRules.c.s
+
+.PHONY : sources/VariableAndFunctionRules.s
+
+# target to generate assembly for a file
+sources/VariableAndFunctionRules.c.s:
+	$(MAKE) -f CMakeFiles/linterC.dir/build.make CMakeFiles/linterC.dir/sources/VariableAndFunctionRules.c.s
+.PHONY : sources/VariableAndFunctionRules.c.s
+
 sources/argument.obj: sources/argument.c.obj
 
 .PHONY : sources/argument.obj
@@ -375,6 +402,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... linterC"
 	@echo "... rebuild_cache"
+	@echo "... sources/VariableAndFunctionRules.obj"
+	@echo "... sources/VariableAndFunctionRules.i"
+	@echo "... sources/VariableAndFunctionRules.s"
 	@echo "... sources/argument.obj"
 	@echo "... sources/argument.i"
 	@echo "... sources/argument.s"
