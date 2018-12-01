@@ -43,6 +43,7 @@ CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/headers/logger.h
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/headers/structure.h
 CMakeFiles/linterC.dir/sources/main.c.obj: ../sources/main.c
 
+CMakeFiles/linterC.dir/sources/structure.c.obj: ../sources/headers/interface.h
 CMakeFiles/linterC.dir/sources/structure.c.obj: ../sources/headers/structure.h
 CMakeFiles/linterC.dir/sources/structure.c.obj: ../sources/structure.c
 

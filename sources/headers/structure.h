@@ -12,16 +12,17 @@
 #ifndef STRUCTURE_HEADER_INCLUDED_
 #define STRUCTURE_HEADER_INCLUDED_
 
+#include <stdbool.h>
 
 /*
  * Define the caracteristic f a fonction
  */
- typedef struct Function{
-   char* name ;
-   short defined ;
-   char** nameParameters ;
-   char** typeParameters ;
- }Function ;
+typedef struct Function{
+  char* returnType ;
+  char* name ;
+  bool defined ;
+  char* listParameters  ;
+}Function ;
 
 
 /*
@@ -41,8 +42,18 @@ typedef struct ConfigLinter{
   short recursive ; // 1 if recursive, else 0
 }ConfigLinter ;
 
+// structure Function
+Function* getInitializedFunction() ;
+void setFunction(Function* FunctionToSet, char* returnType, char* name, bool defined, char* listParameters) ;
+void freeFunction(Function* FunctionToFree) ;
+
+// structure ruleLinter
 void displayListRuleLinter(RuleLinter** listRuleLinter, int countRules) ;
+void freeRuleLinter(RuleLinter* ruleLinter) ;
+
+//structure ConfigLinter
 void displayLinterConfig(ConfigLinter* linterConfig) ;
+
 
 int getCountExcludedFilesNotAlreadyExisted(ConfigLinter* linterConfiguration,int countExcludedFiles, char** listExcludedFiles) ;
 int getCountRulesNotAlreadyExisted(ConfigLinter* linterConfiguration,int countRules, char** listKey) ;
@@ -53,7 +64,7 @@ short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countEx
 void setListRules(ConfigLinter* linterConfiguration, char** listKey, char** listValue, int countRules) ;
 void setListExcludedFiles(ConfigLinter* linterConfiguration, char** listExcludedFiles, int countExcludedFiles) ;
 
-ConfigLinter* getInitialisedConfigLinter() ;
+ConfigLinter* getInitializedConfigLinter() ;
 ConfigLinter* getConfigLinter(ConfigLinter* linterConfiguration, char* fileExtend, int countRules,
    char** listKey, char**listValue, int countExcludedFiles, char** listExcludedFiles, short recursive) ;
 

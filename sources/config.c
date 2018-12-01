@@ -182,7 +182,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	fclose(inputFile) ;
 
 
-	if( linterConfig == NULL ) linterConfig = getInitialisedConfigLinter() ;
+	if( linterConfig == NULL ) linterConfig = getInitializedConfigLinter() ;
 	if(linterConfig == NULL){
 		fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
 		system("pause") ;

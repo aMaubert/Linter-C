@@ -60,7 +60,8 @@
 Function* isAPrototypeFunction(char* line){
   char functionName[100] ;
   char functionType[100] ;
-  char listParameters[100] ;
+  char listParametersInLine[100] ;
+  char** listParameters = NULL ;
   int indexFunctionName = 0 ;
   int indexFunctionType = 0 ;
   int indexListParameters = 0 ;
@@ -129,15 +130,12 @@ Function* isAPrototypeFunction(char* line){
 
   //On passe les parametres
   while(line[index] != ')'){
-    listParameters[indexListParameters] = line[index] ;
+    listParametersInLine[indexListParameters] = line[index] ;
     indexListParameters += 1 ;
     index += 1 ;
   }
-  listParameters[indexListParameters] = '\0' ;
+  listParametersInLine[indexListParameters] = '\0' ;
   index += 1 ; // on passe le caracter ')'
-
-
-
 
   //on passe les espaces vides
   skipVoidSpace(line, &index) ;
@@ -145,10 +143,15 @@ Function* isAPrototypeFunction(char* line){
 
   if(line[index] != ';') return NULL;
 
-  printf("Bravo c'est bien un prototype !!!\n") ;
-  printf("%s %s(%s) ;\n", functionType, functionName, listParameters) ;
 
-  return NULL ;
+  printf("%s %s(%s) ;\n", functionType, functionName, listParametersInLine) ;
+
+  Function* function = getInitializedFunction() ;
+
+  setFunction(function, functionType, functionName, false, listParametersInLine) ;
+
+
+  return function ;
 }
 
 /*
@@ -256,6 +259,7 @@ Function* isADefinedFunction(char* line){
  */
 bool isAKeyWord(char* array){
   if( strcmp(array, "const") == 0 ) return true ;
+  else if( strcmp(array, "unsigned") == 0 ) return true ;
   return false ;
 }
 /*
@@ -285,9 +289,9 @@ bool isALoopOrCondition(char* instruction){
  * Return 1 if instruction is a condition or a boucle langage
  */
 bool isAPrimitivType(char* type){
-  char* listPrimitiveTupe[7] = { "void", "double", "int", "float", "short", "long", "char"} ;
+  char* listPrimitiveType[7] = { "void", "double", "int", "float", "short", "long", "char"} ;
 
-  for(int i = 0; i < 7; i++) if(strcmp(type, listPrimitiveTupe[i]) == 0) return true ;
+  for(int i = 0; i < 7; i++) if(strcmp(type, listPrimitiveType[i]) == 0) return true ;
   return false ;
 }
 /*
@@ -296,33 +300,32 @@ bool isAPrimitivType(char* type){
  */
 char** strSplit(char* array, char separator, int* countMatchs){
   char** ret = NULL ;
-  char tmp[512] ;
+  char arrayTmp[512] ;
   int indexTmp = 0 ;
-
+  int sizeArray = strlen(array) ;
   *countMatchs = 0 ;
-  strcpy(tmp, "") ;
+  strcpy(arrayTmp, "") ;
 
-  for(int i = 0 ; i < strlen(array)  ; i++){
-    if(array[i] == separator){
-      tmp[indexTmp] = '\0' ;
-      printf("2 + indexTmp : %d\n", 2 + indexTmp) ;
+  for(int i = 0 ; i <  (sizeArray + 1) ; i++){
+    if(array[i] == separator || ( i == sizeArray  &&  strlen(arrayTmp) > 1 ) ){
+      *countMatchs += 1 ;
+      arrayTmp[indexTmp] = '\0' ;
+
       ret = realloc(ret, sizeof(char*) * *countMatchs  ) ;
-      if( ret != NULL) ret[*countMatchs - 1] = malloc(sizeof(char) * (2 + indexTmp) ) ;
+      if( ret != NULL) ret[*countMatchs - 1] = malloc(sizeof(char) * (2 + strlen(arrayTmp)) ) ;
       if( ret == NULL || ret[*countMatchs - 1] == NULL){
         fprintf( stderr, "%s , ligne : %d\nProbleme allocation memoire \n\n", __FILE__, __LINE__) ;
         pause() ;
         fflush(NULL) ;
         exit(EXIT_FAILURE) ;
       }
-      strcpy(ret[*countMatchs - 1] , tmp) ;
+      strcpy(ret[*countMatchs - 1] , arrayTmp) ;
       indexTmp = 0 ;
-      *countMatchs += 1 ;
     }
     else {
-      tmp[indexTmp] = array[i] ;
+      arrayTmp[indexTmp] = array[i] ;
       indexTmp += 1 ;
     }
   }
-
   return ret ;
 }

@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "headers/structure.h"
+#include "headers/interface.h"
 
 /*
  * return 1 if the currentFile is a file excluded, else return 0
@@ -31,7 +32,7 @@ short isAnexcludedFile(ConfigLinter* linterConfig, char* currentFile){
 /*
   initialise a ConfigLinter structure
 */
-ConfigLinter* getInitialisedConfigLinter(){
+ConfigLinter* getInitializedConfigLinter(){
   ConfigLinter* linterConfiguration = malloc(sizeof(ConfigLinter)) ;
   linterConfiguration->fileExtend = NULL ;
   linterConfiguration->countRules = 0 ;
@@ -286,4 +287,49 @@ void displayLinterConfig(ConfigLinter* linterConfig){
   displayListRuleLinter(linterConfig->listRules, linterConfig->countRules) ;
   displayListExcludedFiles(linterConfig->listExcludedFiles, linterConfig->countExcludedFiles) ;
   printf("\nlinter recursive : %u\n\n", linterConfig->recursive) ;
+}
+
+/*
+ * Return A struct Function initialized
+ */
+Function* getInitializedFunction(){
+  Function* function = malloc(sizeof(Function)) ;
+  function->returnType = NULL ;
+  function->name = NULL ;
+  function->defined = false ;
+  function->listParameters = NULL ;
+
+  return function ;
+}
+
+/*
+ * set all value of the sub variables in a struct Function
+ */
+void setFunction(Function* FunctionToSet, char* returnType, char* name, bool defined, char* listParameters){
+  FunctionToSet->returnType = realloc(FunctionToSet->returnType, sizeof(char) * (1 + strlen(returnType)) ) ;
+  FunctionToSet->name = realloc( FunctionToSet->name, sizeof(char) * (1 + strlen(name))) ;
+  FunctionToSet->listParameters = realloc( FunctionToSet->listParameters, sizeof(char) * (1 + strlen(listParameters))) ;
+
+  if(FunctionToSet->returnType == NULL || FunctionToSet->name == NULL || FunctionToSet->listParameters == NULL){
+    fprintf(stderr, "%s  ,ligne : %d\nProbleme Allocation memoire\n\n", __FILE__, __LINE__) ;
+    pause() ;
+    fflush(NULL) ;
+    exit(EXIT_FAILURE) ;
+  }
+
+  strcpy(FunctionToSet->returnType, returnType) ;
+  strcpy(FunctionToSet->name, name) ;
+  strcpy(FunctionToSet->listParameters, listParameters) ;
+
+  FunctionToSet->defined = defined ;
+}
+
+/*
+ * free a struct Function
+ */
+void freeFunction(Function* FunctionToFree){
+  free(FunctionToFree->returnType) ;
+  free(FunctionToFree->name) ;
+  free(FunctionToFree->listParameters) ;
+  free(FunctionToFree) ;
 }

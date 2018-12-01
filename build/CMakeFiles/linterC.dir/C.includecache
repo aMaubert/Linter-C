@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/regex.h
+sys/types.h
+-
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/VariableAndFunctionRules.c
 stdlib.h
 -
@@ -18,13 +22,91 @@ D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/VariableAndFunctionRul
 headers/interface.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/config.c
+stdlib.h
+-
+stdio.h
+-
+regex.h
+-
+headers/config.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+headers/structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/VariableAndFunctionRules.h
 stdbool.h
 -
 structure.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/linter.h
+logger.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+structure.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+stdio.h
+-
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+stdbool.h
+-
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/linter.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+headers/linter.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/linter.h
+headers/config.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+headers/argument.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
+headers/directory.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/main.c
+stdio.h
+-
+stdlib.h
+-
+headers/linter.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/linter.h
+headers/VariableAndFunctionRules.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/VariableAndFunctionRules.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/structure.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+headers/structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+headers/interface.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
 
