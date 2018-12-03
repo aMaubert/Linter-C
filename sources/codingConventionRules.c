@@ -109,3 +109,23 @@ void maxLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName){
   }
   rewind(f);
 }
+
+/*
+ * Max_File_Line_Numbers rule
+ */
+void maxFileLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName){
+  int counter = 0 ;
+  char CurrentLine[50000];
+  int dif=0;
+  while(fgets(CurrentLine, sizeof(CurrentLine), f) !=NULL){
+      counter++;
+  }
+  if(counter > nb){
+    dif = counter - nb;
+    char message[1024] ;
+    sprintf(message, "Le maximum de lignes etant de %d .\nIl y a %d ligne(s) de trop, dans le fichier : %s .\n", nb, dif, fileName) ;
+    messageLog(logger, message) ;
+  }
+
+    rewind(f);
+}

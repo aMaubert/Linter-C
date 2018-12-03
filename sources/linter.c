@@ -119,7 +119,15 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           break ;
        case 7 : //rule : max-file-line-numbers
           if(strcmp(linterConfig->listRules[i]->value, "off") != 0 ){
-            messageLog( logger, "regle : max-file-line-numbers a faire\n") ;
+            int maxFileLineNumbers = atoi(linterConfig->listRules[i]->value) ;
+            if(maxFileLineNumbers == 0){
+              fprintf(stderr, "mauvaise valeur de la regle %s : %s\n", linterConfig->listRules[i]->key, linterConfig->listRules[i]->value) ;
+              pause() ;
+              fflush(NULL) ;
+              exit(EXIT_FAILURE) ;
+            }else{
+              maxFileLineNumbersRule( logger, inputFile, maxFileLineNumbers, currentFile) ;
+            }
           }
           break ;
        case 8 : //rule : no-trailing-spaces

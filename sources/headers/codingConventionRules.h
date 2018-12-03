@@ -20,6 +20,7 @@ short reverseIndentNextLine(char* line) ;
 short isIndent(char* line, int currentIndent) ;
 
 void maxLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName) ;
+void maxFileLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName) ;
 
 
 

@@ -1,34 +1,58 @@
-2018/12/03  19:42:14 - INFO - 
+2018/12/03  20:37:33 - WARNING - 
 regle : array-bracket-eol a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : operators-spacing a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 mauvaise indention à la ligne : 5  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
 La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
 
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
 La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
 
-2018/12/03  19:42:14 - INFO - 
-regle : max-file-line-numbers a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : no-trailing-spaces a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : variable-assignment-type a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : array-bracket-eol a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : operators-spacing a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
+Le maximum de lignes etant de 200 .
+Il y a 319 ligne(s) de trop, dans le fichier : D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxFileLineNumbers.c .
+
+2018/12/03  20:37:33 - WARNING - 
+regle : no-trailing-spaces a faire
+
+2018/12/03  20:37:33 - WARNING - 
+regle : variable-assignment-type a faire
+
+2018/12/03  20:37:33 - WARNING - 
+regle : array-bracket-eol a faire
+
+2018/12/03  20:37:33 - WARNING - 
+regle : operators-spacing a faire
+
+2018/12/03  20:37:33 - WARNING - 
 mauvaise indention à la ligne : 10  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
 La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
 
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 Nombre de caracteres limites depasses (125), a la ligne 10 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
-2018/12/03  19:42:14 - INFO - 
-regle : max-file-line-numbers a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : no-trailing-spaces a faire
-2018/12/03  19:42:14 - INFO - 
+
+2018/12/03  20:37:33 - WARNING - 
 regle : variable-assignment-type a faire
+

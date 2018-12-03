@@ -74,7 +74,7 @@ void messageError(Logger* logger, char* message){
 
     int tailleMessage = strlen(message) ;
 
-    char* line = malloc(sizeof(char) * ( tailleBuffer + tailleMessage + 1) ) ;
+    char* line = malloc(sizeof(char) * ( tailleBuffer + tailleMessage + 2) ) ;
 
     strcpy(line, buffer) ;
     strcat(line, message) ;
@@ -88,7 +88,7 @@ void messageError(Logger* logger, char* message){
 
 
     if(logger->error != NULL){
-      fprintf(logger->error,"%s",line) ;
+      fprintf(logger->error,"%s\n",line) ;
 
     }else printf("fichier error pas ouvert , pb ouverture fichier\n") ;
 
@@ -101,7 +101,7 @@ void messageLog(Logger* logger, char* message){
       char* dateTime = getCurrentTime() ;
       char buffer[256] ;
       strcpy(buffer, dateTime) ;
-      strcat(buffer, " - INFO - \n") ;
+      strcat(buffer, " - WARNING - \n") ;
 
       int tailleBuffer = strlen(buffer) ;
 
@@ -121,7 +121,7 @@ void messageLog(Logger* logger, char* message){
 
       if(logger->log != NULL){
 
-        fprintf(logger->log,"%s",line) ;
+        fprintf(logger->log,"%s\n",line) ;
 
       }else printf("fichier log pas ouvert , pb ouverture fichier\n") ;
 }
