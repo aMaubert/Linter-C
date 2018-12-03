@@ -8,6 +8,10 @@
 	Description : structure logger
 ============================================================================
 */
+
+#ifndef LOGGER_HEADER_INCLUDED_
+#define LOGGER_HEADER_INCLUDED_
+
 #include <stdio.h>
 
 
@@ -22,3 +26,5 @@ void messageError(Logger* logger, char* message) ;
 void messageLog(Logger* logger, char* message) ;
 char* getCurrentTime() ;
 void freeLogger(Logger* logger) ;
+
+ #endif /* LOGGER_HEADER_INCLUDED_ */

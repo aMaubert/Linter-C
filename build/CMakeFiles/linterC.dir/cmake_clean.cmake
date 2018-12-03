@@ -1,7 +1,9 @@
 file(REMOVE_RECURSE
   "CMakeFiles/linterC.dir/sources/argument.c.obj"
+  "CMakeFiles/linterC.dir/sources/codingConventionRules.c.obj"
   "CMakeFiles/linterC.dir/sources/config.c.obj"
   "CMakeFiles/linterC.dir/sources/directory.c.obj"
+  "CMakeFiles/linterC.dir/sources/interface.c.obj"
   "CMakeFiles/linterC.dir/sources/linter.c.obj"
   "CMakeFiles/linterC.dir/sources/logger.c.obj"
   "CMakeFiles/linterC.dir/sources/main.c.obj"
