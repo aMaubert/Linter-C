@@ -3,7 +3,7 @@ fichierExtendu.lconf
 
 =rules
 - array-bracket-eol = on
-- operators-spacing = on
+- operators-spacing = off
 - comma-spacing = off
 - indent = 20
 

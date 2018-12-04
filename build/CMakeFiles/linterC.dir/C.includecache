@@ -6,17 +6,27 @@
 
 #IncludeRegexTransform: 
 
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
-stdio.h
--
-
-D:/ESGI/projets pedagogique ESGI/Linter-C/sources/logger.c
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/codingConventionRules.c
 stdlib.h
 -
-time.h
+stdio.h
 -
 string.h
 -
-headers/logger.h
+stdbool.h
+-
+headers/codingConventionRules.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/codingConventionRules.h
+headers/interface.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/codingConventionRules.h
+logger.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+stdio.h
+-
 

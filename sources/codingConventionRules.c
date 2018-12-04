@@ -12,9 +12,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <stdbool.h>
 #include "headers/codingConventionRules.h"
 #include "headers/interface.h"
-
+/*
+ * Indent rule
+ */
  void indentRule( Logger* logger, FILE* inputFile, int indent, char* fileName){
    int currentIndent = 0 ;
    int countLine = 0 ;
@@ -27,14 +30,14 @@
        short goodIndent = isIndent(line, currentIndent - indent) ;
        if(goodIndent == 0){
          char message[1024] ;
-         sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s)  !\n\n", countLine, fileName, (currentIndent - indent) ) ;
+         sprintf(message, "Regle : indent\nMauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s)  !\n\n", countLine, fileName, (currentIndent - indent) ) ;
          messageLog(logger, message) ;
        }
      }else{ // sinon on verifie l'indention courrant
        short goodIndent = isIndent(line, currentIndent) ;
        if(goodIndent == 0){ // si goodIndent vaut 0, cela veut dire que l'indentation est mauvaise, il faut le repporté dans les logs
          char message[1024] ;
-         sprintf(message, "mauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s) !\n\n", countLine, fileName, currentIndent) ;
+         sprintf(message, "Regle : indent\nMauvaise indention à la ligne : %d  du fichier %s\nLa bonne indentation a cette ligne est de %d espace(s)/tabulation(s) !\n\n", countLine, fileName, currentIndent) ;
          messageLog(logger, message) ;
        }
      }
@@ -102,7 +105,7 @@ void maxLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName){
   while(fgets(CurrentLine, sizeof(CurrentLine), f) !=NULL){
     counter++;
     if ( strlen(CurrentLine) > nb){
-      sprintf(message, "Nombre de caracteres limites depasses (%d), a la ligne %d du fichier %s\n", nb, counter, fileName) ;
+      sprintf(message, "Regle : Max_line_numbers\nNombre de caracteres limites depasses (%d), a la ligne %d du fichier %s\n", nb, counter, fileName) ;
       messageLog(logger, message) ;
     }
 
@@ -123,9 +126,72 @@ void maxFileLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName){
   if(counter > nb){
     dif = counter - nb;
     char message[1024] ;
-    sprintf(message, "Le maximum de lignes etant de %d .\nIl y a %d ligne(s) de trop, dans le fichier : %s .\n", nb, dif, fileName) ;
+    sprintf(message, "Regle : Max_File_Line_Numbers\nLe maximum de lignes etant de %d .\nIl y a %d ligne(s) de trop, dans le fichier : %s .\n", nb, dif, fileName) ;
     messageLog(logger, message) ;
   }
 
     rewind(f);
+}
+
+/*
+ * Array_Bracket_Eol rule
+ */
+void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName){
+  char Currentligne[50000];
+  char functions[][10] = {"if","while","for","do","void","int"};
+  int j = 1;
+  bool Iscomm = false;
+
+  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+
+      for(int i = 0; i < strlen(Currentligne); i++){
+
+        if(Iscomm == true)        //Si commentaire
+        {
+          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+          {
+            i++;
+          }
+          if(Currentligne[i] == '*' && Currentligne[ i + 1 ] == '/'){       //Sortie commentaire
+            Iscomm = false;
+          }
+        }
+
+        else if(Currentligne[i] == '/' && Currentligne[i+1] == '*')       // Si commentaire
+        {
+          Iscomm = true;
+          i = i+2;
+
+          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i < strlen(Currentligne)) // Tan quon est dans le commentaire
+          {
+            i++;
+          }
+          if(Currentligne[i-1] == '*' && Currentligne[i] == '/')                      // Si sortie du commentaire
+          {
+            Iscomm = false;
+          }
+          else Iscomm = true;
+        }
+        int k = 0;
+        while(strstr(Currentligne,functions[k]) == NULL && k < 5)
+        {
+          k++;
+        }
+        if((strstr(Currentligne,functions[k]) != NULL) && Iscomm == false)          // Si fonction presente
+        {
+             if(Currentligne[i] == '{' && i != (strlen(Currentligne)-2)){           // Si accolade presente sur la ligne
+               char message[512] ;
+               sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, j - 1) ;
+               messageLog(logger, message) ;
+            }
+        }
+      else  if(Currentligne[i] == '{'){ // Si accolade pas sur ligne fonction
+        char message[512] ;
+        sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, j - 1) ;
+        messageLog(logger, message) ;
+      }
+    }
+    j++;
+
+  }
 }

@@ -21,7 +21,7 @@ short isIndent(char* line, int currentIndent) ;
 
 void maxLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName) ;
 void maxFileLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName) ;
-
+void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName) ;
 
 
 #endif /* CODING_CONVENTION_RULES_HEADER_INCLUDED_ */

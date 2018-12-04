@@ -1,58 +1,44 @@
-2018/12/03  20:37:33 - WARNING - 
-regle : array-bracket-eol a faire
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 4
 
-2018/12/03  20:37:33 - WARNING - 
-regle : operators-spacing a faire
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 7
 
-2018/12/03  20:37:33 - WARNING - 
-mauvaise indention à la ligne : 5  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
-La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 10
 
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 13
 
-2018/12/03  20:37:33 - WARNING - 
-mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
-La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 14
 
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 16
 
-2018/12/03  20:37:33 - WARNING - 
-regle : no-trailing-spaces a faire
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 19
 
-2018/12/03  20:37:33 - WARNING - 
-regle : variable-assignment-type a faire
+2018/12/04  19:47:16 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 28
 
-2018/12/03  20:37:33 - WARNING - 
-regle : array-bracket-eol a faire
-
-2018/12/03  20:37:33 - WARNING - 
-regle : operators-spacing a faire
-
-2018/12/03  20:37:33 - WARNING - 
-Le maximum de lignes etant de 200 .
-Il y a 319 ligne(s) de trop, dans le fichier : D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxFileLineNumbers.c .
-
-2018/12/03  20:37:33 - WARNING - 
-regle : no-trailing-spaces a faire
-
-2018/12/03  20:37:33 - WARNING - 
-regle : variable-assignment-type a faire
-
-2018/12/03  20:37:33 - WARNING - 
-regle : array-bracket-eol a faire
-
-2018/12/03  20:37:33 - WARNING - 
-regle : operators-spacing a faire
-
-2018/12/03  20:37:33 - WARNING - 
-mauvaise indention à la ligne : 10  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
-La bonne indentation a cette ligne est de 20 espace(s)/tabulation(s) !
-
-
-2018/12/03  20:37:33 - WARNING - 
+2018/12/04  19:47:16 - WARNING - 
+Regle : Max_line_numbers
 Nombre de caracteres limites depasses (125), a la ligne 10 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
-
-2018/12/03  20:37:33 - WARNING - 
-regle : no-trailing-spaces a faire
-
-2018/12/03  20:37:33 - WARNING - 
-regle : variable-assignment-type a faire
 

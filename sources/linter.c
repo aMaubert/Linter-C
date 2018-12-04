@@ -68,10 +68,11 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           fprintf(stderr, "the rule : %s  doesn't exist anymore\n", linterConfig->listRules[i]->key) ;
           pause() ;
           fflush(NULL) ;
+          exit(EXIT_FAILURE) ;
           break ;
        case 1 : //rule : array-bracket-eol
           if(strcmp(linterConfig->listRules[i]->value, "on") == 0 ){
-            messageLog( logger, "regle : array-bracket-eol a faire\n") ;
+            arrayBracketEolRule( logger, inputFile, currentFile) ;
           }
           break ;
        case 2 : //rule : operators-spacing
@@ -262,5 +263,5 @@ int getRuleNumber(char* RuleKey){
   for(int i = 0 ; i < 16; i++){
     if(strcmp(RuleKey, listAllRulesKey[i]) == 0) return i + 1 ;
   }
-  return 0 ;
+  return 0 ; // return 0 if the rule doesn't exist
 }
