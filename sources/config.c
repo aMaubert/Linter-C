@@ -91,7 +91,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 		// récuperation du chemin relative d'un et un seul fichier lconf
 		fgets( line, sizeof(line), inputFile ) ;
 		if((strcmp(line,"\n") != 0)){
-			extendFile = malloc(strlen(line)) ;
+			extendFile = malloc(sizeof(char) * (2 + strlen(line) ) ) ;
 			sscanf(line, "%s\n", extendFile) ;
 		}
 

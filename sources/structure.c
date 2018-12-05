@@ -105,7 +105,7 @@ void setListExcludedFiles(ConfigLinter* linterConfiguration, char** listExcluded
     }
     if(!keyExist){
       index = linterConfiguration->countExcludedFiles ;
-      linterConfiguration->listExcludedFiles[index] = malloc(sizeof(char) * (strlen(listExcludedFiles[i]) + 1) ) ;
+      linterConfiguration->listExcludedFiles[index] = malloc(sizeof(char) * (strlen(listExcludedFiles[i]) + 2) ) ;
       strcpy(linterConfiguration->listExcludedFiles[index], listExcludedFiles[i]) ;
       linterConfiguration->countExcludedFiles += 1 ;
     }
@@ -179,7 +179,7 @@ short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToRea
   /* ReAllocation de la liste : on alloue un pointeur qui pointera countRulesToReallocate éléments*/
   linterConfiguration->listRules = realloc( linterConfiguration->listRules , sizeof(RuleLinter*) * countRulesToReallocate) ;
   if(linterConfiguration->listRules == NULL){
-    fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
+    fprintf(stderr, "probleme Allocation dans %s  ligne %d\n countRulesToReallocate : %d\n", __FILE__, __LINE__, countRulesToReallocate) ;
     system("pause") ;
     fflush(NULL) ;
     exit(EXIT_FAILURE) ;
@@ -195,8 +195,8 @@ short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToRea
     }
     if(keyExist == 0 ){
       linterConfiguration->listRules[indexNewRule] = malloc(sizeof(  RuleLinter)) ;
-      linterConfiguration->listRules[indexNewRule]->key = malloc( sizeof(char) * (1 + strlen(listKey[i])) ) ;
-      linterConfiguration->listRules[indexNewRule]->value = malloc( sizeof(char) * (1 + strlen(listValue[i])) ) ;
+      linterConfiguration->listRules[indexNewRule]->key = malloc( sizeof(char) * (2 + strlen(listKey[i])) ) ;
+      linterConfiguration->listRules[indexNewRule]->value = malloc( sizeof(char) * (2 + strlen(listValue[i])) ) ;
 
       if(linterConfiguration->listRules[indexNewRule] == NULL ||
          linterConfiguration->listRules[indexNewRule]->key == NULL ||
@@ -227,7 +227,7 @@ short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countEx
     exit(EXIT_FAILURE) ;
   }
   for(int i = linterConfiguration->countExcludedFiles ; i < countExcludedFilesToReallocate; i++ ){
-    linterConfiguration->listExcludedFiles[i] = malloc(sizeof(char) * (1 + strlen(listExcludedFiles[j]))) ;
+    linterConfiguration->listExcludedFiles[i] = malloc(sizeof(char) * (2 + strlen(listExcludedFiles[j]))) ;
     if(linterConfiguration->listExcludedFiles[i] == NULL){
       fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
       system("pause") ;

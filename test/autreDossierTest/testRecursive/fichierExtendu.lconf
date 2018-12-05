@@ -6,7 +6,6 @@
 - comma-spacing = off
 - indent = off
 - comments-header = off
-- max-line-numbers = off
 
 =excludedFiles
 bidule.c

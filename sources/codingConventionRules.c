@@ -341,7 +341,7 @@ void commentsHeaderRule(Logger* logger, FILE * f, char* fileName){
         }
       }
       line ++;
-    }    
+    }
   }
   rewind(f);
   if(afterComm == 0){
@@ -350,4 +350,49 @@ void commentsHeaderRule(Logger* logger, FILE * f, char* fileName){
     messageLog(logger, message) ;
   }
 
+}
+
+
+/*
+ * No_Trailing_Spaces rule
+ */
+void noTrailingSpacesRule(Logger* logger, FILE * f, char* fileName){
+
+  int line = 1;
+  char Currentligne[258];
+  bool Iscomm = false;
+  int errorTrailing = 0;
+
+  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+    for(int i = 0; i < strlen(Currentligne); i++){
+      if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+      {
+        Iscomm = true;
+        i = i + 2;
+      }
+
+      if(Iscomm == true)        //Si commentaire
+      {
+        while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+        {
+          i++;
+        }
+        if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+          Iscomm = false;
+          i++;
+        }
+      }
+    }
+
+    int lastc = strlen(Currentligne) - 2;
+    if(Currentligne[lastc] == ' ' && Iscomm == false){
+      errorTrailing++;
+      char message[512] ;
+      sprintf(message, "Regle : No Trailing Spaces\nIl y a un espace inutile en fin de ligne : %d dans le fichier %s .\n", line, fileName) ;
+      messageLog(logger, message) ;
+    }
+    line ++;
+  }
+
+  rewind(f);
 }

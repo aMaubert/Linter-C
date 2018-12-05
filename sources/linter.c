@@ -35,7 +35,7 @@ void startLinter(int argc, char** argv){
 
   char* pathDirectory = NULL ;
 
-  pathDirectory = malloc(sizeof(char) * (1 + strlen(argv[1]))) ;
+  pathDirectory = malloc(sizeof(char) * (2 + strlen(argv[1]))) ;
   strcpy(pathDirectory , argv[1]) ;
 
   linterConfig = loadLinterConfiguration(pathDirectory) ;
@@ -133,7 +133,7 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           break ;
        case 8 : //rule : no-trailing-spaces
           if(strcmp(linterConfig->listRules[i]->value, "on") == 0 ){
-            messageLog( logger, "regle : no-trailing-spaces a faire\n") ;
+             noTrailingSpacesRule( logger, inputFile, currentFile) ;
           }
           break ;
        case 9 : //rule : no-multi-declaration

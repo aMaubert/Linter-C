@@ -6,7 +6,9 @@ fichierExtendu.lconf
 - operators-spacing = off
 - comma-spacing = off
 - indent = off
-- comments-header = on
+- comments-header = off
+- max-line-numbers = off
+- no-trailing-spaces = on
 
 =excludedFiles
 

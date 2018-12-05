@@ -25,5 +25,6 @@ void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName) ;
 void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName) ;
 void commaSpacingRule(Logger* logger, FILE * f, char* fileName) ;
 void commentsHeaderRule(Logger* logger, FILE * f, char* fileName) ;
+void noTrailingSpacesRule(Logger* logger, FILE * f, char* fileName) ;
 
 #endif /* CODING_CONVENTION_RULES_HEADER_INCLUDED_ */
