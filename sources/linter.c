@@ -77,7 +77,7 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           break ;
        case 2 : //rule : operators-spacing
           if(strcmp(linterConfig->listRules[i]->value, "on") == 0 ){
-            messageLog( logger, "regle : operators-spacing a faire\n") ;
+            operatorsSpacingRule( logger,inputFile, currentFile) ;
           }
           break ;
        case 3 : //rule : comma-spacing

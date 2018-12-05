@@ -1,44 +1,52 @@
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 4
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 7 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 7
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 2 erreur(s) de syntaxe à la ligne 7 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 10
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 13 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 13
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 13 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 14
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 33 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 16
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 34 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 19
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 36 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Array_Bracket_Eol
-l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 28
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 39 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/04  19:47:16 - WARNING - 
-Regle : Max_line_numbers
-Nombre de caracteres limites depasses (125), a la ligne 10 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 42 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 45 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 46 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 2 erreur(s) de syntaxe à la ligne 48 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+
+2018/12/05  18:54:40 - WARNING - 
+Regle : Operators_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 49 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 

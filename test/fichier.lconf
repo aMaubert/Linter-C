@@ -2,10 +2,10 @@
 fichierExtendu.lconf
 
 =rules
-- array-bracket-eol = on
-- operators-spacing = off
+- array-bracket-eol = off
+- operators-spacing = on
 - comma-spacing = off
-- indent = 20
+- indent = off
 
 =excludedFiles
 bidule.c
