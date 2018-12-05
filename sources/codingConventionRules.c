@@ -251,3 +251,51 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
   }
   rewind(f);
 }
+
+/*
+ * Comma_Spacing rule
+ */
+void commaSpacingRule(Logger* logger, FILE * f, char* fileName){
+
+  int line = 1;
+  char Currentligne[258];
+  bool Iscomm = false;
+  int errorSpace = 0;
+  //fonction typeof
+
+  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+    int erreur = 0;
+    for(int i = 0; i < strlen(Currentligne); i++){
+      if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+      {
+        Iscomm = true;
+        i = i + 2;
+      }
+
+      if(Iscomm == true)        //Si commentaire
+      {
+        while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+        {
+          i++;
+        }
+
+        if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+          Iscomm = false;
+          i++;
+        }
+      }
+
+      if(Currentligne[i] == ','){
+        if(Currentligne[i+1] != ' ') erreur++;
+      }
+    }
+    if(erreur > 0){
+      char message[512] ;
+      sprintf(message, "Regle : Operators_Spacing\nIl y a %d erreur(s) de syntaxe à la ligne %d du fichier %s .\n", erreur,line, fileName) ;
+      messageLog(logger, message) ;
+      errorSpace++;
+    }
+    line++;
+  }
+  rewind(f);
+}

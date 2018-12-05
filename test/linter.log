@@ -1,52 +1,16 @@
-2018/12/05  18:54:40 - WARNING - 
+2018/12/05  19:20:10 - WARNING - 
 Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 7 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+Il y a 1 erreur(s) de syntaxe à la ligne 6 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
 
-2018/12/05  18:54:40 - WARNING - 
+2018/12/05  19:20:10 - WARNING - 
 Regle : Operators_Spacing
-Il y a 2 erreur(s) de syntaxe à la ligne 7 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+Il y a 2 erreur(s) de syntaxe à la ligne 8 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
 
-2018/12/05  18:54:40 - WARNING - 
+2018/12/05  19:20:10 - WARNING - 
 Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 13 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+Il y a 2 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
 
-2018/12/05  18:54:40 - WARNING - 
+2018/12/05  19:20:10 - WARNING - 
 Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 13 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 33 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 34 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 36 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 39 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 42 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 45 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 46 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 2 erreur(s) de syntaxe à la ligne 48 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  18:54:40 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 49 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+Il y a 14 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c .
 

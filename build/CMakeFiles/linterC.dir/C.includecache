@@ -20,13 +20,55 @@ D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/codingConventionRules.
 headers/interface.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/codingConventionRules.h
 logger.h
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
 
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/interface.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/linter.h
+logger.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
+structure.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
 
 D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/logger.h
 stdio.h
 -
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/structure.h
+
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/linter.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+headers/linter.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/linter.h
+headers/config.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/config.h
+headers/argument.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/argument.h
+headers/directory.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/directory.h
+headers/codingConventionRules.h
+D:/ESGI/projets pedagogique ESGI/Linter-C/sources/headers/codingConventionRules.h
 

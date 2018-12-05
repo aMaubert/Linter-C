@@ -3,8 +3,8 @@ fichierExtendu.lconf
 
 =rules
 - array-bracket-eol = off
-- operators-spacing = on
-- comma-spacing = off
+- operators-spacing = off
+- comma-spacing = on
 - indent = off
 
 =excludedFiles

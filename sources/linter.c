@@ -82,7 +82,7 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           break ;
        case 3 : //rule : comma-spacing
           if(strcmp(linterConfig->listRules[i]->value, "on") == 0 ){
-            messageLog( logger, "regle : comma-spacing a faire\n") ;
+            commaSpacingRule(logger, inputFile, currentFile) ;
           }
           break ;
        case 4 : //rule : indent
