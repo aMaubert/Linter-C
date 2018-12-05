@@ -101,7 +101,7 @@ void analyse( ConfigLinter* linterConfig, Logger* logger, char* currentFile){
           break ;
        case 5 : //rule : comments-header
           if(strcmp(linterConfig->listRules[i]->value, "on") == 0 ){
-            messageLog( logger, "regle : comments-header a faire\n") ;
+            commentsHeaderRule(logger, inputFile, currentFile) ;
           }
           break ;
        case 6 : //rule : max-line-numbers

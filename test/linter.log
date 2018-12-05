@@ -1,16 +1,16 @@
-2018/12/05  19:20:10 - WARNING - 
-Regle : Operators_Spacing
-Il y a 1 erreur(s) de syntaxe à la ligne 6 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+2018/12/05  19:58:16 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/05  19:20:10 - WARNING - 
-Regle : Operators_Spacing
-Il y a 2 erreur(s) de syntaxe à la ligne 8 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+2018/12/05  19:58:16 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
 
-2018/12/05  19:20:10 - WARNING - 
-Regle : Operators_Spacing
-Il y a 2 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+2018/12/05  19:58:16 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c .
 
-2018/12/05  19:20:10 - WARNING - 
-Regle : Operators_Spacing
-Il y a 14 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c .
+2018/12/05  19:58:16 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
