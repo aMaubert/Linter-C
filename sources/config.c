@@ -10,7 +10,6 @@
 */
 #include <stdlib.h>
 #include <stdio.h>
-#include <regex.h>
 #include "headers/config.h"
 #include "headers/structure.h"
 

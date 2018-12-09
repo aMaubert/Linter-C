@@ -34,6 +34,4 @@ void test(){
   }
 
   fclose(inputFile) ;
-
-
 }

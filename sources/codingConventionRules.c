@@ -200,9 +200,10 @@ void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName){
  */
 void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
   int line = 1;
-  char Currentligne[50000];
+  char Currentligne[258];
   bool Iscomm = false;
   int errorOperator = 0;
+  //fonction typeof
 
   while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
     for(int i = 0; i < strlen(Currentligne); i++){
@@ -218,7 +219,6 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
         {
           i++;
         }
-
         if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
           Iscomm = false;
           i++;
@@ -240,10 +240,11 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
         }
       }
       if(erreur > 0){
-        char message[512] ;
-        sprintf(message, "Regle : Operators_Spacing\nIl y a %d erreur(s) de syntaxe à la ligne %d du fichier %s .\n", erreur, line, fileName) ;
-        messageLog(logger, message) ;
-        errorOperator++;
+      char message[512] ;
+      sprintf(message, "Regle : Operator spacing\nIl y a une erreur de suyntaxe (operator spacing) a la ligne : %d .\nDans le fichier %s .\n", line, fileName) ;
+      messageLog(logger, message) ;
+      
+      errorOperator++;
       }
     }
 
@@ -377,7 +378,7 @@ void noTrailingSpacesRule(Logger* logger, FILE * f, char* fileName){
         {
           i++;
         }
-        if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+        if(Currentligne[i] == '*' && Currentligne[ i + 1 ] == '/'){    //Sortie commentaire
           Iscomm = false;
           i++;
         }

@@ -1,116 +1,65 @@
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 4 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 7 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 12 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 7 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 7 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 13 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 8 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 13 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 9 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 33 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 11 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 34 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 4 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 36 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 7 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 39 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 8 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 42 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 12 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 45 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 15 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 46 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 18 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 48 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 21 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 24 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 27 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 28 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 32 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 35 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 38 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 41 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 44 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 47 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 50 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 54 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 57 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 60 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 63 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 66 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
-
-2018/12/05  20:32:15 - WARNING - 
-Regle : No Trailing Spaces
-Il y a un espace inutile en fin de ligne : 69 dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/07  20:12:06 - WARNING - 
+Regle : Operator spacing
+Il y a une erreur de suyntaxe (operator spacing) a la ligne : 49 .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
