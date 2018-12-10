@@ -25,14 +25,14 @@ void comments_header(FILE* f){
     int line = 1;
     int afterComm = 0;
     int isCommBefore = 0;
-    char Currentligne[258];
+    char CurrentLine[258];
     bool Iscomm = false;
     //fonction typeof
 
-       while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+       while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
         int erreur = 0;
-         for(int i = 0; i < strlen(Currentligne); i++){
-          if(Currentligne[i] == '/' && Currentligne[i+1] == '*' && line == 1)
+         for(int i = 0; i < strlen(CurrentLine); i++){
+          if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*' && line == 1)
           {
             isCommBefore = 1;
            Iscomm = true;
@@ -41,19 +41,19 @@ void comments_header(FILE* f){
 
           if(Iscomm == true)        //Si commentaire
           {
-            while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+            while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i <= strlen(CurrentLine))
             {
               i++;
             }
 
-            if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+            if(CurrentLine[i] == '*' && CurrentLine[i+1] == '/'){    //Sortie commentaire
             Iscomm = false;
             i++;
             }
           }
           if(Iscomm == false && isCommBefore == 1)
           {
-            if(Currentligne[i] != ' ') afterComm ++;
+            if(CurrentLine[i] != ' ') afterComm ++;
           }
         }
         line ++;
