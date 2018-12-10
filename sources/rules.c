@@ -29,6 +29,10 @@ void no_trailing_spaces(FILE* f){
 
       while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
            for(int i = 0; i < strlen(CurrentLine); i++){
+             if(Currentligne[i] == '/' && Currentligne[i+1] == '/'){
+               fgets(Currentligne, sizeof(Currentligne), f);
+               line++;
+             }
             if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*')
             {
              Iscomm = true;
