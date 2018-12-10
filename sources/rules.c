@@ -23,13 +23,13 @@ void no_trailing_spaces(FILE* f){
       printf("------------------------------\n");
       printf("Regle Pas d'espace en fin de ligne :\n\n");
       int line = 1;
-      char Currentligne[258];
+      char CurrentLine[258];
       bool Iscomm = false;
       int errorTrailing = 0;
 
-      while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
-           for(int i = 0; i < strlen(Currentligne); i++){
-            if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+      while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
+           for(int i = 0; i < strlen(CurrentLine); i++){
+            if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*')
             {
              Iscomm = true;
              i = i + 2;
@@ -37,20 +37,20 @@ void no_trailing_spaces(FILE* f){
 
             if(Iscomm == true)        //Si commentaire
             {
-              while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+              while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i <= strlen(CurrentLine))
               {
                 i++;
               }
 
-              if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+              if(CurrentLine[i] == '*' && CurrentLine[i+1] == '/'){    //Sortie commentaire
               Iscomm = false;
               i++;
               }
             }
           }
 
-          int lastc = strlen(Currentligne) - 2;
-          if(Currentligne[lastc] == ' ' && Iscomm == false){
+          int lastc = strlen(CurrentLine) - 2;
+          if(CurrentLine[lastc] == ' ' && Iscomm == false){
             errorTrailing++;
             printf("Erreur de syntaxe à la ligne %d\n", line);
           }
