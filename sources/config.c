@@ -12,9 +12,10 @@
 #include <stdio.h>
 #include "headers/config.h"
 #include "headers/structure.h"
+#include "headers/interface.h"
 
 // chemin du fichier default.lconf qui contient les parametres par defauts
-#define __DEFAULT_CONF_FILE__ "D:/ESGI/projets pedagogique ESGI/Linter-C/resources/lconfig/default.lconf"
+#define __DEFAULT_CONF_FILE__ "../resources/lconfig/default.lconf"
 
 ConfigLinter* loadLinterConfiguration(char* pathDirectory){
 
@@ -28,7 +29,7 @@ ConfigLinter* loadLinterConfiguration(char* pathDirectory){
 	    // on verifie que le nom du fichier contient l'extention .lconf
 	    if(strstr( linterConfig->fileExtend, ".lconf") == NULL){
 	      fprintf(stderr, "le fichier etendu %s .\ndans %s .\nne contient pas l'extention .lconf !!!\n\n", linterConfig->fileExtend, pathConfigFile) ;
-	      system("pause") ;
+	      pause() ;
 	      fflush(NULL) ;
 	      exit(EXIT_FAILURE) ;
 	    }
@@ -36,7 +37,7 @@ ConfigLinter* loadLinterConfiguration(char* pathDirectory){
 	    pathConfigFile = getPathConfigFileExtend( pathDirectory, linterConfig->fileExtend) ;
 	    if(pathConfigFile == NULL){ // si on ne l'a pas trouver on sort du progrmme en erreur fatale
 	      fprintf(stderr, "le fichier etendu %s n'est pas present dans le repertoire et sous repertoire(s) du dossier.\n\n", linterConfig->fileExtend) ;
-	      system("pause") ;
+	      pause() ;
 	      fflush(NULL) ;
 	      exit(EXIT_FAILURE) ;
 	    }
@@ -107,7 +108,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				listValue = realloc( listValue, sizeof(char*) * countAllocateRules) ;
 				if(listKey == NULL || listValue == NULL){
 					fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
-					system("pause") ;
+					pause() ;
 					exit(EXIT_FAILURE) ;
 				}
 				listKey[countRules - 1] = NULL ;
@@ -119,7 +120,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 			if(listKey[countRules - 1] == NULL || listValue[countRules - 1] == NULL){
 				fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
-				system("pause") ;
+				pause() ;
 				exit(EXIT_FAILURE) ;
 			}
 			strcpy( listKey[countRules - 1], buffer1) ;
@@ -139,7 +140,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 
 				if(listExcludedFiles == NULL){
 					fprintf(stderr, "Probleme allocation memoire dans %s ligne : %d\n", __FILE__, __LINE__) ;
-					system("pause") ;
+					pause() ;
 					exit(EXIT_FAILURE) ;
 				}
 				listExcludedFiles[countExcludedFile - 1] = NULL ;
@@ -152,7 +153,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 				fprintf(stderr, "Probleme allocation memoire listExcludedFiles[%d]\n", (countExcludedFile - 1)) ;
 				fprintf(stderr, "excludedFile : %s    strlen(excludedFile) : %d\n",  buffer1, (int)strlen(buffer1)) ;
 				fprintf(stderr, "dans %s ligne : %d\n",  __FILE__, __LINE__) ;
-				system("pause") ;
+				pause() ;
 				exit(EXIT_FAILURE) ;
 			}
 
@@ -172,7 +173,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	}
 	else{
 		fprintf(stderr, "dans : %s   ligne : %d\nOuverture du fichier : %s   Impossible .\n\n", __FILE__, __LINE__, pathFile);
-		system("pause") ;
+		pause() ;
 		fflush(NULL) ;
 		exit(EXIT_FAILURE) ;
 	}
@@ -184,7 +185,7 @@ ConfigLinter* memorizeConfig( char* pathFile, ConfigLinter* linterConfig){
 	if( linterConfig == NULL ) linterConfig = getInitialisedConfigLinter() ;
 	if(linterConfig == NULL){
 		fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-		system("pause") ;
+		pause() ;
 		exit(EXIT_FAILURE) ;
 	}
 

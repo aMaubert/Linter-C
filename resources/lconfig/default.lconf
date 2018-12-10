@@ -1,15 +1,15 @@
 =extends
 
 =rules
-- array-bracket-eol = off
-- operators-spacing = off
-- comma-spacing = off
-- indent = off
-- comments-header = off
-- max-line-numbers = off
-- max-file-line-numbers = off
-- no-trailing-spaces = off
-- no-multi-declaration = off
+- array-bracket-eol = on
+- operators-spacing = on
+- comma-spacing = on
+- indent = 1
+- comments-header = on
+- max-line-numbers = 150
+- max-file-line-numbers = 600
+- no-trailing-spaces = on
+- no-multi-declaration = on
 - unused-variable = off
 - undeclared-variable = off
 - no-prototype = off

@@ -1,65 +1,722 @@
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 7 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 5
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 7 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 8
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 13 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 11
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 13 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 14
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 33 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 17
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 34 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c , a la ligne : 20
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 36 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 39 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 42 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 7  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 45 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 46 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 8  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 48 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
 
-2018/12/07  20:12:06 - WARNING - 
-Regle : Operator spacing
-Il y a une erreur de suyntaxe (operator spacing) a la ligne : 49 .
-Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 9  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 10  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 11  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 15  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 16  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 17  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 18  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 19  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 20  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 21  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 4 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 23  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 4 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 24  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s)  !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 25  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 26  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s)  !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 27  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 28  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 29  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 30  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 4 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 31  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 4 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 32  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 4 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 33  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s)  !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 34  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 35  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 36  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s)  !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testArrayBracketEOL.c .
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 6 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 2 erreur(s) de syntaxe à la ligne 8 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 2 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 15  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommaSpacing.c .
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 13 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommentsHeader.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 16  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testCommentsHeader.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c , a la ligne : 22
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 10 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 12  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 16  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 19  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 3 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 24  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c
+La bonne indentation a cette ligne est de 2 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testIndent.c .
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 14 erreur(s) de syntaxe à la ligne 11 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Max_line_numbers
+Nombre de caracteres limites depasses (150), a la ligne 10 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testMaxLineNumbers.c
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comma_Spacing
+Il y a 1 erreur(s) de syntaxe à la ligne 6 du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 11  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testNoTrailingSpaces.c .
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Array_Bracket_Eol
+l'accolade ouvrante '{' ne se trouve pas en fin de ligne .
+Dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c , a la ligne : 5
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 6  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 7  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 8  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 9  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 10  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 11  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 12  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 13  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 14  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 15  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 16  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 17  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 18  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 19  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 20  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 21  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 22  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 23  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 24  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 25  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 26  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 27  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 28  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 29  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 30  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 31  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 32  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 33  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 34  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 35  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 36  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 37  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 38  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 39  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 40  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 41  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 42  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 43  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 44  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 45  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 46  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 47  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 48  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 49  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 50  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 51  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 52  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 53  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 54  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 55  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 56  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 57  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 58  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 59  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 60  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 61  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 62  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 63  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 64  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 65  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 66  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 67  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 68  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 69  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 70  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 71  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : indent
+Mauvaise indention à la ligne : 72  du fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c
+La bonne indentation a cette ligne est de 1 espace(s)/tabulation(s) !
+
+
+2018/12/10  15:54:35 - WARNING - 
+Regle : Comments header
+Il n'y a pas de commentaire multi-ligne dans le fichier D:\ESGI\projets pedagogique ESGI\Linter-C\test/testOperatorsSpacing.c .
+
+2018/12/10  15:54:35 - WARNING - 
+regle : no-multi-declaration a faire
 

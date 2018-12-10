@@ -14,6 +14,7 @@
 #include <dirent.h>
 #include <sys/types.h>
 #include "headers/directory.h"
+#include "headers/interface.h"
 
 /*
  * Return 1 if the argument path is a path to a repository, else return 0
@@ -48,13 +49,13 @@ char** getListFilesInDirectory(char* path, int* count){
 
       if(listFiles == NULL){
         fprintf(stderr, "file %s , ligne : %d\nProbleme allocation memoire\n\n", __FILE__, __LINE__) ;
-        system("pause") ;
+        pause() ;
         fflush(NULL) ;
       }else{
         listFiles[*count - 1] = malloc(sizeof(char) * (1 + strlen(lecture->d_name))) ;
         if(listFiles[*count - 1] == NULL){
           fprintf(stderr, "file %s , ligne : %d\nProbleme allocation memoire\n\n", __FILE__, __LINE__) ;
-          system("pause") ;
+          pause() ;
           fflush(NULL) ;
         }
         strcpy(listFiles[*count - 1], lecture->d_name) ;
@@ -63,7 +64,7 @@ char** getListFilesInDirectory(char* path, int* count){
     }
  }else{
    fprintf(stderr, "file : %s , ligne:%d\nle chemin du dossier donner en parametre n'est pas correct !!!\nChemin donnee : %s\n\n", __FILE__, __LINE__, path) ;
-   system("pause") ;
+   pause() ;
    fflush(NULL) ;
  }
  closedir(directory);
@@ -83,7 +84,7 @@ char* getPathConfigFileExtend(char* pathRootDirectory, char* nameFileExtend){
 			pathConfigFileExtend = malloc(sizeof(char) * ( 2 + strlen(pathRootDirectory) + strlen(nameFileExtend))) ;
 			if(pathConfigFileExtend == NULL){
 				fprintf(stderr, "%s , ligne : %d\nProbleme Allocation memoire\n\n", __FILE__, __LINE__) ;
-				system("pause") ;
+				pause() ;
 				fflush(NULL) ;
 			}
 			strcpy( pathConfigFileExtend, pathRootDirectory) ;
@@ -165,7 +166,7 @@ char* changePathExtendFile(char* path, char* fileExtendName){
 	path = realloc(path, sizeof(char) * (1 + strlen(path) + strlen(fileExtendName))) ;
 	if(path == NULL){
 		fprintf(stderr, "file : %s , ligne : %d\nProbleme Allocation memoire\n\n", __FILE__, __LINE__) ;
-		system("pause") ;
+		pause() ;
 		fflush(NULL) ;
 	}
 	else{
@@ -187,7 +188,7 @@ char** getListDirectory(char* pathDirectory, int* countDirectory){
 		absolutePath = realloc(absolutePath, sizeof(char) * (2 + strlen(pathDirectory) + strlen(listAllFiles[i]))) ;
 		if(absolutePath == NULL){
 			fprintf(stderr, "%s , ligne %d\nP¨robleme allocation memoire .\n\n", __FILE__, __LINE__) ;
-			system("pause") ;
+			pause() ;
 			fflush(NULL) ;
 			exit(EXIT_FAILURE) ;
 		}
@@ -201,7 +202,7 @@ char** getListDirectory(char* pathDirectory, int* countDirectory){
 			if(listDirectory != NULL) listDirectory[count - 1] = malloc(sizeof(char) * (1 + strlen(absolutePath))) ;
 			if(listDirectory == NULL || listDirectory[count - 1] == NULL){
 				fprintf(stderr, "%s , ligne %d\nP¨robleme allocation memoire .\n\n", __FILE__, __LINE__) ;
-				system("pause") ;
+				pause() ;
 				fflush(NULL) ;
 				exit(EXIT_FAILURE) ;
 			}
@@ -236,7 +237,7 @@ char** getListSourceFiles(char* currentDirectory, int* countSourcesFiles){
 			if(listSourcesCFiles != NULL) listSourcesCFiles[countSourcesCFiles - 1] = malloc(sizeof(char) * (2 + strlen(currentDirectory) + strlen(listAllFiles[i]))) ;
 			if(listSourcesCFiles == NULL || listSourcesCFiles[countSourcesCFiles - 1] == NULL){
 				fprintf(stderr, "%s , ligne %d\nP¨robleme allocation memoire .\n\n", __FILE__, __LINE__) ;
-				system("pause") ;
+				pause() ;
 				fflush(NULL) ;
 				exit(EXIT_FAILURE) ;
 			}

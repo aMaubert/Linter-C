@@ -137,62 +137,65 @@ void maxFileLineNumbersRule(Logger* logger, FILE * f, int nb, char* fileName){
  * Array_Bracket_Eol rule
  */
 void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName){
-  char Currentligne[50000];
+  char Currentline[50000];
   char functions[][10] = {"if","while","for","do","void","int"};
-  int j = 1;
+  int line = 0;
   bool Iscomm = false;
 
-  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+  while(fgets(Currentline, sizeof(Currentline), f) != NULL){
+      line += 1 ;
+      for(int i = 0; i < strlen(Currentline); i++){
 
-      for(int i = 0; i < strlen(Currentligne); i++){
+        if(Currentline[i] == '/' && Currentline[i+1] == '/'){
+          fgets(Currentline, sizeof(Currentline), f);
+          line++;
+        }
 
         if(Iscomm == true)        //Si commentaire
         {
-          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+          while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i <= strlen(Currentline))
           {
             i++;
           }
-          if(Currentligne[i] == '*' && Currentligne[ i + 1 ] == '/'){       //Sortie commentaire
+          if(Currentline[i] == '*' && Currentline[ i + 1 ] == '/'){       //Sortie commentaire
             Iscomm = false;
           }
         }
 
-        else if(Currentligne[i] == '/' && Currentligne[i+1] == '*')       // Si commentaire
+        else if(Currentline[i] == '/' && Currentline[i+1] == '*')       // Si commentaire
         {
           Iscomm = true;
           i = i+2;
 
-          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i < strlen(Currentligne)) // Tan quon est dans le commentaire
+          while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i < strlen(Currentline)) // Tan quon est dans le commentaire
           {
             i++;
           }
-          if(Currentligne[i-1] == '*' && Currentligne[i] == '/')                      // Si sortie du commentaire
+          if(Currentline[i-1] == '*' && Currentline[i] == '/')                      // Si sortie du commentaire
           {
             Iscomm = false;
           }
           else Iscomm = true;
         }
         int k = 0;
-        while(strstr(Currentligne,functions[k]) == NULL && k < 5)
+        while(strstr(Currentline,functions[k]) == NULL && k < 5)
         {
           k++;
         }
-        if((strstr(Currentligne,functions[k]) != NULL) && Iscomm == false)          // Si fonction presente
+        if((strstr(Currentline,functions[k]) != NULL) && Iscomm == false)          // Si fonction presente
         {
-             if(Currentligne[i] == '{' && i != (strlen(Currentligne)-2)){           // Si accolade presente sur la ligne
+             if(Currentline[i] == '{' && i != (strlen(Currentline)-2)){           // Si accolade presente sur la ligne
                char message[512] ;
-               sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, j - 1) ;
+               sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, line) ;
                messageLog(logger, message) ;
             }
         }
-      else  if(Currentligne[i] == '{'){ // Si accolade pas sur ligne fonction
+      else  if(Currentline[i] == '{'){ // Si accolade pas sur ligne fonction
         char message[512] ;
-        sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, j - 1) ;
+        sprintf(message, "Regle : Array_Bracket_Eol\nl'accolade ouvrante '{' ne se trouve pas en fin de ligne .\nDans le fichier %s , a la ligne : %d\n", fileName, line) ;
         messageLog(logger, message) ;
       }
     }
-    j++;
-
   }
 }
 /*
@@ -200,14 +203,21 @@ void arrayBracketEolRule(Logger* logger, FILE * f, char* fileName){
  */
 void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
   int line = 1;
-  char Currentligne[258];
+  char Currentline[258];
   bool Iscomm = false;
   int errorOperator = 0;
   //fonction typeof
 
-  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
-    for(int i = 0; i < strlen(Currentligne); i++){
-      if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+  while(fgets(Currentline, sizeof(Currentline), f) != NULL){
+    for(int i = 0; i < strlen(Currentline); i++){
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '/'){
+        fgets(Currentline, sizeof(Currentline), f);
+        line++;
+      }
+
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '*')
       {
         Iscomm = true;
         i = i + 2;
@@ -215,27 +225,27 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
 
       if(Iscomm == true)        //Si commentaire
       {
-        while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+        while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i <= strlen(Currentline))
         {
           i++;
         }
-        if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+        if(Currentline[i] == '*' && Currentline[i+1] == '/'){    //Sortie commentaire
           Iscomm = false;
           i++;
         }
       }
       int erreur = 0;
-      if(Currentligne[i] == '=' && Iscomm == false){
+      if(Currentline[i] == '=' && Iscomm == false){
 
-        if(Currentligne[i+1] != ' '){
+        if(Currentline[i+1] != ' '){
           erreur ++;
         }
-        if(Currentligne[i-1] == '+' |Currentligne[i-1] == '-'|Currentligne[i-1] == '*'|Currentligne[i-1] == '/' ){
-          if(Currentligne[i-2] != ' '){
+        if(Currentline[i-1] == '+' |Currentline[i-1] == '-'|Currentline[i-1] == '*'|Currentline[i-1] == '/' ){
+          if(Currentline[i-2] != ' '){
             erreur ++;
           }
         }
-        else if(Currentligne[i-1] != ' '){
+        else if(Currentline[i-1] != ' '){
           erreur ++;
         }
       }
@@ -243,7 +253,7 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
       char message[512] ;
       sprintf(message, "Regle : Operator spacing\nIl y a une erreur de suyntaxe (operator spacing) a la ligne : %d .\nDans le fichier %s .\n", line, fileName) ;
       messageLog(logger, message) ;
-      
+
       errorOperator++;
       }
     }
@@ -259,15 +269,21 @@ void operatorsSpacingRule(Logger* logger, FILE * f, char* fileName){
 void commaSpacingRule(Logger* logger, FILE * f, char* fileName){
 
   int line = 1;
-  char Currentligne[258];
+  char Currentline[258];
   bool Iscomm = false;
   int errorSpace = 0;
   //fonction typeof
 
-  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+  while(fgets(Currentline, sizeof(Currentline), f) != NULL){
     int erreur = 0;
-    for(int i = 0; i < strlen(Currentligne); i++){
-      if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+    for(int i = 0; i < strlen(Currentline); i++){
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '/'){
+        fgets(Currentline, sizeof(Currentline), f);
+        line++;
+      }
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '*')
       {
         Iscomm = true;
         i = i + 2;
@@ -275,19 +291,19 @@ void commaSpacingRule(Logger* logger, FILE * f, char* fileName){
 
       if(Iscomm == true)        //Si commentaire
       {
-        while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+        while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i <= strlen(Currentline))
         {
           i++;
         }
 
-        if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+        if(Currentline[i] == '*' && Currentline[i+1] == '/'){    //Sortie commentaire
           Iscomm = false;
           i++;
         }
       }
 
-      if(Currentligne[i] == ','){
-        if(Currentligne[i+1] != ' ') erreur++;
+      if(Currentline[i] == ','){
+        if(Currentline[i+1] != ' ') erreur++;
       }
     }
     if(erreur > 0){
@@ -309,15 +325,21 @@ void commentsHeaderRule(Logger* logger, FILE * f, char* fileName){
   int line = 1;
   int afterComm = 0;
   int isCommBefore = 0;
-  char Currentligne[258];
+  char Currentline[258];
   bool Iscomm = false;
   //fonction typeof
 
-  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
-    if(strcmp(Currentligne, "\n") != 0 ){ // on skip les sauts de lignes
+  while(fgets(Currentline, sizeof(Currentline), f) != NULL){
+    if(strcmp(Currentline, "\n") != 0 ){ // on skip les sauts de lignes
       int erreur = 0;
-      for(int i = 0; i < strlen(Currentligne); i++){
-        if(Currentligne[i] == '/' && Currentligne[i+1] == '*' && line == 1)
+      for(int i = 0; i < strlen(Currentline); i++){
+
+        if(Currentline[i] == '/' && Currentline[i+1] == '/'){
+          fgets(Currentline, sizeof(Currentline), f);
+          line++;
+        }
+
+        if(Currentline[i] == '/' && Currentline[i+1] == '*' && line == 1)
         {
           isCommBefore = 1;
           Iscomm = true;
@@ -326,19 +348,19 @@ void commentsHeaderRule(Logger* logger, FILE * f, char* fileName){
 
         if(Iscomm == true)        //Si commentaire
         {
-          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+          while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i <= strlen(Currentline))
           {
             i++;
           }
 
-          if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+          if(Currentline[i] == '*' && Currentline[i+1] == '/'){    //Sortie commentaire
             Iscomm = false;
             i++;
           }
         }
         if(Iscomm == false && isCommBefore == 1)
         {
-          if(Currentligne[i] != ' ') afterComm ++;
+          if(Currentline[i] != ' ') afterComm ++;
         }
       }
       line ++;
@@ -360,13 +382,19 @@ void commentsHeaderRule(Logger* logger, FILE * f, char* fileName){
 void noTrailingSpacesRule(Logger* logger, FILE * f, char* fileName){
 
   int line = 1;
-  char Currentligne[258];
+  char Currentline[258];
   bool Iscomm = false;
   int errorTrailing = 0;
 
-  while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
-    for(int i = 0; i < strlen(Currentligne); i++){
-      if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+  while(fgets(Currentline, sizeof(Currentline), f) != NULL){
+    for(int i = 0; i < strlen(Currentline); i++){
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '/'){
+        fgets(Currentline, sizeof(Currentline), f);
+        line++;
+      }
+
+      if(Currentline[i] == '/' && Currentline[i+1] == '*')
       {
         Iscomm = true;
         i = i + 2;
@@ -374,19 +402,19 @@ void noTrailingSpacesRule(Logger* logger, FILE * f, char* fileName){
 
       if(Iscomm == true)        //Si commentaire
       {
-        while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+        while ((Currentline[i] != '*' && Currentline[i+1] != '/') && i <= strlen(Currentline))
         {
           i++;
         }
-        if(Currentligne[i] == '*' && Currentligne[ i + 1 ] == '/'){    //Sortie commentaire
+        if(Currentline[i] == '*' && Currentline[ i + 1 ] == '/'){    //Sortie commentaire
           Iscomm = false;
           i++;
         }
       }
     }
 
-    int lastc = strlen(Currentligne) - 2;
-    if(Currentligne[lastc] == ' ' && Iscomm == false){
+    int lastc = strlen(Currentline) - 2;
+    if(Currentline[lastc] == ' ' && Iscomm == false){
       errorTrailing++;
       char message[512] ;
       sprintf(message, "Regle : No Trailing Spaces\nIl y a un espace inutile en fin de ligne : %d dans le fichier %s .\n", line, fileName) ;

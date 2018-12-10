@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <string.h>
 #include "headers/structure.h"
+#include "headers/interface.h"
 
 /*
  * return 1 if the currentFile is a file excluded, else return 0
@@ -180,7 +181,7 @@ short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToRea
   linterConfiguration->listRules = realloc( linterConfiguration->listRules , sizeof(RuleLinter*) * countRulesToReallocate) ;
   if(linterConfiguration->listRules == NULL){
     fprintf(stderr, "probleme Allocation dans %s  ligne %d\n countRulesToReallocate : %d\n", __FILE__, __LINE__, countRulesToReallocate) ;
-    system("pause") ;
+    pause() ;
     fflush(NULL) ;
     exit(EXIT_FAILURE) ;
   }
@@ -203,7 +204,7 @@ short reallocateListRules(ConfigLinter* linterConfiguration, int countRulesToRea
          linterConfiguration->listRules[indexNewRule]->value == NULL)
       {
         fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-        system("pause") ;
+        pause() ;
         fflush(NULL) ;
         exit(EXIT_FAILURE) ;
       }
@@ -222,7 +223,7 @@ short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countEx
   linterConfiguration->listExcludedFiles = realloc(linterConfiguration->listExcludedFiles , sizeof(char*) * countExcludedFilesToReallocate) ;
   if(linterConfiguration->listExcludedFiles == NULL){
     fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-    system("pause") ;
+    pause() ;
     fflush(NULL) ;
     exit(EXIT_FAILURE) ;
   }
@@ -230,7 +231,7 @@ short reallocateListExcludedFiles(ConfigLinter* linterConfiguration, int countEx
     linterConfiguration->listExcludedFiles[i] = malloc(sizeof(char) * (2 + strlen(listExcludedFiles[j]))) ;
     if(linterConfiguration->listExcludedFiles[i] == NULL){
       fprintf(stderr, "probleme Allocation dans %s  ligne %d\n", __FILE__, __LINE__) ;
-      system("pause") ;
+      pause() ;
       fflush(NULL) ;
       exit(EXIT_FAILURE) ;
     }

@@ -14,6 +14,7 @@
 #include <time.h>
 #include <string.h>
 #include "headers/logger.h"
+#include "headers/interface.h"
 
 /*
  * Initialize Logger
@@ -26,7 +27,7 @@ Logger* initialiseLogger(char* pathDirectory){
 
   if(outputLog == NULL || outputError == NULL){
     fprintf(stderr, "%s , ligne : %d\nProbleme allocation memoire\n\n", __FILE__, __LINE__) ;
-    system("pause") ;
+    pause() ;
     fflush(NULL) ;
     exit(EXIT_FAILURE) ;
   }
