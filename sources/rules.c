@@ -23,15 +23,15 @@ void coma_spacing(FILE* f){
     printf("------------------------------\n");
     printf("Regle Espace à droite d'une virgule :\n\n");
     int line = 1;
-    char Currentligne[258];
+    char CurrentLine[258];
     bool Iscomm = false;
     int errorSpace = 0;
     //fonction typeof
 
-       while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
+       while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
         int erreur = 0;
-         for(int i = 0; i < strlen(Currentligne); i++){
-          if(Currentligne[i] == '/' && Currentligne[i+1] == '*')
+         for(int i = 0; i < strlen(CurrentLine); i++){
+          if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*')
           {
            Iscomm = true;
            i = i + 2;
@@ -39,19 +39,19 @@ void coma_spacing(FILE* f){
 
           if(Iscomm == true)        //Si commentaire
           {
-            while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+            while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i <= strlen(CurrentLine))
             {
               i++;
             }
 
-            if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){    //Sortie commentaire
+            if(CurrentLine[i] == '*' && CurrentLine[i+1] == '/'){    //Sortie commentaire
             Iscomm = false;
             i++;
             }
           }
           
-          if(Currentligne[i] == ','){
-            if(Currentligne[i+1] != ' ') erreur++;
+          if(CurrentLine[i] == ','){
+            if(CurrentLine[i+1] != ' ') erreur++;
           }
         }
         if(erreur > 0){
