@@ -23,7 +23,7 @@ void array_bracket_eol(FILE* f){
   f = fopen("C:\\Users\\Ordinateur\\Desktop\\projet\\test\\test.c", "r");
   if( f != NULL){
     printf("Fichier bien ouvert\n");
-    char Currentligne[258];
+    char CurrentLine[258];
     char *Alllignes[258];
     char functions[][10] = {"if","while","for","do","void","int"};
     //char *lignes;
@@ -32,50 +32,50 @@ void array_bracket_eol(FILE* f){
     //while(c)
 int j = 1;
 bool Iscomm = false;
-   while(fgets(Currentligne, sizeof(Currentligne), f) != NULL){
-      Alllignes[j] = Currentligne;
-        for(int i =0; i < strlen(Currentligne); i++){
+   while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
+      Alllignes[j] = CurrentLine;
+        for(int i =0; i < strlen(CurrentLine); i++){
 
         if(Iscomm == true)        //Si commentaire
         {
-          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i <= strlen(Currentligne))
+          while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i <= strlen(CurrentLine))
           {
             i++;
           }
 
-          if(Currentligne[i] == '*' && Currentligne[i+1] == '/'){       //Sortie commentaire
+          if(CurrentLine[i] == '*' && CurrentLine[i+1] == '/'){       //Sortie commentaire
             Iscomm = false;
           }
 
         }
 
-        else if(Currentligne[i] == '/' && Currentligne[i+1] == '*')       // Si commentaire
+        else if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*')       // Si commentaire
         {
           Iscomm = true;
           i = i+2;
 
-          while ((Currentligne[i] != '*' && Currentligne[i+1] != '/') && i < strlen(Currentligne)) // Tan quon est dans le commentaire
+          while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i < strlen(CurrentLine)) // Tan quon est dans le commentaire
           {
             i++;
           }
-          if(Currentligne[i-1] == '*' && Currentligne[i] == '/')                      // Si sortie du commentaire
+          if(CurrentLine[i-1] == '*' && CurrentLine[i] == '/')                      // Si sortie du commentaire
           {
             Iscomm = false;
           }
           else Iscomm = true;
         }
         int k = 0;
-        while(strstr(Currentligne,functions[k]) == NULL && k < 5)
+        while(strstr(CurrentLine,functions[k]) == NULL && k < 5)
         {
           k++;
         }
-        if((strstr(Currentligne,functions[k]) != NULL) && Iscomm == false)          // Si fonction presente
+        if((strstr(CurrentLine,functions[k]) != NULL) && Iscomm == false)          // Si fonction presente
         {
-             if(Currentligne[i] == '{' && i != (strlen(Currentligne)-2)){           // Si accolade presente sur la ligne
+             if(CurrentLine[i] == '{' && i != (strlen(CurrentLine)-2)){           // Si accolade presente sur la ligne
               printf("Erreur d'accolade ligne %d \n \n", j);
             }
         }
-      else  if(Currentligne[i] == '{') printf("Erreur d'accolade ligne %d \n \n", j); // Si accolade pas sur ligne fonction
+      else  if(CurrentLine[i] == '{') printf("Erreur d'accolade ligne %d \n \n", j); // Si accolade pas sur ligne fonction
       }
       j++;
 
