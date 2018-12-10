@@ -2,12 +2,12 @@
 fichierExtendu.lconf
 
 =rules
-- array-bracket-eol = on
+- array-bracket-eol = off
 - operators-spacing = on
-- comma-spacing = on
-- indent = 1
-- comments-header = on
-- max-line-numbers = 150
+- comma-spacing = off
+- indent = off
+- comments-header = off
+- max-line-numbers = 15
 - no-trailing-spaces = 600
 
 =excludedFiles
