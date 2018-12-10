@@ -36,6 +36,10 @@ bool Iscomm = false;
       Alllignes[j] = CurrentLine;
         for(int i =0; i < strlen(CurrentLine); i++){
 
+        if(Currentligne[i] == '/' && Currentligne[i+1] == '/'){
+          fgets(Currentligne, sizeof(Currentligne), f);
+          line++;
+        }
         if(Iscomm == true)        //Si commentaire
         {
           while ((CurrentLine[i] != '*' && CurrentLine[i+1] != '/') && i <= strlen(CurrentLine))
