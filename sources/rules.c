@@ -31,6 +31,10 @@ void coma_spacing(FILE* f){
        while(fgets(CurrentLine, sizeof(CurrentLine), f) != NULL){
         int erreur = 0;
          for(int i = 0; i < strlen(CurrentLine); i++){
+          if(Currentligne[i] == '/' && Currentligne[i+1] == '/'){
+            fgets(Currentligne, sizeof(Currentligne), f);
+            line++;
+          }
           if(CurrentLine[i] == '/' && CurrentLine[i+1] == '*')
           {
            Iscomm = true;
